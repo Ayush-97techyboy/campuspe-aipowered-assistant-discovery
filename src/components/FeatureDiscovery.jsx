@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   ArrowRight,
   Zap,
@@ -22,8 +23,7 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
       title: "IIM Bangalore",
       badge: "Top College",
       badgeColor: "bg-purple-100 text-purple-700 border-purple-200",
-      logo: "🏛️",
-      logoBg: "bg-red-50 text-red-600 border border-red-200",
+      logoSrc: "/assets/icons/logo_iim.svg",
       details: ["MBA", "Bengaluru", "₹ 3L+"],
       description: "India's premier management institute with global exposure...",
       actionText: "View Details",
@@ -35,8 +35,7 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
       title: "Product Intern",
       badge: "Internship",
       badgeColor: "bg-blue-100 text-primary border-blue-200",
-      logo: "G",
-      logoBg: "bg-blue-50 text-blue-600 border border-blue-200 font-bold",
+      logoSrc: "/assets/icons/logo_google.svg",
       details: ["Bengaluru", "Hybrid", "₹ 35K/mo"],
       description: "Work on real products, learn from top engineers and build...",
       actionText: "Apply Now",
@@ -48,8 +47,7 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
       title: "Marketing Gig",
       badge: "Freelance",
       badgeColor: "bg-emerald-100 text-emerald-700 border-emerald-200",
-      logo: "N",
-      logoBg: "bg-slate-100 text-slate-800 border border-slate-200 font-serif font-black",
+      logoSrc: "/assets/icons/logo_notion.svg",
       details: ["Remote", "Freelance", "₹ 10K - ₹ 25K"],
       description: "Create content and help with social media campaigns for...",
       actionText: "View Details",
@@ -90,24 +88,65 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
 
   return (
     <section id="opportunities" className="py-16 lg:py-24 bg-white relative overflow-hidden" aria-labelledby="discovery-heading">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Seam Gradient Blur Circles between Section 1 & Section 2 (Figma Node 1:1655 & 1:1656) */}
+      {/* Left Circle (Node 1:1655): 334x334 rounded-full, 0% #A5F3FC (30%), 50% #BFDBFE (20%), 100% #BFDBFE (0%), blur 100px */}
+      <div
+        className="absolute pointer-events-none -top-[140px] lg:-top-[202px] -left-8 lg:-left-[33px] w-[280px] h-[280px] lg:w-[334px] lg:h-[334px] rounded-full z-0"
+        style={{
+          background: "linear-gradient(to right, rgba(165, 243, 252, 0.30) 0%, rgba(191, 219, 254, 0.20) 50%, rgba(191, 219, 254, 0.00) 100%)",
+          filter: "blur(100px)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Right Circle (Node 1:1656): 327x327 rounded-full, 0% #C4B5FD (30%), 50% #F5D0FE (20%), 100% #F5D0FE (0%), blur 110px */}
+      <div
+        className="absolute pointer-events-none -top-[120px] lg:-top-[149px] -right-8 lg:-right-[60px] w-[270px] h-[270px] lg:w-[327px] lg:h-[327px] rounded-full z-0"
+        style={{
+          background: "linear-gradient(to right, rgba(196, 181, 253, 0.30) 0%, rgba(245, 208, 254, 0.20) 50%, rgba(245, 208, 254, 0.00) 100%)",
+          filter: "blur(110px)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Ambient background glows matching exact Figma Gradient+Blur (1:1115 & 1:1116) */}
+      {/* Node 1:1115: Top-right 650x650 rounded-full blur 64px */}
+      <div
+        className="absolute pointer-events-none -top-10 -right-16 lg:-right-[60px] w-[500px] h-[500px] lg:w-[650px] lg:h-[650px] rounded-full z-0"
+        style={{
+          background: "linear-gradient(to right, rgba(199, 210, 254, 0.40) 0%, rgba(233, 213, 255, 0.20) 50%, rgba(233, 213, 255, 0.00) 100%)",
+          filter: "blur(64px)",
+        }}
+        aria-hidden="true"
+      />
+      {/* Node 1:1116: Bottom-left 600x600 rounded-full blur 64px */}
+      <div
+        className="absolute pointer-events-none -bottom-16 -left-16 lg:-left-[160px] w-[450px] h-[450px] lg:w-[600px] lg:h-[600px] rounded-full z-0"
+        style={{
+          background: "linear-gradient(to right, rgba(209, 250, 229, 0.40) 0%, rgba(224, 231, 255, 0.30) 50%, rgba(224, 231, 255, 0.00) 100%)",
+          filter: "blur(64px)",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Headings & 3 Step Cards */}
           <div className="lg:col-span-5 flex flex-col justify-center">
-            {/* Tag Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-primary text-xs font-semibold w-fit mb-5">
-              <span className="w-2 h-2 rounded-full bg-primary" aria-hidden="true" />
+            {/* Tag Badge (Figma: Inter 500 14px #0098FF) */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#0098FF] text-[13px] sm:text-[14px] leading-[17px] font-medium w-fit mb-5">
+              <span className="w-2 h-2 rounded-full bg-[#0098FF]" aria-hidden="true" />
               <span>01 • OPPORTUNITY DISCOVERY</span>
             </div>
 
-            {/* Heading */}
-            <h2 id="discovery-heading" className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 leading-[1.15] mb-4 font-heading">
+            {/* Heading (Figma: Roboto 700 64px/44px #0F172A) */}
+            <h2 id="discovery-heading" className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#0F172A] leading-[1.15] mb-4 font-roboto">
               Stop searching. <br />
               <span className="text-gradient-blue">Start getting matched.</span>
             </h2>
 
-            {/* Description */}
-            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed mb-8">
+            {/* Description (Figma: Inter 400 20px #64748B) */}
+            <p className="text-base sm:text-[20px] sm:leading-[28px] text-[#64748B] font-normal leading-relaxed mb-8 font-sans">
               Tell CampusPe your skills, preferences and goals. We continuously
               monitor company career pages and job sources, find opportunities that
               match you, and notify you when they appear.
@@ -253,10 +292,22 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
                       <div className="flex items-center gap-3">
                         <div
-                          className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg ${op.logoBg} shadow-xs`}
+                          className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden shadow-xs"
                           aria-hidden="true"
                         >
-                          {op.logo}
+                          {op.logoSrc ? (
+                            <Image
+                              src={op.logoSrc}
+                              alt=""
+                              width={44}
+                              height={44}
+                              className="w-11 h-11 object-contain"
+                            />
+                          ) : (
+                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg ${op.logoBg}`}>
+                              {op.logo}
+                            </div>
+                          )}
                         </div>
                         <div>
                           <div className="flex items-center gap-2">

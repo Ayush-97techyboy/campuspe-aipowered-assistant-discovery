@@ -26,6 +26,8 @@ module.exports = {
         sans: ["var(--font-inter)", "sans-serif"],
         heading: ["var(--font-jakarta)", "sans-serif"],
         roboto: ["var(--font-roboto)", "sans-serif"],
+        serif: ["var(--font-lora)", "serif"],
+        lora: ["var(--font-lora)", "serif"],
       },
       boxShadow: {
         soft: "0 4px 20px -2px rgba(0, 0, 0, 0.05)",

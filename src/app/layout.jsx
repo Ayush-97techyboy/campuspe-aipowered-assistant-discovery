@@ -1,4 +1,4 @@
-import { Inter, Plus_Jakarta_Sans, Roboto, Caveat } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Roboto, Caveat, Lora } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -23,6 +23,13 @@ const roboto = Roboto({
 const caveat = Caveat({
   subsets: ["latin"],
   variable: "--font-caveat",
+  display: "swap",
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-lora",
   display: "swap",
 });
 
@@ -77,7 +84,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${plusJakarta.variable} ${roboto.variable} ${caveat.variable} font-sans antialiased text-slate-800 bg-white min-h-screen selection:bg-blue-500 selection:text-white`}
+        className={`${inter.variable} ${plusJakarta.variable} ${roboto.variable} ${caveat.variable} ${lora.variable} font-sans antialiased text-slate-800 bg-white min-h-screen selection:bg-blue-500 selection:text-white`}
       >
         {children}
       </body>

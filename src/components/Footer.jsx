@@ -26,29 +26,35 @@ export default function Footer({ onNavigate }) {
   };
 
   return (
-    <footer className="bg-slate-50/70 pt-16 pb-12 border-t border-slate-200/80 text-slate-700" aria-label="Site Footer">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="relative bg-[#FAFAFA] pt-16 pb-12 border-t border-slate-200/80 text-slate-700 overflow-hidden" aria-label="Site Footer">
+      {/* Footer Ambient Background Gradient (Figma: 1:1725..1:1741 Ellipse 28 #007FFC & Ellipse 30 #FFC1DF) */}
+      <div className="absolute pointer-events-none -bottom-40 right-[-10%] w-[800px] h-[800px] bg-[#007FFC]/25 rounded-full blur-[140px] z-0" aria-hidden="true" />
+      <div className="absolute pointer-events-none -bottom-48 right-[10%] w-[650px] h-[650px] bg-[#FFC1DF]/30 rounded-full blur-[140px] z-0" aria-hidden="true" />
+      <div className="absolute pointer-events-none -bottom-40 left-[-15%] w-[800px] h-[800px] bg-[#007FFC]/20 rounded-full blur-[140px] z-0" aria-hidden="true" />
+
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14">
           {/* Brand Info (Col span 4) */}
           <div className="lg:col-span-4 space-y-4">
             <Link href="/" className="inline-block">
-              <div className="relative h-12 w-48">
+              <div className="relative flex items-center">
                 <Image
-                  src="/assets/logo.png"
+                  src="/assets/logo.svg"
                   alt="CampusPE - AI Campus Assistant"
-                  fill
-                  className="object-contain object-left"
+                  width={178}
+                  height={54}
+                  className="h-11 w-auto object-contain"
                 />
               </div>
             </Link>
 
-            <h3 className="text-lg font-bold text-slate-900 leading-snug">
+            <h3 className="text-[18px] sm:text-[20px] leading-[28px] font-medium text-[#454545] font-sans">
               From choosing a college to finding <br />
               your next opportunity.
             </h3>
 
-            <p className="text-sm text-slate-500 leading-relaxed max-w-sm">
+            <p className="text-[15px] sm:text-[18px] leading-[26px] text-[#454545] font-normal leading-relaxed max-w-sm font-sans">
               CampusPe connects students, colleges and employers in one place.
             </p>
           </div>
@@ -206,7 +212,7 @@ export default function Footer({ onNavigate }) {
               href="mailto:contactus@campuspe.com"
               className="inline-flex items-center gap-2 hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none p-1 rounded"
             >
-              <Mail size={16} className="text-primary" />
+              <Image src="/assets/icons/mail.svg" alt="" width={16} height={16} className="object-contain" />
               <span>contactus@campuspe.com</span>
             </a>
 
@@ -214,7 +220,7 @@ export default function Footer({ onNavigate }) {
               href="tel:+916362606464"
               className="inline-flex items-center gap-2 hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none p-1 rounded"
             >
-              <Phone size={16} className="text-primary" />
+              <Image src="/assets/icons/phone_icon.svg" alt="" width={16} height={16} className="object-contain" />
               <span>+91 6362606464</span>
             </a>
           </div>

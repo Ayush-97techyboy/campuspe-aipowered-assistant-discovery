@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import {
   Bot,
   Sparkles,
@@ -17,71 +18,106 @@ import {
 
 export default function Hero({ onOpenWaitlist, onExploreJobs }) {
   return (
-    <section className="relative overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24 bg-gradient-to-b from-blue-50/40 via-white to-white">
-      {/* Soft Ambient Background Glows matching Figma Gradient+Blur */}
-      <div className="ambient-glow bg-blue-200/40 w-[600px] h-[350px] -top-24 left-1/2 -translate-x-1/2" />
-      <div className="ambient-glow bg-cyan-100/50 w-[400px] h-[300px] top-48 left-10" />
-      <div className="ambient-glow bg-indigo-100/40 w-[400px] h-[300px] top-48 right-10" />
+    <section className="relative overflow-hidden pt-6 pb-16 lg:pt-10 lg:pb-24 bg-gradient-to-b from-blue-50/40 via-white to-white">
+      {/* Ambient background glows matching exact Figma Linear Gradients & Stops */}
+      {/* Left side: 0% #A5F3FC (30%), 50% #BFDBFE (20%), 100% #BFDBFE (0%) left-to-right, blur 100px (1:863) */}
+      <div
+        className="absolute pointer-events-none -top-10 -left-20 w-[800px] h-[613px] rounded-full z-0"
+        style={{
+          background: "linear-gradient(to right, rgba(165, 243, 252, 0.30) 0%, rgba(191, 219, 254, 0.20) 50%, rgba(191, 219, 254, 0.00) 100%)",
+          filter: "blur(100px)",
+        }}
+        aria-hidden="true"
+      />
 
-      <div className="relative max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Header Badge */}
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-primary text-sm font-semibold shadow-xs cursor-default hover:bg-blue-100/60 transition-colors">
-            <Bot size={18} className="text-primary animate-pulse" />
-            <span>AI-Powered Campus Assistant</span>
-          </div>
-        </div>
+      {/* Right side: 0% #C4B5FD (30%), 50% #F5D0FE (20%), 100% #F5D0FE (0%) left-to-right, blur 110px (1:864 / 1:866) */}
+      <div
+        className="absolute pointer-events-none top-20 -right-20 w-[860px] h-[613px] rounded-full z-0"
+        style={{
+          background: "linear-gradient(to right, rgba(196, 181, 253, 0.30) 0%, rgba(245, 208, 254, 0.20) 50%, rgba(245, 208, 254, 0.00) 100%)",
+          filter: "blur(110px)",
+        }}
+        aria-hidden="true"
+      />
 
-        {/* Main Title & Subtitle */}
-        <div className="text-center max-w-4xl mx-auto mb-10 lg:mb-12">
-          <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-extrabold tracking-tight text-slate-900 leading-[1.12] mb-5 font-heading">
-            Connect <span className="text-gradient-blue">10X Faster.</span>
-          </h1>
-          <p className="text-lg sm:text-xl text-slate-600 font-medium max-w-2xl mx-auto">
-            One platform connecting students, colleges &amp; employers — faster.
-          </p>
-        </div>
+      {/* Center title ambient aura (1:880) */}
+      <div
+        className="absolute pointer-events-none top-0 left-1/2 -translate-x-1/2 w-[896px] h-[260px] rounded-full z-0"
+        style={{
+          background: "linear-gradient(to bottom, rgba(219, 234, 254, 0.50) 0%, rgba(240, 249, 255, 0.40) 50%, rgba(240, 253, 250, 0.00) 100%)",
+          filter: "blur(70px)",
+        }}
+        aria-hidden="true"
+      />
 
-        {/* Floating Badges (Desktop) */}
-        <div className="relative w-full max-w-5xl mx-auto hidden lg:block h-28 mb-4">
-          {/* Top-Left: WhatsApp Alert */}
-          <div className="absolute left-0 -top-12 z-20 w-[240px] bg-white/95 backdrop-blur-md rounded-2xl p-3.5 border border-purple-200 shadow-card hover:shadow-hover transition-all duration-300 animate-float-slow">
-            <div className="flex items-center gap-2 mb-1">
-              <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
-                <MessageCircle size={14} />
-              </div>
-              <span className="text-xs font-bold text-amber-600">WhatsApp Alert</span>
+      <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top Header Section Container (w=896px in Figma, perfectly centered) */}
+        <div className="relative max-w-[896px] mx-auto mb-10 lg:mb-14 pt-2">
+          {/* Top Pill Badge */}
+          <div className="flex justify-center mb-5">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-primary text-sm font-semibold shadow-xs cursor-default hover:bg-blue-100/60 transition-colors">
+              <Bot size={18} className="text-primary animate-pulse" />
+              <span>AI-Powered Campus Assistant</span>
             </div>
-            <p className="text-xs font-bold text-slate-800 leading-snug">Get notified on whatsapp</p>
-            <p className="text-[11px] text-slate-500 mt-0.5 leading-tight">
+          </div>
+
+          {/* Main Title & Subtitle (Figma: Roboto 700 48px #091124, Inter 500 20px #4B5565) */}
+          <div className="text-center max-w-3xl mx-auto mb-4">
+            <h1 className="text-4xl sm:text-5xl lg:text-[48px] font-bold tracking-tight text-[#091124] leading-[1.2] mb-5 font-roboto">
+              Connect <span className="text-gradient-blue">10X Faster.</span>
+            </h1>
+            <p className="text-lg sm:text-[20px] leading-[24px] text-[#4B5565] font-medium max-w-2xl mx-auto font-sans">
+              One platform connecting students, colleges &amp; employers — faster.
+            </p>
+          </div>
+
+          {/* Floating Tile 1: WhatsApp Alert (Figma Group 1410104497: X -107, Y 31, W 203, H 107) */}
+          <div
+            className="hidden xl:block absolute z-20 w-[203px] h-[107px] bg-white rounded-[21px] border border-[#697FFF] shadow-card hover:shadow-hover transition-all duration-300 animate-float-slow -left-[107px] top-[31px] p-[16px] overflow-hidden text-left"
+          >
+            <div className="flex items-center gap-2 mb-1.5">
+              <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
+                <Image src="/assets/icons/whatsapp.svg" alt="" width={16} height={16} className="object-contain" />
+              </div>
+              <span className="text-[14px] leading-[22px] font-medium text-[#D96704]">
+                WhatsApp Alert
+              </span>
+            </div>
+            <p className="text-[12px] leading-[16px] font-semibold text-[#0A0A0A] mb-1">
+              Get notified on whatsapp
+            </p>
+            <p className="text-[10px] leading-[12px] font-medium text-[#54565F]">
               You&apos;ll get all important updates on your whatsapp
             </p>
           </div>
 
-          {/* Top-Right: Resume Builder */}
-          <div className="absolute right-0 -top-12 z-20 w-[250px] bg-white/95 backdrop-blur-md rounded-2xl p-3.5 border border-indigo-200 shadow-card hover:shadow-hover transition-all duration-300 animate-float-delayed">
-            <div className="flex items-center gap-2 mb-1">
-              <div className="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center">
-                <Zap size={14} />
-              </div>
-              <span className="text-xs font-bold text-indigo-600">Resume Builder</span>
+          {/* Floating Tile 2: Resume Builder (Figma Group 1410104496: W 225, H 140, relative right -105, top 24) */}
+          <div
+            className="hidden xl:block absolute z-20 w-[225px] h-[140px] bg-white rounded-[23px] border border-[#697FFF] shadow-card hover:shadow-hover transition-all duration-300 animate-float-delayed -right-[105px] top-[24px] p-[18px] overflow-hidden text-left"
+          >
+            <div className="flex items-center gap-1.5 mb-2">
+              <Image src="/assets/icons/resume_builder_logo.svg" alt="Resume Builder" width={127} height={20} className="object-contain" />
             </div>
-            <p className="text-xs font-bold text-slate-800 leading-snug">Build Your Resume</p>
-            <p className="text-[11px] text-slate-500 mt-0.5 leading-tight">
+            <p className="text-[12px] leading-[16px] font-semibold text-[#0A0A0A] mb-1.5">
+              Build Your Resume
+            </p>
+            <p className="text-[10px] leading-[16px] font-semibold text-[#54565F]">
               Our resume builder gives you dynamic options to build better &amp; faster resume that got you hired
             </p>
           </div>
 
-          {/* Mid-Left: Students matched */}
-          <div className="absolute left-8 top-12 z-20 bg-white/95 backdrop-blur-md rounded-2xl px-4 py-2.5 border border-slate-100 shadow-card flex items-center gap-3 hover:scale-105 transition-transform duration-200">
-            <div className="flex -space-x-2">
-              <span className="w-7 h-7 rounded-full bg-blue-600 text-white text-[10px] font-bold flex items-center justify-center border-2 border-white shadow-xs">
+          {/* Floating Tile 3: 142 students matched today (Figma X: -101, Y: 212, W: 293, H: 51) */}
+          <div
+            className="hidden xl:flex absolute z-20 w-[293px] h-[51px] -left-[101px] top-[212px] bg-white/95 backdrop-blur-md rounded-2xl px-3.5 py-2 border border-slate-100 shadow-card items-center gap-2.5 hover:scale-105 transition-transform duration-200 text-left"
+          >
+            <div className="flex -space-x-1.5">
+              <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center border-2 border-white shadow-xs">
                 AK
               </span>
-              <span className="w-7 h-7 rounded-full bg-purple-600 text-white text-[10px] font-bold flex items-center justify-center border-2 border-white shadow-xs">
+              <span className="w-6 h-6 rounded-full bg-purple-600 text-white text-[9px] font-bold flex items-center justify-center border-2 border-white shadow-xs">
                 PR
               </span>
-              <span className="w-7 h-7 rounded-full bg-teal-600 text-white text-[10px] font-bold flex items-center justify-center border-2 border-white shadow-xs">
+              <span className="w-6 h-6 rounded-full bg-teal-600 text-white text-[9px] font-bold flex items-center justify-center border-2 border-white shadow-xs">
                 SN
               </span>
             </div>
@@ -90,68 +126,91 @@ export default function Hero({ onOpenWaitlist, onExploreJobs }) {
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
                 <span>🔥 142 students matched today</span>
               </div>
-              <p className="text-[11px] text-slate-500">Just now • IIT, BITS, VIT</p>
+              <p className="text-[10px] text-slate-500">Just now • IIT, BITS, VIT</p>
             </div>
           </div>
 
-          {/* Mid-Right: Radiant Info shortlisted */}
-          <div className="absolute right-8 top-12 z-20 bg-white/95 backdrop-blur-md rounded-2xl px-4 py-2.5 border border-slate-100 shadow-card flex items-center gap-3 hover:scale-105 transition-transform duration-200">
-            <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shadow-xs">
-              <Briefcase size={16} />
+          {/* Floating Tile 4: Radiant Info shortlisted (Figma X: 704 / right -80, Y: 217, W: 271, H: 46) */}
+          <div
+            className="hidden xl:flex absolute z-20 w-[271px] h-[46px] -right-[80px] top-[217px] bg-white/95 backdrop-blur-md rounded-2xl px-3.5 py-1.5 border border-slate-100 shadow-card items-center gap-2.5 hover:scale-105 transition-transform duration-200 text-left"
+          >
+            <div className="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shadow-xs">
+              <Briefcase size={14} />
             </div>
             <div>
-              <p className="text-xs font-bold text-slate-800">Radiant Info <span className="font-normal text-slate-600">shortlisted 8 interns</span></p>
-              <p className="text-[11px] text-emerald-600 font-medium">● Verified recruiter • 2 days ago</p>
+              <p className="text-xs font-bold text-slate-800">
+                Radiant Info <span className="font-normal text-slate-600">shortlisted 8 interns</span>
+              </p>
+              <p className="text-[10px] text-emerald-600 font-medium">● Verified recruiter • 2 days ago</p>
             </div>
           </div>
         </div>
 
-        {/* Section Query Header with Sparkles */}
-        <div className="flex items-center justify-center gap-2 mb-8 text-primary font-bold text-xl sm:text-2xl font-heading">
-          <Sparkles size={20} className="text-primary fill-primary/20" />
+        {/* Section Query Header with Sparkles (Figma: Roboto 600 28px LH: 32.8px #0098FF) */}
+        <div className="flex items-center justify-center gap-2.5 mb-8 text-[#0098FF] font-semibold text-[22px] sm:text-[28px] leading-[33px] font-roboto">
+          <Image
+            src="/assets/icons/left_sparkle.svg"
+            alt=""
+            width={26}
+            height={19}
+            className="w-[26px] h-[19px] object-contain"
+          />
           <span>What are you looking for?</span>
-          <Sparkles size={20} className="text-primary fill-primary/20" />
+          <Image
+            src="/assets/icons/right_sparkle.svg"
+            alt=""
+            width={28}
+            height={21}
+            className="w-[28px] h-[21px] object-contain"
+          />
         </div>
 
-        {/* 3 Interactive Path Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        {/* 3 Interactive Path Cards (Figma Grid 1152px wide, 365px each, gap 24px) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1152px] mx-auto items-stretch">
           {/* Card 1: College */}
-          <div className="relative group bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-card hover:shadow-hover hover:border-blue-300 transition-all duration-300 flex flex-col justify-between overflow-hidden">
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 opacity-[0.03] pointer-events-none group-hover:scale-110 transition-transform duration-300">
-              <Building2 size={128} />
+          <div className="relative group bg-white rounded-[26px] p-7 border border-[#B3EEFF] shadow-card hover:shadow-hover hover:border-primary/50 transition-all duration-300 flex flex-col justify-between overflow-hidden min-h-[407px]">
+            {/* Background SVG illustration aligned to bottom-right */}
+            <div className="absolute bottom-0 right-0 pointer-events-none z-0 group-hover:scale-105 transition-transform duration-300">
+              <Image
+                src="/assets/icons/role_college.svg"
+                alt=""
+                width={273}
+                height={176}
+                className="w-[200px] sm:w-[220px] h-auto object-contain object-bottom-right"
+              />
             </div>
 
-            <div>
+            <div className="relative z-10">
               <div className="flex items-center justify-between mb-5">
                 <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform duration-200">
                   <Building2 size={24} />
                 </div>
-                <span className="text-xs font-semibold px-3 py-1 rounded-full border border-sky-400 text-sky-600 bg-sky-50/50">
+                <span className="text-[12px] leading-[16px] font-medium px-3 py-1 rounded-full border border-sky-400 text-sky-600 bg-sky-50/50">
                   Coming Soon
                 </span>
               </div>
 
-              <h2 className="text-2xl font-bold text-slate-900 mb-2 font-heading">
+              <h2 className="text-[24px] leading-[31px] font-bold text-slate-900 mb-2 font-lora">
                 College
               </h2>
-              <p className="text-sm text-slate-600 font-medium mb-6 leading-relaxed">
+              <p className="text-[14px] leading-[22px] text-slate-600 font-medium mb-6">
                 Explore colleges, courses,fees, placements &amp; more
               </p>
 
               <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
+                <li className="flex items-center gap-2.5 text-[14px] leading-[20px] font-medium text-slate-700">
                   <div className="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
                     <Check size={12} strokeWidth={3} />
                   </div>
                   <span>Search by course, location, fees</span>
                 </li>
-                <li className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
+                <li className="flex items-center gap-2.5 text-[14px] leading-[20px] font-medium text-slate-700">
                   <div className="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
                     <Check size={12} strokeWidth={3} />
                   </div>
                   <span>Connect directly with colleges</span>
                 </li>
-                <li className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
+                <li className="flex items-center gap-2.5 text-[14px] leading-[20px] font-medium text-slate-700">
                   <div className="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
                     <Check size={12} strokeWidth={3} />
                   </div>
@@ -163,65 +222,63 @@ export default function Hero({ onOpenWaitlist, onExploreJobs }) {
             <button
               type="button"
               onClick={() => onOpenWaitlist("College Student / Institution")}
-              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-white bg-primary hover:bg-primary-hover shadow-md shadow-blue-500/25 active:scale-[0.98] transition-all duration-200"
+              className="relative z-10 w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-[14px] leading-[20px] font-semibold text-white bg-primary hover:bg-primary-hover shadow-md shadow-blue-500/25 active:scale-[0.98] transition-all duration-200"
             >
               <span>Join Waitlist</span>
               <Bell size={16} />
             </button>
           </div>
 
-          {/* Card 2: I'm Looking for a Job (Active & Available Now) */}
-          <div className="relative group bg-white rounded-3xl p-6 sm:p-7 border-2 border-primary shadow-hover hover:border-blue-600 transition-all duration-300 flex flex-col justify-between overflow-hidden ring-4 ring-blue-50">
-            <div>
+          {/* Card 2: I'm Looking for a Job (Featured / Available Now) */}
+          <div className="relative group bg-white rounded-[26px] p-7 border-2 border-primary shadow-hover hover:border-blue-600 transition-all duration-300 flex flex-col justify-between overflow-hidden ring-4 ring-blue-50 min-h-[407px]">
+            <div className="relative z-10">
               <div className="flex items-center justify-between mb-5">
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 text-primary flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform duration-200">
                   <GraduationCap size={24} />
                 </div>
-                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-primary text-white shadow-xs">
+                <span className="text-[12px] leading-[16px] font-medium px-3 py-1 rounded-full bg-primary text-white shadow-xs">
                   Available Now
                 </span>
               </div>
 
-              <h2 className="text-2xl font-bold text-slate-900 mb-2 font-heading">
+              <h2 className="text-[24px] leading-[31px] font-bold text-slate-900 mb-2 font-lora">
                 I&apos;m Looking for a Job
               </h2>
-              <p className="text-sm text-slate-600 font-medium mb-6 leading-relaxed">
+              <p className="text-[14px] leading-[22px] text-slate-600 font-medium mb-6">
                 Upload your resume. We&apos;ll find jobs that fit you.
               </p>
 
               <div className="relative mb-6">
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
-                    <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center text-primary">
+                <ul className="space-y-3 max-w-[210px] sm:max-w-[200px]">
+                  <li className="flex items-center gap-2.5 text-[14px] leading-[20px] font-medium text-slate-700">
+                    <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center text-primary shrink-0">
                       <Check size={12} strokeWidth={3} />
                     </div>
                     <span>Jobs from 1000+ sources</span>
                   </li>
-                  <li className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
-                    <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center text-primary">
+                  <li className="flex items-center gap-2.5 text-[14px] leading-[20px] font-medium text-slate-700">
+                    <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center text-primary shrink-0">
                       <Check size={12} strokeWidth={3} />
                     </div>
                     <span>AI powered matching</span>
                   </li>
-                  <li className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
-                    <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center text-primary">
+                  <li className="flex items-center gap-2.5 text-[14px] leading-[20px] font-medium text-slate-700">
+                    <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center text-primary shrink-0">
                       <Check size={12} strokeWidth={3} />
                     </div>
                     <span>WhatsApp &amp; email alerts</span>
                   </li>
                 </ul>
 
-                {/* Floating mini resume preview illustration */}
-                <div className="absolute right-0 top-0 w-16 h-20 bg-slate-50 rounded-lg border border-purple-200 p-1.5 flex flex-col justify-between shadow-xs group-hover:rotate-3 transition-transform duration-200 hidden sm:flex">
-                  <div className="space-y-1">
-                    <div className="w-8 h-1.5 bg-amber-400 rounded-full" />
-                    <div className="w-12 h-1 bg-emerald-400 rounded-full" />
-                    <div className="w-10 h-1 bg-purple-400 rounded-full" />
-                    <div className="w-9 h-1 bg-blue-400 rounded-full" />
-                  </div>
-                  <div className="self-end p-0.5 rounded-full bg-amber-100 text-amber-600">
-                    <Search size={10} />
-                  </div>
+                {/* Resume preview illustration matching Figma */}
+                <div className="absolute -right-4 top-1/2 -translate-y-1/2 pointer-events-none hidden sm:block group-hover:scale-105 transition-transform duration-300">
+                  <Image
+                    src="/assets/icons/role_job.svg"
+                    alt="Resume Illustration"
+                    width={140}
+                    height={135}
+                    className="w-[130px] h-auto object-contain drop-shadow-xs"
+                  />
                 </div>
               </div>
             </div>
@@ -229,7 +286,7 @@ export default function Hero({ onOpenWaitlist, onExploreJobs }) {
             <button
               type="button"
               onClick={onExploreJobs}
-              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-white bg-primary hover:bg-primary-hover shadow-md shadow-blue-500/30 active:scale-[0.98] transition-all duration-200"
+              className="relative z-10 w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-[14px] leading-[20px] font-semibold text-white bg-primary hover:bg-primary-hover shadow-md shadow-blue-500/30 active:scale-[0.98] transition-all duration-200"
             >
               <span>Explore Jobs</span>
               <ArrowRight size={16} />
@@ -237,42 +294,49 @@ export default function Hero({ onOpenWaitlist, onExploreJobs }) {
           </div>
 
           {/* Card 3: I'm Hiring */}
-          <div className="relative group bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-card hover:shadow-hover hover:border-blue-300 transition-all duration-300 flex flex-col justify-between overflow-hidden">
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 opacity-[0.03] pointer-events-none group-hover:scale-110 transition-transform duration-300">
-              <Briefcase size={128} />
+          <div className="relative group bg-white rounded-[26px] p-7 border border-[#B3EEFF] shadow-card hover:shadow-hover hover:border-primary/50 transition-all duration-300 flex flex-col justify-between overflow-hidden min-h-[407px]">
+            {/* Background SVG illustration aligned to bottom-right */}
+            <div className="absolute bottom-0 right-0 pointer-events-none z-0 group-hover:scale-105 transition-transform duration-300">
+              <Image
+                src="/assets/icons/role_hiring.svg"
+                alt=""
+                width={173}
+                height={197}
+                className="w-[140px] sm:w-[150px] h-auto object-contain object-bottom-right"
+              />
             </div>
 
-            <div>
+            <div className="relative z-10">
               <div className="flex items-center justify-between mb-5">
                 <div className="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform duration-200">
                   <Briefcase size={24} />
                 </div>
-                <span className="text-xs font-semibold px-3 py-1 rounded-full border border-sky-400 text-sky-600 bg-sky-50/50">
+                <span className="text-[12px] leading-[16px] font-medium px-3 py-1 rounded-full border border-sky-400 text-sky-600 bg-sky-50/50">
                   Coming Soon
                 </span>
               </div>
 
-              <h2 className="text-2xl font-bold text-slate-900 mb-2 font-heading">
+              <h2 className="text-[24px] leading-[31px] font-bold text-slate-900 mb-2 font-lora">
                 I&apos;m Hiring
               </h2>
-              <p className="text-sm text-slate-600 font-medium mb-6 leading-relaxed">
+              <p className="text-[14px] leading-[22px] text-slate-600 font-medium mb-6">
                 Connect with colleges and find candidates — from students to graduates.
               </p>
 
               <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
+                <li className="flex items-center gap-2.5 text-[14px] leading-[20px] font-medium text-slate-700">
                   <div className="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
                     <Check size={12} strokeWidth={3} />
                   </div>
                   <span>Connect directly with colleges</span>
                 </li>
-                <li className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
+                <li className="flex items-center gap-2.5 text-[14px] leading-[20px] font-medium text-slate-700">
                   <div className="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
                     <Check size={12} strokeWidth={3} />
                   </div>
                   <span>Find the right candidates</span>
                 </li>
-                <li className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
+                <li className="flex items-center gap-2.5 text-[14px] leading-[20px] font-medium text-slate-700">
                   <div className="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
                     <Check size={12} strokeWidth={3} />
                   </div>
@@ -284,7 +348,7 @@ export default function Hero({ onOpenWaitlist, onExploreJobs }) {
             <button
               type="button"
               onClick={() => onOpenWaitlist("Employer / Recruiter")}
-              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-white bg-primary hover:bg-primary-hover shadow-md shadow-blue-500/25 active:scale-[0.98] transition-all duration-200"
+              className="relative z-10 w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-[14px] leading-[20px] font-semibold text-white bg-primary hover:bg-primary-hover shadow-md shadow-blue-500/25 active:scale-[0.98] transition-all duration-200"
             >
               <span>Join Waitlist</span>
               <Bell size={16} />

@@ -11,7 +11,10 @@ export default function Navbar({ onOpenWaitlist, onOpenAuth }) {
 
   useEffect(() => {
     const handleScroll = () => {
+<<<<<<< HEAD
       // Toggle sticky floating state once scrolled a few lines (threshold > 30px)
+=======
+>>>>>>> 95e91cb (feat: enhance landing page components, interactive showcase, and asset library)
       setIsScrolled(window.scrollY > 30);
     };
 
@@ -30,6 +33,7 @@ export default function Navbar({ onOpenWaitlist, onOpenAuth }) {
         }`}
       >
         <div
+<<<<<<< HEAD
           className={`mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ${
             isScrolled ? "h-16 max-w-full" : "h-20 max-w-[1240px]"
           }`}
@@ -46,15 +50,39 @@ export default function Navbar({ onOpenWaitlist, onOpenAuth }) {
                 alt="CampusPE Logo"
                 fill
                 className="object-contain object-left group-hover:scale-[1.02] transition-transform duration-200"
+=======
+          className={`mx-auto px-6 sm:px-10 lg:px-[100px] flex items-center justify-between transition-all duration-300 ${
+            isScrolled ? "h-16 max-w-full" : "h-20 max-w-[1440px]"
+          }`}
+        >
+          {/* Brand Logo with explicit width & height */}
+          <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
+            <div className="relative flex items-center">
+              <Image
+                src="/assets/logo.svg"
+                alt="CampusPE Logo"
+                width={178}
+                height={54}
+                className={`w-auto object-contain transition-all duration-300 ${
+                  isScrolled ? "h-9" : "h-11"
+                }`}
+>>>>>>> 95e91cb (feat: enhance landing page components, interactive showcase, and asset library)
                 priority
               />
             </div>
           </Link>
 
+<<<<<<< HEAD
           {/* Desktop Navigation Links */}
           <nav
             aria-label="Primary Navigation"
             className="hidden md:flex items-center gap-8 text-[15px] font-medium text-slate-700"
+=======
+          {/* Desktop Navigation Links (Inter 500 16px #1B1818) */}
+          <nav
+            aria-label="Primary Navigation"
+            className="hidden md:flex items-center gap-8 text-[16px] leading-[19.4px] font-medium text-[#1B1818]"
+>>>>>>> 95e91cb (feat: enhance landing page components, interactive showcase, and asset library)
           >
             <a
               href="#colleges"
@@ -87,14 +115,22 @@ export default function Navbar({ onOpenWaitlist, onOpenAuth }) {
             <button
               type="button"
               onClick={() => onOpenAuth("signin")}
+<<<<<<< HEAD
               className="text-[14px] font-semibold text-slate-800 hover:text-primary px-3.5 py-2 transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded-full"
+=======
+              className="text-[16px] leading-[19.4px] font-medium text-[#1B1818] hover:text-primary px-4 py-2 transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded-full"
+>>>>>>> 95e91cb (feat: enhance landing page components, interactive showcase, and asset library)
             >
               Sign In
             </button>
             <button
               type="button"
               onClick={() => onOpenAuth("signup")}
+<<<<<<< HEAD
               className="inline-flex items-center justify-center text-[14px] font-semibold text-white bg-primary hover:bg-primary-hover px-5 py-2 rounded-full shadow-sm shadow-blue-500/20 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150"
+=======
+              className="inline-flex items-center justify-center text-[16px] leading-[19.4px] font-medium text-[#FDFCFB] bg-primary hover:bg-primary-hover px-5 py-2.5 rounded-full shadow-sm shadow-blue-500/20 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150"
+>>>>>>> 95e91cb (feat: enhance landing page components, interactive showcase, and asset library)
             >
               Sign Up
             </button>

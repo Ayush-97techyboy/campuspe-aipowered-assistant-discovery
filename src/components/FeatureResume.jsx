@@ -121,8 +121,43 @@ export default function FeatureResume({ onOpenJobFeed }) {
       className="py-16 lg:py-24 bg-gradient-to-b from-white via-blue-50/20 to-white relative overflow-hidden"
       aria-labelledby="resume-heading"
     >
-      {/* Background ambient glow */}
-      <div className="ambient-glow bg-blue-100/60 w-[500px] h-[350px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      {/* Background ambient glows matching exact Figma Gradient+Blur (1:1315, 1:1316, 1:1317, 1:1318) */}
+      {/* Node 1:1315: Top dynamic radiant mesh lights */}
+      <div
+        className="absolute pointer-events-none top-0 left-1/2 -translate-x-1/2 w-[1100px] h-[474px] rounded-full z-0"
+        style={{
+          background: "linear-gradient(to bottom, rgba(199, 210, 254, 0.25) 0%, rgba(221, 214, 254, 0.00) 50%, rgba(221, 214, 254, 0.00) 100%)",
+          filter: "blur(110px)",
+        }}
+        aria-hidden="true"
+      />
+      {/* Node 1:1316: Left Gradient+Blur */}
+      <div
+        className="absolute pointer-events-none top-40 -left-12 lg:left-[50px] w-[380px] h-[380px] lg:w-[480px] lg:h-[480px] rounded-full z-0"
+        style={{
+          background: "linear-gradient(to right, rgba(165, 243, 252, 0.30) 0%, rgba(191, 219, 254, 0.20) 50%, rgba(191, 219, 254, 0.00) 100%)",
+          filter: "blur(100px)",
+        }}
+        aria-hidden="true"
+      />
+      {/* Node 1:1317: Right Gradient+Blur */}
+      <div
+        className="absolute pointer-events-none top-48 -right-12 lg:right-[50px] w-[400px] h-[400px] lg:w-[520px] lg:h-[520px] rounded-full z-0"
+        style={{
+          background: "linear-gradient(to right, rgba(196, 181, 253, 0.30) 0%, rgba(245, 208, 254, 0.20) 50%, rgba(245, 208, 254, 0.00) 100%)",
+          filter: "blur(110px)",
+        }}
+        aria-hidden="true"
+      />
+      {/* Node 1:1318: Bottom subtle balance glow */}
+      <div
+        className="absolute pointer-events-none -bottom-16 left-1/2 -translate-x-1/2 w-[700px] lg:w-[850px] h-[340px] rounded-full z-0"
+        style={{
+          background: "linear-gradient(to top, rgba(209, 250, 229, 0.30) 0%, rgba(224, 231, 255, 0.20) 50%, rgba(224, 231, 255, 0.00) 100%)",
+          filter: "blur(120px)",
+        }}
+        aria-hidden="true"
+      />
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Top Badge */}
@@ -135,16 +170,16 @@ export default function FeatureResume({ onOpenJobFeed }) {
           </div>
         </div>
 
-        {/* Heading */}
+        {/* Heading (Figma: Roboto 700 44px #0B0F19, Inter 500 20px #475569) */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2
             id="resume-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-4 font-heading"
+            className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#0B0F19] tracking-tight leading-[1.18] mb-4 font-roboto"
           >
             Upload your resume. <br />
             <span className="text-gradient-blue">Find jobs that fit.</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
+          <p className="text-base sm:text-[20px] sm:leading-[28px] text-[#475569] font-medium leading-relaxed font-sans">
             Upload once. CampusPe reads your skills, experience, and preferences —
             then finds relevant jobs across 1,000+ sources.
           </p>
@@ -152,6 +187,17 @@ export default function FeatureResume({ onOpenJobFeed }) {
 
         {/* Central Interactive Upload Card */}
         <div className="max-w-3xl mx-auto relative mb-14">
+          {/* Ambient Card Aura Glow (Figma Node 1:1338) */}
+          <div
+            className="absolute inset-0 pointer-events-none rounded-[38px] z-0"
+            style={{
+              background: "linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.20) 50%, rgba(59, 130, 246, 0.15) 100%)",
+              filter: "blur(40px)",
+              transform: "scale(1.04)",
+            }}
+            aria-hidden="true"
+          />
+
           {/* Floating Pill: Top-Left */}
           <div className="absolute -left-4 sm:-left-8 -top-6 z-20 bg-white/95 backdrop-blur-md rounded-2xl px-4 py-2.5 border border-slate-100 shadow-card flex items-center gap-3 animate-float-slow">
             <div className="w-8 h-8 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center flex-shrink-0">

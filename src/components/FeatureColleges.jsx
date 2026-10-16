@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { ArrowRight, CheckCircle2, MessageSquare, ShieldCheck, TrendingUp, Users } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 export default function FeatureColleges({ onOpenCollegeModal }) {
   const cards = [
@@ -11,8 +11,8 @@ export default function FeatureColleges({ onOpenCollegeModal }) {
       title: "Build your college profile",
       desc: "Showcase your college, courses, fees, campus, placements and achievements in one structured profile that students and recruiters can discover.",
       badges: [
-        { text: "NAAC A++ Ready", color: "text-emerald-700 bg-emerald-50 border-emerald-200", icon: CheckCircle2 },
-        { text: "98% Match", color: "text-primary bg-blue-50 border-blue-200" },
+        { text: "NAAC A++ Ready", color: "text-emerald-700 bg-emerald-50 border-emerald-200", iconSrc: "/assets/icons/verified_badge.svg" },
+        { text: "98% Match", color: "text-primary bg-blue-50 border-blue-200", iconSrc: "/assets/icons/building_badge.svg" },
       ],
     },
     {
@@ -21,8 +21,8 @@ export default function FeatureColleges({ onOpenCollegeModal }) {
       title: "Students discover and connect",
       desc: "Students searching for colleges can discover your profile, explore your courses and fees, and connect directly with your admission team.",
       badges: [
-        { text: "Direct Enquiries", color: "text-blue-700 bg-blue-50 border-blue-200" },
-        { text: "● WHATSAPP / CHAT", color: "text-emerald-700 bg-emerald-50 border-emerald-200", sub: "Avg. response: <15 min" },
+        { text: "Direct Enquiries", color: "text-blue-700 bg-blue-50 border-blue-200", iconSrc: "/assets/icons/chat_hud.svg" },
+        { text: "● WHATSAPP / CHAT", color: "text-emerald-700 bg-emerald-50 border-emerald-200", sub: "Avg. response: <15 min", iconSrc: "/assets/icons/whatsapp.svg" },
       ],
     },
     {
@@ -31,8 +31,8 @@ export default function FeatureColleges({ onOpenCollegeModal }) {
       title: "Recruiters discover your College",
       desc: "Companies hiring fresh talent can discover your college, explore your talent and connect with your placement team.",
       badges: [
-        { text: "500+ Hiring Partners", color: "text-purple-700 bg-purple-50 border-purple-200" },
-        { text: "Connect Directly", color: "text-indigo-700 bg-indigo-50 border-indigo-200" },
+        { text: "500+ Hiring Partners", color: "text-purple-700 bg-purple-50 border-purple-200", iconSrc: "/assets/icons/building_badge.svg" },
+        { text: "Connect Directly", color: "text-indigo-700 bg-indigo-50 border-indigo-200", iconSrc: "/assets/icons/verified_badge.svg" },
       ],
     },
     {
@@ -41,15 +41,35 @@ export default function FeatureColleges({ onOpenCollegeModal }) {
       title: "Track placements in real time",
       desc: "Track students, interviews, offers and placements from one centralized dashboard.",
       badges: [
-        { text: "● LIVE PLACEMENTS", color: "text-rose-700 bg-rose-50 border-rose-200" },
-        { text: "Students · Interviews · Offers", color: "text-white bg-primary border-primary" },
+        { text: "● LIVE PLACEMENTS", color: "text-rose-700 bg-rose-50 border-rose-200", iconSrc: "/assets/icons/clock_badge.svg" },
+        { text: "Students · Interviews · Offers", color: "text-white bg-primary border-primary", iconSrc: "/assets/icons/msg_badge.svg" },
       ],
     },
   ];
 
   return (
     <section id="colleges" className="py-16 lg:py-24 bg-slate-50/50 relative overflow-hidden" aria-labelledby="colleges-heading">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Ambient background glows matching exact Figma Node 1:1549 & 1:1442 */}
+      {/* Node 1:1549: Bottom-left 600x600 rounded-full blur 64px */}
+      <div
+        className="absolute pointer-events-none -bottom-20 -left-16 lg:-left-[128px] w-[450px] h-[450px] lg:w-[600px] lg:h-[600px] rounded-full z-0"
+        style={{
+          background: "linear-gradient(to right, rgba(199, 210, 254, 0.40) 0%, rgba(243, 232, 255, 0.30) 50%, rgba(243, 232, 255, 0.00) 100%)",
+          filter: "blur(64px)",
+        }}
+        aria-hidden="true"
+      />
+      {/* Node 1:1442: Right ambient blur 696x512 rounded-full blur 64px */}
+      <div
+        className="absolute pointer-events-none top-32 -right-16 lg:-right-[60px] w-[500px] h-[400px] lg:w-[696px] lg:h-[512px] rounded-full z-0"
+        style={{
+          background: "linear-gradient(to left, rgba(219, 234, 254, 0.35) 0%, rgba(243, 232, 255, 0.20) 50%, rgba(243, 232, 255, 0.00) 100%)",
+          filter: "blur(64px)",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Heading & CTA */}
           <div className="lg:col-span-5 sticky top-28">
@@ -58,13 +78,13 @@ export default function FeatureColleges({ onOpenCollegeModal }) {
               <span>02 • FOR COLLEGES</span>
             </div>
 
-            <h2 id="colleges-heading" className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 leading-[1.15] mb-5 font-heading">
+            <h2 id="colleges-heading" className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-slate-900 leading-[1.18] mb-5 font-roboto">
               Get Discovered <br />
-              <span className="text-slate-900 font-extrabold">by </span>
+              <span className="text-slate-900 font-bold">by </span>
               <span className="text-gradient-blue">Students and Recruiters.</span>
             </h2>
 
-            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed mb-8">
+            <p className="text-base sm:text-[20px] sm:leading-[28px] text-[#64748B] font-normal leading-relaxed mb-8 font-sans">
               Put your college in front of students searching for the right course
               and recruiters looking for the right talent. CampusPe helps you build
               your presence, attract enquiries and connect with opportunities.
@@ -73,7 +93,7 @@ export default function FeatureColleges({ onOpenCollegeModal }) {
             <button
               type="button"
               onClick={onOpenCollegeModal}
-              className="inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-semibold text-white bg-primary hover:bg-primary-hover shadow-md shadow-blue-500/25 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150"
+              className="inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl text-[16px] leading-[19.4px] font-semibold text-white bg-primary hover:bg-primary-hover shadow-md shadow-blue-500/25 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150"
             >
               <span>List Your College</span>
               <ArrowRight size={18} />
@@ -97,9 +117,17 @@ export default function FeatureColleges({ onOpenCollegeModal }) {
                     {card.badges.map((b, bIdx) => (
                       <div key={bIdx} className="flex flex-col items-end">
                         <span
-                          className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${b.color} inline-flex items-center gap-1`}
+                          className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${b.color} inline-flex items-center gap-1.5`}
                         >
-                          {b.icon && <b.icon size={12} />}
+                          {b.iconSrc && (
+                            <Image
+                              src={b.iconSrc}
+                              alt=""
+                              width={14}
+                              height={14}
+                              className="w-3.5 h-3.5 object-contain"
+                            />
+                          )}
                           <span>{b.text}</span>
                         </span>
                         {b.sub && (
