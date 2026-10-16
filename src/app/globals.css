@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,6 +7,10 @@
 :root {
   --primary: #0084FF;
   --primary-hover: #0070e0;
+}
+
+.font-caveat {
+  font-family: var(--font-caveat), 'Caveat', cursive, sans-serif !important;
 }
 
 html {
@@ -60,6 +66,19 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+/* 10X Faster Continuous Gradient Text (Figma: #1E5BF7 -> #0077F5 -> #009BE5 -> #00E5D1 -> #00A46E) */
+.text-gradient-10x {
+  background: linear-gradient(to right, #1E5BF7 0%, #0077F5 35%, #009BE5 60%, #00E5D1 82%, #00A46E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-faster {
+  background: linear-gradient(to right, #1E5BF7 0%, #0077F5 35%, #009BE5 60%, #00E5D1 82%, #00A46E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* Soft ambient glow */
 .ambient-glow {
   position: absolute;
@@ -68,6 +87,29 @@ body {
   pointer-events: none;
   z-index: 0;
   border-radius: 9999px;
+}
+
+/* Hero Gradient Blur Backgrounds (User Spec) */
+.gradient-blur-bg-blue {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(59, 130, 246, 0.5); 
+  filter: blur(120px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gradient-blur-bg {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(91, 33, 182, 0.5); /* Purple with 50% opacity */
+  filter: blur(120px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Pause marquee on hover */

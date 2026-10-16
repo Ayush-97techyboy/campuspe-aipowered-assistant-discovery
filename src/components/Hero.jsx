@@ -3,7 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import {
-  Bot,
   Sparkles,
   GraduationCap,
   Building2,
@@ -18,45 +17,49 @@ import {
 
 export default function Hero({ onOpenWaitlist, onExploreJobs }) {
   return (
-    <section className="relative overflow-hidden pt-6 pb-16 lg:pt-10 lg:pb-24 bg-gradient-to-b from-blue-50/40 via-white to-white">
-      {/* Ambient background glows matching exact Figma Linear Gradients & Stops */}
-      {/* Left side: 0% #A5F3FC (30%), 50% #BFDBFE (20%), 100% #BFDBFE (0%) left-to-right, blur 100px (1:863) */}
-      <div
-        className="absolute pointer-events-none -top-10 -left-20 w-[800px] h-[613px] rounded-full z-0"
-        style={{
-          background: "linear-gradient(to right, rgba(165, 243, 252, 0.30) 0%, rgba(191, 219, 254, 0.20) 50%, rgba(191, 219, 254, 0.00) 100%)",
-          filter: "blur(100px)",
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Right side: 0% #C4B5FD (30%), 50% #F5D0FE (20%), 100% #F5D0FE (0%) left-to-right, blur 110px (1:864 / 1:866) */}
-      <div
-        className="absolute pointer-events-none top-20 -right-20 w-[860px] h-[613px] rounded-full z-0"
-        style={{
-          background: "linear-gradient(to right, rgba(196, 181, 253, 0.30) 0%, rgba(245, 208, 254, 0.20) 50%, rgba(245, 208, 254, 0.00) 100%)",
-          filter: "blur(110px)",
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Center title ambient aura (1:880) */}
-      <div
-        className="absolute pointer-events-none top-0 left-1/2 -translate-x-1/2 w-[896px] h-[260px] rounded-full z-0"
-        style={{
-          background: "linear-gradient(to bottom, rgba(219, 234, 254, 0.50) 0%, rgba(240, 249, 255, 0.40) 50%, rgba(240, 253, 250, 0.00) 100%)",
-          filter: "blur(70px)",
-        }}
-        aria-hidden="true"
-      />
-
+    <section className="relative pt-6 pb-6 lg:pt-10 lg:pb-8 bg-transparent">
       <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Upper-Right Resume Builder Aura (Image 1 top-right marked area) */}
+        <div
+          className="absolute pointer-events-none rounded-full z-0 right-2 lg:right-[60px] top-[10px] w-[300px] lg:w-[380px] h-[260px]"
+          style={{
+            background: "radial-gradient(circle, rgba(196, 181, 253, 0.30) 0%, rgba(245, 208, 254, 0.15) 50%, transparent 75%)",
+            filter: "blur(50px)",
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Upper-Left WhatsApp Alert Aura (Image 1 top-left marked area) */}
+        <div
+          className="absolute pointer-events-none rounded-full z-0 left-2 lg:left-[60px] top-[10px] w-[300px] lg:w-[380px] h-[260px]"
+          style={{
+            background: "radial-gradient(circle, rgba(165, 243, 252, 0.30) 0%, rgba(191, 219, 254, 0.15) 50%, transparent 75%)",
+            filter: "blur(50px)",
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Central Ellipse Arc across cards (Figma Node 1:794 - Ellipse 3: 1009x156 blur 66px) */}
+        <div
+          className="absolute pointer-events-none left-1/2 -translate-x-1/2 bottom-[20px] lg:bottom-[0px] w-[900px] lg:w-[1009px] h-[160px] lg:h-[180px] rounded-full z-0"
+          style={{
+            background: "linear-gradient(to right, rgba(105, 127, 255, 0.25) 0%, rgba(104, 206, 198, 0.20) 57%, rgba(195, 45, 112, 0.00) 100%)",
+            filter: "blur(66px)",
+          }}
+          aria-hidden="true"
+        />
         {/* Top Header Section Container (w=896px in Figma, perfectly centered) */}
         <div className="relative max-w-[896px] mx-auto mb-10 lg:mb-14 pt-2">
           {/* Top Pill Badge */}
           <div className="flex justify-center mb-5">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-primary text-sm font-semibold shadow-xs cursor-default hover:bg-blue-100/60 transition-colors">
-              <Bot size={18} className="text-primary animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFF9F4] border border-[#FFE7D6] text-primary text-sm font-semibold shadow-xs cursor-default hover:bg-[#FFF4EB] transition-colors">
+              <Image
+                src="/assets/updated_icns_img/SVGRepo_iconCarrier.svg"
+                alt="AI Assistant icon"
+                width={22}
+                height={17}
+                className="w-[20px] h-auto object-contain animate-pulse max-w-full"
+              />
               <span>AI-Powered Campus Assistant</span>
             </div>
           </div>
@@ -64,7 +67,7 @@ export default function Hero({ onOpenWaitlist, onExploreJobs }) {
           {/* Main Title & Subtitle (Figma: Roboto 700 48px #091124, Inter 500 20px #4B5565) */}
           <div className="text-center max-w-3xl mx-auto mb-4">
             <h1 className="text-4xl sm:text-5xl lg:text-[48px] font-bold tracking-tight text-[#091124] leading-[1.2] mb-5 font-roboto">
-              Connect <span className="text-gradient-blue">10X Faster.</span>
+              Connect <span className="text-gradient-10x">10X Faster.</span>
             </h1>
             <p className="text-lg sm:text-[20px] leading-[24px] text-[#4B5565] font-medium max-w-2xl mx-auto font-sans">
               One platform connecting students, colleges &amp; employers — faster.
@@ -146,8 +149,8 @@ export default function Hero({ onOpenWaitlist, onExploreJobs }) {
           </div>
         </div>
 
-        {/* Section Query Header with Sparkles (Figma: Roboto 600 28px LH: 32.8px #0098FF) */}
-        <div className="flex items-center justify-center gap-2.5 mb-8 text-[#0098FF] font-semibold text-[22px] sm:text-[28px] leading-[33px] font-roboto">
+        {/* Section Query Header with Sparkles (Figma Alt spacing: 47.86px to cards below) */}
+        <div className="flex items-center justify-center gap-2.5 mb-12 text-[#0098FF] font-semibold text-[22px] sm:text-[28px] leading-[33px] font-roboto">
           <Image
             src="/assets/icons/left_sparkle.svg"
             alt=""
@@ -169,8 +172,8 @@ export default function Hero({ onOpenWaitlist, onExploreJobs }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1152px] mx-auto items-stretch">
           {/* Card 1: College */}
           <div className="relative group bg-white rounded-[26px] p-7 border border-[#B3EEFF] shadow-card hover:shadow-hover hover:border-primary/50 transition-all duration-300 flex flex-col justify-between overflow-hidden min-h-[407px]">
-            {/* Background SVG illustration aligned to bottom-right */}
-            <div className="absolute bottom-0 right-0 pointer-events-none z-0 group-hover:scale-105 transition-transform duration-300">
+            {/* Background SVG illustration aligned to bottom-right, lightened to match tower */}
+            <div className="absolute bottom-0 right-0 pointer-events-none z-0 opacity-30 group-hover:scale-105 transition-transform duration-300">
               <Image
                 src="/assets/icons/role_college.svg"
                 alt=""
@@ -229,14 +232,14 @@ export default function Hero({ onOpenWaitlist, onExploreJobs }) {
             </button>
           </div>
 
-          {/* Card 2: I'm Looking for a Job (Featured / Available Now) */}
-          <div className="relative group bg-white rounded-[26px] p-7 border-2 border-primary shadow-hover hover:border-blue-600 transition-all duration-300 flex flex-col justify-between overflow-hidden ring-4 ring-blue-50 min-h-[407px]">
+          {/* Card 2: I'm Looking for a Job (Matching Style of other cards) */}
+          <div className="relative group bg-white rounded-[26px] p-7 border border-[#B3EEFF] shadow-card hover:shadow-hover hover:border-primary/50 transition-all duration-300 flex flex-col justify-between overflow-hidden min-h-[407px]">
             <div className="relative z-10">
               <div className="flex items-center justify-between mb-5">
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 text-primary flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform duration-200">
                   <GraduationCap size={24} />
                 </div>
-                <span className="text-[12px] leading-[16px] font-medium px-3 py-1 rounded-full bg-primary text-white shadow-xs">
+                <span className="text-[12px] leading-[16px] font-medium px-3 py-1 rounded-full border border-sky-400 text-sky-600 bg-sky-50/50">
                   Available Now
                 </span>
               </div>
@@ -270,14 +273,14 @@ export default function Hero({ onOpenWaitlist, onExploreJobs }) {
                   </li>
                 </ul>
 
-                {/* Resume preview illustration matching Figma */}
-                <div className="absolute -right-4 top-1/2 -translate-y-1/2 pointer-events-none hidden sm:block group-hover:scale-105 transition-transform duration-300">
+                {/* Resume preview illustration matching Figma - softened opacity to match other card icons */}
+                <div className="absolute -right-4 top-1/2 -translate-y-1/2 pointer-events-none hidden sm:block opacity-30 group-hover:opacity-75 group-hover:scale-105 transition-all duration-300">
                   <Image
                     src="/assets/icons/role_job.svg"
                     alt="Resume Illustration"
                     width={140}
                     height={135}
-                    className="w-[130px] h-auto object-contain drop-shadow-xs"
+                    className="w-[130px] h-auto object-contain"
                   />
                 </div>
               </div>

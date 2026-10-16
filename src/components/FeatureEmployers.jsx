@@ -11,8 +11,15 @@ export default function FeatureEmployers({ onOpenPostJobModal }) {
       tag: "INSTANT SETUP",
       desc: "Define your skills, location and hiring requirements. Reach relevant candidates across the CampusPe network.",
       badges: [
-        { text: "5 Min Deployment", color: "text-emerald-700 bg-emerald-50 border-emerald-200", iconSrc: "/assets/icons/electricity_badge.svg" },
-        { text: "500+ Campus Network", color: "text-slate-600 bg-slate-100 border-slate-200", iconSrc: "/assets/icons/verified_badge.svg" },
+        {
+          text: "5 Min Deployment",
+          badgeClass: "border border-[#86EFAC] bg-[#F0FDF4] text-[#16A34A] rounded-lg px-3 py-1 text-xs font-semibold inline-flex items-center gap-1.5",
+          iconSrc: "/assets/icons/electricity_badge.svg",
+        },
+        {
+          text: "500+ Campus Network",
+          badgeClass: "border border-[#E2E8F0] bg-[#F8FAFC] text-[#475569] rounded-lg px-3 py-1 text-xs font-medium inline-flex items-center",
+        },
       ],
     },
     {
@@ -21,8 +28,15 @@ export default function FeatureEmployers({ onOpenPostJobModal }) {
       tag: "INSTANT SETUP",
       desc: "Get candidates matched to your role by skills, experience, location and hiring requirements.",
       badges: [
-        { text: "Zero CV Clutter", color: "text-purple-700 bg-purple-50 border-purple-200", iconSrc: "/assets/icons/balance_badge.svg" },
-        { text: "Tier 1–Tier 3 Parity", color: "text-slate-600 bg-slate-100 border-slate-200", iconSrc: "/assets/icons/building_badge.svg" },
+        {
+          text: "Zero CV Clutter",
+          badgeClass: "border border-[#E9D5FF] bg-[#FAF5FF] text-[#9333EA] rounded-lg px-3 py-1 text-xs font-semibold inline-flex items-center gap-1.5",
+          iconSrc: "/assets/icons/balance_badge.svg",
+        },
+        {
+          text: "Tier 1–Tier 3 Parity",
+          badgeClass: "border border-[#E2E8F0] bg-[#F8FAFC] text-[#475569] rounded-lg px-3 py-1 text-xs font-medium inline-flex items-center",
+        },
       ],
     },
     {
@@ -31,8 +45,15 @@ export default function FeatureEmployers({ onOpenPostJobModal }) {
       tag: "INSTANT SETUP",
       desc: "Message, schedule interviews, and move candidates through your pipeline — all in one place.",
       badges: [
-        { text: "In-App Scheduling", color: "text-blue-700 bg-blue-50 border-blue-200", iconSrc: "/assets/icons/chat_hud.svg" },
-        { text: "1-Click Video / Chat", color: "text-slate-600 bg-slate-100 border-slate-200", iconSrc: "/assets/icons/msg_badge.svg" },
+        {
+          text: "In-App Scheduling",
+          badgeClass: "border border-[#BFDBFE] bg-[#EFF6FF] text-[#2563EB] rounded-lg px-3 py-1 text-xs font-semibold inline-flex items-center gap-1.5",
+          iconSrc: "/assets/icons/chat_hud.svg",
+        },
+        {
+          text: "1-Click Video / Chat",
+          badgeClass: "border border-[#E2E8F0] bg-[#F8FAFC] text-[#475569] rounded-lg px-3 py-1 text-xs font-medium inline-flex items-center",
+        },
       ],
     },
     {
@@ -41,14 +62,20 @@ export default function FeatureEmployers({ onOpenPostJobModal }) {
       tag: "INSTANT SETUP",
       desc: "Find matched candidates, connect with them and move from shortlist to offer in one streamlined workflow.",
       badges: [
-        { text: "<2 DAYS", color: "text-white bg-primary border-primary font-bold", iconSrc: "/assets/icons/clock_badge.svg" },
-        { text: "57% Faster Hiring", color: "text-emerald-700 bg-emerald-50 border-emerald-200", iconSrc: "/assets/icons/verified_badge.svg" },
+        {
+          text: "<2 DAYS",
+          badgeClass: "bg-[#0098FF] text-white font-semibold rounded-full px-3.5 py-1 text-xs inline-flex items-center",
+        },
+        {
+          text: "57% Faster Hiring",
+          badgeClass: "border border-[#86EFAC] bg-[#F0FDF4] text-[#16A34A] rounded-lg px-3 py-1 text-xs font-semibold inline-flex items-center",
+        },
       ],
     },
   ];
 
   return (
-    <section id="employers" className="py-16 lg:py-24 bg-white relative overflow-hidden" aria-labelledby="employers-heading">
+    <section id="employers" className="py-10 lg:py-14 bg-white relative overflow-hidden" aria-labelledby="employers-heading">
       {/* Ambient background glows matching exact Figma Node 1:1550 & 1:1551 */}
       {/* Node 1:1550: Top-right 650x650 rounded-full blur 64px */}
       <div
@@ -81,7 +108,10 @@ export default function FeatureEmployers({ onOpenPostJobModal }) {
             <h2 id="employers-heading" className="text-3xl sm:text-4xl lg:text-[50px] font-extrabold text-[#020617] leading-[1.12] mb-5 font-heading">
               Stop running <br />
               campus drives. <br />
-              <span className="text-gradient-blue">Start hiring the right people.</span>
+              <span className="text-primary">
+                Start hiring the right <br />
+                people.
+              </span>
             </h2>
 
             <p className="text-base sm:text-[20px] sm:leading-[28px] text-[#64748B] font-normal leading-relaxed mb-8 font-sans">
@@ -101,49 +131,59 @@ export default function FeatureEmployers({ onOpenPostJobModal }) {
           </div>
 
           {/* Right Column: 4 Employer Feature Cards */}
-          <div className="lg:col-span-7 space-y-4">
+          <div className="lg:col-span-7 space-y-4 relative">
+            {/* Small purple shadow in between the 2nd & 3rd card matching Figma */}
+            <div
+              className="absolute pointer-events-none left-6 sm:left-10 top-[48%] -translate-y-1/2 w-[220px] h-[100px] rounded-full z-0"
+              style={{
+                background: "radial-gradient(ellipse at center, rgba(192, 132, 252, 0.45) 0%, rgba(216, 180, 254, 0.20) 60%, transparent 100%)",
+                filter: "blur(28px)",
+              }}
+              aria-hidden="true"
+            />
+
             {cards.map((card, idx) => (
               <div
                 key={idx}
-                className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-card hover:border-blue-300 transition-all duration-200"
+                className="p-6 sm:p-7 rounded-3xl bg-white/95 border border-slate-200/90 shadow-sm hover:shadow-card hover:border-blue-300 transition-all duration-200 relative z-10"
               >
-                <div className="flex items-center justify-between gap-4 mb-3">
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs font-bold text-primary font-heading px-2 py-0.5 rounded bg-blue-50 border border-blue-100">
-                      {card.num}
-                    </span>
-                    <h3 className="font-bold text-slate-900 text-lg">
-                      {card.title}
-                    </h3>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  {/* Left Side: Number, Title, Tag, Description */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 sm:gap-2.5 mb-2 flex-nowrap">
+                      <span className="text-xs font-bold text-primary font-heading px-2 py-0.5 rounded-md bg-blue-50 border border-blue-100 shrink-0">
+                        {card.num}
+                      </span>
+                      <h3 className="font-bold text-slate-900 text-sm sm:text-base lg:text-[17px] shrink-0">
+                        {card.title}
+                      </h3>
+                      <span className="text-[10px] font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-100 shrink-0">
+                        {card.tag}
+                      </span>
+                    </div>
+
+                    <p className="text-sm text-[#64748B] leading-relaxed">
+                      {card.desc}
+                    </p>
                   </div>
 
-                  <span className="text-[10px] font-semibold text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded-full border border-indigo-100 flex-shrink-0">
-                    {card.tag}
-                  </span>
-                </div>
-
-                <p className="text-sm text-slate-600 pl-9 mb-4 leading-relaxed">
-                  {card.desc}
-                </p>
-
-                <div className="flex flex-wrap items-center gap-2 pl-9">
-                  {card.badges.map((b, bIdx) => (
-                    <span
-                      key={bIdx}
-                      className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${b.color} inline-flex items-center gap-1.5`}
-                    >
-                      {b.iconSrc && (
-                        <Image
-                          src={b.iconSrc}
-                          alt=""
-                          width={14}
-                          height={14}
-                          className="w-3.5 h-3.5 object-contain"
-                        />
-                      )}
-                      <span>{b.text}</span>
-                    </span>
-                  ))}
+                  {/* Right Side: Vertically stacked chips matching Figma order */}
+                  <div className="flex flex-col items-start sm:items-end gap-2 shrink-0 self-start sm:self-center">
+                    {card.badges.map((b, bIdx) => (
+                      <span key={bIdx} className={b.badgeClass}>
+                        {b.iconSrc && (
+                          <Image
+                            src={b.iconSrc}
+                            alt=""
+                            width={14}
+                            height={14}
+                            className="w-3.5 h-3.5 object-contain"
+                          />
+                        )}
+                        <span>{b.text}</span>
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}

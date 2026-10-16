@@ -28,6 +28,7 @@ module.exports = {
         roboto: ["var(--font-roboto)", "sans-serif"],
         serif: ["var(--font-lora)", "serif"],
         lora: ["var(--font-lora)", "serif"],
+        caveat: ["var(--font-caveat)", "'Caveat'", "cursive", "sans-serif"],
       },
       boxShadow: {
         soft: "0 4px 20px -2px rgba(0, 0, 0, 0.05)",

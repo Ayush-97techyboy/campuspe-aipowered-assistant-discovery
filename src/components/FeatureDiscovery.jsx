@@ -87,7 +87,7 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
       : opportunities.filter((op) => op.category === activeTab);
 
   return (
-    <section id="opportunities" className="py-16 lg:py-24 bg-white relative overflow-hidden" aria-labelledby="discovery-heading">
+    <section id="opportunities" className="py-10 lg:py-14 bg-white relative overflow-hidden" aria-labelledby="discovery-heading">
       {/* Seam Gradient Blur Circles between Section 1 & Section 2 (Figma Node 1:1655 & 1:1656) */}
       {/* Left Circle (Node 1:1655): 334x334 rounded-full, 0% #A5F3FC (30%), 50% #BFDBFE (20%), 100% #BFDBFE (0%), blur 100px */}
       <div
@@ -366,26 +366,16 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
             </div>
 
             {/* Handwritten Arrow & Note below card */}
-            <div className="mt-6 flex items-start gap-4 justify-center sm:justify-start pl-6">
-              <svg
-                width="40"
-                height="32"
-                viewBox="0 0 40 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-indigo-500 flex-shrink-0 transform -rotate-12"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 28C14 26 28 20 34 8M34 8L26 9M34 8L33 16"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <p className="font-caveat text-xl sm:text-2xl text-indigo-700 font-semibold tracking-wide">
-                A mix of colleges, jobs, internships and gigs — all in one place.
+            <div className="mt-6 flex items-center gap-3 justify-center sm:justify-start pl-2 sm:pl-6">
+              <Image
+                src="/assets/icons/handwritten_arrow.png"
+                alt=""
+                width={48}
+                height={41}
+                className="w-10 sm:w-12 h-auto object-contain flex-shrink-0"
+              />
+              <p className="font-caveat font-semibold text-[26px] sm:text-[30px] leading-[32px] sm:leading-[36px] text-[#5B21B6] tracking-wide">
+                A mix of colleges, jobs,<br className="hidden sm:inline" /> internships and gigs — all in one place.
               </p>
             </div>
           </div>

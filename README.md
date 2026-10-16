@@ -17,11 +17,12 @@ As confirmed by Wappalyzer analysis and strict client requirements:
 - **Language**: **Pure JavaScript (ES6+ / JSX)** — strict zero-TypeScript client requirement
 - **Styling**: **Tailwind CSS v3** with customized tokens, subtle glow gradients, and keyframes
 - **UI Primitives**: **Radix UI** accessible headless components (`@radix-ui/react-dialog`, `@radix-ui/react-dropdown-menu`, `@radix-ui/react-tabs`, `@radix-ui/react-slot`)
-- **Icons**: **Lucide React** (pixel-sharp vector icons)
+- **Icons & Assets**: Pixel-sharp custom SVG asset system (`public/assets/updated_icns_img/`) paired with **Lucide React**
 - **Typography**: Google Fonts API via `next/font/google`:
   - **Plus Jakarta Sans** (Headings, display metrics)
   - **Inter** (Body text, UI labels)
   - **Roboto** (App interface headings)
+  - **Lora** (Role selection card headings)
   - **Caveat** (Handwritten annotations and arrows)
 - **Deployment Platform**: **Vercel**
 
@@ -30,6 +31,7 @@ As confirmed by Wappalyzer analysis and strict client requirements:
 ## 📱 Responsive & Pixel-Perfect Design Strategy
 
 - **Outside-In Layout Structure**: Built with semantic `<header>`, `<main>`, `<section>`, `<article>`, and `<footer>` landmarks.
+- **Floating Sticky Header**: Glassmorphic pill navigation (`backdrop-blur-xl bg-white/80`) inspired by `ecc.tools`.
 - **Zero Horizontal Scroll**: Strict `max-width: 100vw; overflow-x: hidden;` enforcement across all viewports.
 - **Audited Breakpoints**:
   - **Mobile Mini (375px / iPhone 13 mini)**: Optimized stacked cards, single-phone touch slider, accessible 44px touch targets.
@@ -60,21 +62,38 @@ Organized around the **4 W3C Pillars**:
 
 ---
 
-## ⚡ Interactive Features & CTAs
+## ⚡ Interactive Features & Recent Enhancements
 
-1. **Hero Section Micro-Interactions**:
-   - Floating live badges: WhatsApp Alert, Dynamic Resume Builder, Real-time student matches counter, Recruiter shortlisting alerts.
-   - 3 Interactive Path Cards (`College`, `I'm Looking for a Job`, `I'm Hiring`) with active state indicators and CTA triggers.
-2. **Interactive Opportunity Feed**:
-   - Category filtering across `All`, `Colleges`, `Jobs`, `Internships`, `Freelance`, and `Part-time`.
-   - 1-Click application and enquiry modal dialogs with feedback states.
-3. **AI Resume Matcher Simulator**:
-   - Interactive drag-and-drop or file upload zone (`.pdf`, `.doc`, `.docx`).
-   - Dynamic animated progress bar (`role="progressbar"`) and parsed skill taxonomy display.
-4. **App Interface Showcase**:
-   - 5 high-fidelity iPhone mockups in an arc layout with interactive pagination dots and mobile carousel slider.
-   - Download section with App Store and Google Play triggers.
-5. **Radix Accessible Dialogs**:
+1. **Hero Section Branding & Micro-Interactions**:
+   - **AI-Powered Campus Assistant**: Replaced default bot icon with the official custom vector robot (`SVGRepo_iconCarrier.svg`) resting on a soft `#FFF9F4` background badge.
+   - Floating live badges: WhatsApp Alert (`w: 203px, h: 107px`, `#697FFF` border, amber `#D96704` heading), Dynamic Resume Builder (`w: 225px, h: 140px`, `#7E3DFF` purple heading), real-time student matches counter, and recruiter shortlisting alerts.
+   - 3 Interactive Path Cards (`College`, `I'm Looking for a Job`, `I'm Hiring`) with exact `365px × 407px`, `rounded-[26px]`, `#B3EEFF` border and Lora 700 headings.
+
+2. **AI Resume Matcher Simulator**:
+   - Interactive file upload zone supporting `.pdf`, `.doc`, `.docx` formats.
+   - **Full Upload Lifecycle**: File selection &rarr; animated percentage progress bar counting smoothly to 100% &rarr; dynamic ATS readiness and skill taxonomy metrics display &rarr; direct CTA button redirecting users to the **CampusPe Opportunity Feed**.
+
+3. **App Interface Showcase**:
+   - 5 high-fidelity iPhone mockups arranged in a 3D arc perspective.
+   - Interactive pagination featuring active enlarged circular indicators on both desktop and mobile.
+   - Navigation controls with customized rounded corner arrows matching the Figma specification.
+
+4. **FAQ & Support Section**:
+   - High-fidelity linear background gradient blending `#FFFFFF` into vibrant `#007FFC`.
+   - **Bidirectional Hover Interactions**:
+     - *Contact Support*: Button turns `#007FFC`, arrow icon flips from blue to pure white.
+     - *Schedule a Call*: Button transitions cleanly with white fill and blue phone icon inversion.
+
+5. **Footer Navigation & Social Hub**:
+   - **Separating Lines**: Darkened top and bottom divider lines to `#475569` for crisp section separation.
+   - **Clean Vector Icons**: Replaced contact and social badges with transparent SVGs from `public/assets/updated_icns_img/Footer/`.
+   - **Hover Color Inversion**: Social badges feature an interactive hover effect transitioning to `#007FFC` brand blue while converting dark icons to pure white.
+   - **Official Social Connections**:
+     - [LinkedIn](https://www.linkedin.com/company/campupe-official/home)
+     - [Instagram](https://www.instagram.com/campuspe_official)
+     - [YouTube](https://www.youtube.com/@campuspe-tech)
+
+6. **Radix Accessible Dialogs**:
    - **Waitlist Modal**: Select role (Student, College, Employer), provide details, and receive instant confirmation.
    - **Auth Modal**: Accessible tab switching between Sign In and Sign Up.
    - **Contact / Schedule Call Modal**: Request callbacks or submit support queries.
@@ -118,18 +137,31 @@ npm start
 ```
 ├── public/
 │   └── assets/
-│       ├── logo.png                        # Official CampusPE logo
+│       ├── logo.svg                        # Official CampusPE logo
 │       ├── google_play.png                 # Google Play store badge
 │       ├── app_store.png                   # Apple App store badge
 │       ├── partners/                       # Marquee partner emblems (GINSERV, Startup Karnataka, VTU, etc.)
-│       └── phones/                         # iPhone 17 Pro & 3D perspective app mockups
+│       ├── phones/                         # iPhone 17 Pro & 3D perspective app mockups
+│       └── updated_icns_img/               # Custom vector icon library
+│           ├── SVGRepo_iconCarrier.svg     # Hero AI assistant robot badge
+│           ├── iconoir_arrow-up-right.svg  # Support diagonal action arrow
+│           ├── phone_call.svg              # Schedule call vector icon
+│           └── Footer/                     # Clean vector footer icons
+│               ├── email.svg               # Contact email badge
+│               ├── ftr_phone.svg           # Contact phone badge
+│               ├── LinkD.svg               # LinkedIn brand badge
+│               ├── INsta.svg               # Instagram brand badge
+│               ├── YT.svg                  # YouTube brand badge
+│               ├── X.svg                   # X / Twitter brand badge
+│               ├── fb.svg                  # Facebook brand badge
+│               └── Whatsp.svg              # WhatsApp brand badge
 ├── src/
 │   ├── app/
 │   │   ├── globals.css                     # Tailwind CSS, ambient glows, zero-overflow rules
 │   │   ├── layout.jsx                      # SEO Meta tags, Viewport config, Google Fonts
 │   │   └── page.jsx                        # Main landing page landmark assembly & state
 │   └── components/
-│       ├── Navbar.jsx                      # Responsive header & mobile menu drawer
+│       ├── Navbar.jsx                      # Responsive floating header & mobile drawer
 │       ├── Hero.jsx                        # Hero title, floating badges, 3 path cards
 │       ├── StatsBar.jsx                    # Verified platform metrics counter
 │       ├── PartnersMarquee.jsx             # Infinite carousel with WCAG pause control

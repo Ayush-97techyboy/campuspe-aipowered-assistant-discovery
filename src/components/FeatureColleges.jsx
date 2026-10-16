@@ -11,8 +11,15 @@ export default function FeatureColleges({ onOpenCollegeModal }) {
       title: "Build your college profile",
       desc: "Showcase your college, courses, fees, campus, placements and achievements in one structured profile that students and recruiters can discover.",
       badges: [
-        { text: "NAAC A++ Ready", color: "text-emerald-700 bg-emerald-50 border-emerald-200", iconSrc: "/assets/icons/verified_badge.svg" },
-        { text: "98% Match", color: "text-primary bg-blue-50 border-blue-200", iconSrc: "/assets/icons/building_badge.svg" },
+        {
+          text: "NAAC A++ Ready",
+          badgeClass: "border border-[#22C55E] bg-white text-[#16A34A] rounded-lg px-2.5 py-1 text-xs font-semibold inline-flex items-center gap-1.5 shadow-2xs",
+          iconSrc: "/assets/icons/verified_badge.svg",
+        },
+        {
+          text: "98% Match",
+          badgeClass: "border border-[#0098FF] bg-white text-[#0098FF] text-[11px] font-bold px-2.5 py-0.5 rounded-md shadow-2xs",
+        },
       ],
     },
     {
@@ -21,8 +28,17 @@ export default function FeatureColleges({ onOpenCollegeModal }) {
       title: "Students discover and connect",
       desc: "Students searching for colleges can discover your profile, explore your courses and fees, and connect directly with your admission team.",
       badges: [
-        { text: "Direct Enquiries", color: "text-blue-700 bg-blue-50 border-blue-200", iconSrc: "/assets/icons/chat_hud.svg" },
-        { text: "● WHATSAPP / CHAT", color: "text-emerald-700 bg-emerald-50 border-emerald-200", sub: "Avg. response: <15 min", iconSrc: "/assets/icons/whatsapp.svg" },
+        {
+          text: "Direct Enquiries",
+          badgeClass: "bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE] rounded-xl px-3 py-1 text-xs font-semibold inline-flex items-center gap-1.5",
+          iconSrc: "/assets/icons/chat_hud.svg",
+        },
+        {
+          text: "WHATSAPP / CHAT",
+          badgeClass: "bg-[#F8FAFC] text-[#334155] border border-[#E2E8F0] rounded-xl px-3 py-1 text-xs font-semibold inline-flex items-center gap-2",
+          hasDot: "#22C55E",
+          sub: "Avg. response: <15 min",
+        },
       ],
     },
     {
@@ -31,8 +47,16 @@ export default function FeatureColleges({ onOpenCollegeModal }) {
       title: "Recruiters discover your College",
       desc: "Companies hiring fresh talent can discover your college, explore your talent and connect with your placement team.",
       badges: [
-        { text: "500+ Hiring Partners", color: "text-purple-700 bg-purple-50 border-purple-200", iconSrc: "/assets/icons/building_badge.svg" },
-        { text: "Connect Directly", color: "text-indigo-700 bg-indigo-50 border-indigo-200", iconSrc: "/assets/icons/verified_badge.svg" },
+        {
+          text: "500+ Hiring Partners",
+          badgeClass: "bg-[#FAF5FF] text-[#7E22CE] border border-[#E9D5FF] rounded-xl px-3 py-1 text-xs font-semibold inline-flex items-center gap-1.5",
+          iconSrc: "/assets/icons/building_badge.svg",
+        },
+        {
+          text: "Connect Directly",
+          badgeClass: "bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE] rounded-xl px-3 py-1 text-xs font-semibold inline-flex items-center gap-1.5",
+          iconSrc: "/assets/icons/balance_badge.svg",
+        },
       ],
     },
     {
@@ -41,14 +65,21 @@ export default function FeatureColleges({ onOpenCollegeModal }) {
       title: "Track placements in real time",
       desc: "Track students, interviews, offers and placements from one centralized dashboard.",
       badges: [
-        { text: "● LIVE PLACEMENTS", color: "text-rose-700 bg-rose-50 border-rose-200", iconSrc: "/assets/icons/clock_badge.svg" },
-        { text: "Students · Interviews · Offers", color: "text-white bg-primary border-primary", iconSrc: "/assets/icons/msg_badge.svg" },
+        {
+          text: "LIVE PLACEMENTS",
+          badgeClass: "bg-[#FFF1F2] text-[#E11D48] border border-[#FECDD3] rounded-full px-3 py-1 text-xs font-bold inline-flex items-center gap-1.5",
+          hasDot: "#E11D48",
+        },
+        {
+          text: "Students · Interviews · Offers",
+          badgeClass: "bg-[#0098FF] text-white rounded-full px-4 py-1.5 text-xs font-medium shadow-xs",
+        },
       ],
     },
   ];
 
   return (
-    <section id="colleges" className="py-16 lg:py-24 bg-slate-50/50 relative overflow-hidden" aria-labelledby="colleges-heading">
+    <section id="colleges" className="py-10 lg:py-14 bg-slate-50/50 relative overflow-hidden" aria-labelledby="colleges-heading">
       {/* Ambient background glows matching exact Figma Node 1:1549 & 1:1442 */}
       {/* Node 1:1549: Bottom-left 600x600 rounded-full blur 64px */}
       <div
@@ -107,31 +138,47 @@ export default function FeatureColleges({ onOpenCollegeModal }) {
                 key={idx}
                 className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-card hover:border-blue-300 transition-all duration-200"
               >
-                <div className="flex items-center justify-between gap-4 mb-3">
-                  <div className="flex items-center gap-2 text-xs font-bold text-slate-500">
-                    <span className="text-primary font-heading">{card.num}</span>
-                    <span className="tracking-wider uppercase">{card.tag}</span>
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                  {/* Left Column: Number, Title, Description */}
+                  <div className="flex-1 min-w-0 pr-0 sm:pr-4">
+                    <div className="flex items-center gap-2 text-xs font-bold text-slate-500 mb-2">
+                      <span className="text-primary font-heading">{card.num}</span>
+                      <span className="tracking-wider uppercase">{card.tag}</span>
+                    </div>
+
+                    <h3 className="text-xl sm:text-[22px] font-bold text-slate-900 mb-2 font-heading">
+                      {card.title}
+                    </h3>
+                    <p className="text-sm sm:text-[15px] text-[#64748B] leading-relaxed">
+                      {card.desc}
+                    </p>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-2 justify-end">
+                  {/* Right Column: Vertically stacked chips matching Figma order */}
+                  <div className="flex flex-col items-start sm:items-end gap-2 shrink-0 self-start pt-1">
                     {card.badges.map((b, bIdx) => (
-                      <div key={bIdx} className="flex flex-col items-end">
-                        <span
-                          className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${b.color} inline-flex items-center gap-1.5`}
-                        >
+                      <div key={bIdx} className="flex flex-col items-start sm:items-end">
+                        <span className={b.badgeClass}>
+                          {b.hasDot && (
+                            <span
+                              className="w-2 h-2 rounded-full inline-block shrink-0"
+                              style={{ backgroundColor: b.hasDot }}
+                              aria-hidden="true"
+                            />
+                          )}
                           {b.iconSrc && (
                             <Image
                               src={b.iconSrc}
                               alt=""
                               width={14}
                               height={14}
-                              className="w-3.5 h-3.5 object-contain"
+                              className="w-3.5 h-3.5 object-contain shrink-0"
                             />
                           )}
                           <span>{b.text}</span>
                         </span>
                         {b.sub && (
-                          <span className="text-[10px] text-slate-400 mt-0.5">
+                          <span className="text-[11px] text-slate-400 mt-1 pr-1">
                             {b.sub}
                           </span>
                         )}
@@ -139,13 +186,6 @@ export default function FeatureColleges({ onOpenCollegeModal }) {
                     ))}
                   </div>
                 </div>
-
-                <h3 className="text-xl font-bold text-slate-900 mb-2 font-heading">
-                  {card.title}
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {card.desc}
-                </p>
               </div>
             ))}
           </div>

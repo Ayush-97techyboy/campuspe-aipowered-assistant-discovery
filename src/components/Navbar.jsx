@@ -10,9 +10,15 @@ export default function Navbar({ onOpenWaitlist, onOpenAuth }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      // Toggle sticky floating state once scrolled a few lines (threshold > 30px)
-      setIsScrolled(window.scrollY > 30);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 25);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     handleScroll();
@@ -25,26 +31,24 @@ export default function Navbar({ onOpenWaitlist, onOpenAuth }) {
       <header
         className={`fixed z-50 transition-all duration-300 ease-out left-1/2 -translate-x-1/2 ${
           isScrolled
-            ? "top-3 sm:top-4 w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] max-w-[1240px] rounded-full bg-white/80 backdrop-blur-xl border border-slate-200/90 shadow-[0_12px_36px_-6px_rgba(0,0,0,0.08),0_4px_16px_-2px_rgba(0,132,255,0.06)]"
+            ? "top-3 sm:top-4 w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] max-w-[1240px] rounded-full bg-white/85 backdrop-blur-xl border border-slate-200/90 shadow-[0_12px_36px_-6px_rgba(0,0,0,0.08),0_4px_16px_-2px_rgba(0,132,255,0.06)]"
             : "top-0 w-full bg-white/70 backdrop-blur-md border-b border-slate-100"
         }`}
       >
         <div
-          className={`mx-auto px-6 sm:px-10 lg:px-[100px] flex items-center justify-between transition-all duration-300 ${
-            isScrolled ? "h-16 max-w-full" : "h-20 max-w-[1440px]"
+          className={`w-full max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-[height] duration-300 ease-out ${
+            isScrolled ? "h-16" : "h-20"
           }`}
         >
-          {/* Brand Logo with explicit width & height */}
+          {/* Brand Logo with stable dimensions */}
           <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
             <div className="relative flex items-center">
               <Image
                 src="/assets/logo.svg"
                 alt="CampusPE Logo"
-                width={178}
-                height={54}
-                className={`w-auto object-contain transition-all duration-300 ${
-                  isScrolled ? "h-9" : "h-11"
-                }`}
+                width={145}
+                height={44}
+                className="h-10 w-auto object-contain flex-shrink-0"
                 priority
               />
             </div>
@@ -82,7 +86,7 @@ export default function Navbar({ onOpenWaitlist, onOpenAuth }) {
           </nav>
 
           {/* Desktop Auth CTAs */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-3 flex-shrink-0">
             <button
               type="button"
               onClick={() => onOpenAuth("signin")}

@@ -77,14 +77,37 @@ export default function Home() {
 
       {/* Main Page Landmark */}
       <main id="main-content" className="flex-1">
-        {/* 1. Hero Section */}
-        <Hero
-          onOpenWaitlist={handleOpenWaitlist}
-          onExploreJobs={() => scrollToSection("opportunities")}
-        />
+        {/* 1. Hero Section & Platform Stats Bar (Seamless ambient gradient canvas) */}
+        <div className="relative overflow-hidden bg-white">
+          {/* Ambient Lighting Ellipses (Figma Nodes 1:863 & 1:866) forming the irregular horizontal oval covering cards + stats */}
+          <div className="absolute inset-0 max-w-[1440px] mx-auto pointer-events-none">
+            {/* Figma Node 1:863: Left Ellipse (800x613, linear 135deg, blur 100px) */}
+            <div
+              className="absolute rounded-full -left-12 sm:left-4 lg:left-[60px] bottom-0 w-[500px] sm:w-[680px] lg:w-[800px] h-[450px] sm:h-[550px] lg:h-[613px]"
+              style={{
+                background: "linear-gradient(135deg, rgba(165, 243, 252, 0.30) 0%, rgba(191, 219, 254, 0.20) 50%, rgba(191, 219, 254, 0.00) 100%)",
+                filter: "blur(100px)",
+              }}
+              aria-hidden="true"
+            />
 
-        {/* 2. Platform Stats Bar */}
-        <StatsBar />
+            {/* Figma Node 1:866: Right Ellipse (860x613, linear 225deg, blur 110px) */}
+            <div
+              className="absolute rounded-full right-[-40px] sm:right-0 lg:right-auto lg:left-[532px] bottom-0 w-[500px] sm:w-[720px] lg:w-[860px] h-[450px] sm:h-[550px] lg:h-[613px]"
+              style={{
+                background: "linear-gradient(225deg, rgba(196, 181, 253, 0.30) 0%, rgba(245, 208, 254, 0.20) 50%, rgba(245, 208, 254, 0.00) 100%)",
+                filter: "blur(110px)",
+              }}
+              aria-hidden="true"
+            />
+          </div>
+
+          <Hero
+            onOpenWaitlist={handleOpenWaitlist}
+            onExploreJobs={() => scrollToSection("opportunities")}
+          />
+          <StatsBar />
+        </div>
 
         {/* 3. Trusted Partners Infinite Marquee */}
         <PartnersMarquee />

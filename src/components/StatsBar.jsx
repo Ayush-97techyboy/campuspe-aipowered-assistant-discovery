@@ -41,9 +41,9 @@ export default function StatsBar() {
   return (
     <section
       aria-label="CampusPE Platform Statistics"
-      className="py-10 bg-white border-y border-slate-100"
+      className="py-6 lg:py-8 bg-transparent border-b border-slate-200 relative"
     >
-      <div className="max-w-[1108px] mx-auto px-4 sm:px-6">
+      <div className="max-w-[1108px] mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x md:divide-slate-200">
           {stats.map((stat, idx) => (
             <div

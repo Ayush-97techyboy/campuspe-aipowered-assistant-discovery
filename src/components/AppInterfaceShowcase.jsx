@@ -12,74 +12,45 @@ export default function AppInterfaceShowcase({ onDownloadApp }) {
       id: 0,
       title: "Student Feed",
       src: "/assets/phones/phone_0.png",
-      width: 210,
-      height: 420,
+      width: 186,
+      height: 381,
     },
     {
       id: 1,
       title: "Post a Job",
       src: "/assets/phones/phone_1.png",
-      width: 230,
-      height: 460,
+      width: 217,
+      height: 453,
     },
     {
       id: 2,
       title: "Home & Trending Colleges",
       src: "/assets/phones/phone_2.png",
-      width: 280,
-      height: 570,
+      width: 276,
+      height: 569,
     },
     {
       id: 3,
       title: "Applications Tracker",
       src: "/assets/phones/phone_3.png",
-      width: 230,
-      height: 460,
+      width: 219,
+      height: 457,
     },
     {
       id: 4,
       title: "College Admissions Portal",
       src: "/assets/phones/phone_4.png",
-      width: 210,
-      height: 420,
+      width: 185,
+      height: 386,
     },
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-white relative overflow-hidden" aria-labelledby="showcase-heading">
-      {/* Radiant glow arc behind 5 phones matching exact Figma Ellipse 3 (1:1669), 1:1688, 1:1658 */}
-      {/* Node 1:1669: Central radiant beam */}
-      <div
-        className="absolute pointer-events-none top-36 left-1/2 -translate-x-1/2 w-[1000px] lg:w-[1361px] h-[550px] lg:h-[613px] rounded-full z-0"
-        style={{
-          background: "linear-gradient(to right, #697FFF 0%, #68CEC6 57%, rgba(195, 45, 112, 0.00) 100%)",
-          filter: "blur(66px)",
-          opacity: 0.85,
-        }}
-        aria-hidden="true"
-      />
-      {/* Node 1:1688: Bottom-left 480x480 rounded-full blur 100px */}
-      <div
-        className="absolute pointer-events-none -bottom-10 -left-12 lg:-left-[93px] w-[380px] h-[380px] lg:w-[480px] lg:h-[480px] rounded-full z-0"
-        style={{
-          background: "linear-gradient(to right, rgba(165, 243, 252, 0.30) 0%, rgba(191, 219, 254, 0.20) 50%, rgba(191, 219, 254, 0.00) 100%)",
-          filter: "blur(100px)",
-        }}
-        aria-hidden="true"
-      />
-      {/* Node 1:1658: Bottom-right 481x481 rounded-full blur 110px */}
-      <div
-        className="absolute pointer-events-none -bottom-10 -right-12 lg:-right-[60px] w-[380px] h-[380px] lg:w-[481px] lg:h-[481px] rounded-full z-0"
-        style={{
-          background: "linear-gradient(to right, rgba(196, 181, 253, 0.30) 0%, rgba(245, 208, 254, 0.20) 50%, rgba(245, 208, 254, 0.00) 100%)",
-          filter: "blur(110px)",
-        }}
-        aria-hidden="true"
-      />
+    <section className="py-10 lg:py-14 bg-white relative overflow-hidden" aria-labelledby="showcase-heading">
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Top Header (Figma: Roboto 700 36px #0098FF, Inter 400 16px #6C6C72) */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-8 lg:mb-10">
           <h2
             id="showcase-heading"
             className="text-3xl sm:text-[36px] sm:leading-[42.2px] font-bold text-[#0098FF] font-roboto mb-4 tracking-tight"
@@ -96,47 +67,77 @@ export default function AppInterfaceShowcase({ onDownloadApp }) {
         </div>
 
         {/* 5 Mockup Phones Display / Carousel */}
-        <div className="relative mb-8">
-          {/* Desktop Arc Layout */}
-          <div className="hidden md:flex items-center justify-center -space-x-8 lg:-space-x-12 py-6">
-            {phones.map((phone, idx) => {
-              const isCenter = idx === activeScreenIndex;
-              return (
-                <div
-                  key={phone.id}
-                  onClick={() => setActiveScreenIndex(idx)}
-                  className={`relative cursor-pointer transition-all duration-300 transform flex-shrink-0 ${
-                    isCenter
-                      ? "scale-105 z-30 opacity-100 ring-2 ring-primary/40 rounded-[44px]"
-                      : "scale-90 z-10 opacity-75 hover:opacity-100 hover:scale-95"
-                  }`}
-                  style={{
-                    width: isCenter ? "280px" : "210px",
-                    maxWidth: "280px",
-                  }}
-                  title={phone.title}
-                >
-                  <Image
-                    src={phone.src}
-                    alt={`${phone.title} mobile mockup`}
-                    width={phone.width}
-                    height={phone.height}
-                    className="w-full h-auto object-contain drop-shadow-xl select-none pointer-events-none"
-                    priority={isCenter}
-                  />
-                </div>
-              );
-            })}
+        <div className="relative mb-12">
+          {/* Desktop Arc Layout with dynamic active screen in centre */}
+          <div className="hidden md:flex relative h-[610px] w-full max-w-[1240px] mx-auto items-center justify-center overflow-visible py-4 my-2">
+            <div className="h-[580px] w-full flex items-center justify-center gap-3 lg:gap-4 xl:gap-5 transform scale-[0.75] md:scale-[0.82] lg:scale-[0.92] xl:scale-100 origin-center transition-transform duration-300">
+              {phones.map((phone, idx) => {
+                const distance = Math.abs(idx - activeScreenIndex);
+
+                let width = 185.5;
+                let height = 383;
+                let zIndex = 10;
+                let opacity = "opacity-75 hover:opacity-100";
+
+                if (distance === 0) {
+                  // Active Center / Main phone screen: largest (Figma: 275.91 x 569)
+                  width = 275.91;
+                  height = 569;
+                  zIndex = 30;
+                  opacity = "opacity-100";
+                } else if (distance === 1) {
+                  // Immediate before & after neighbors: medium (Figma: 216.49 x 452.88)
+                  width = 216.49;
+                  height = 452.88;
+                  zIndex = 20;
+                  opacity = "opacity-90 hover:opacity-100";
+                } else {
+                  // Outer screens: small (Figma: 185.5 x 383)
+                  width = 185.5;
+                  height = 383;
+                  zIndex = 10;
+                  opacity = "opacity-70 hover:opacity-95";
+                }
+
+                return (
+                  <button
+                    key={phone.id}
+                    type="button"
+                    onClick={() => setActiveScreenIndex(idx)}
+                    aria-label={`Select ${phone.title} screen`}
+                    aria-pressed={distance === 0}
+                    style={{
+                      width: `${width}px`,
+                      height: `${height}px`,
+                      zIndex,
+                    }}
+                    className={`relative flex-shrink-0 cursor-pointer flex items-center justify-center self-center rounded-[38px] transition-all duration-500 ease-out focus:outline-none focus-visible:ring-4 focus-visible:ring-[#0377EB]/50 transform-gpu ${opacity}`}
+                    title={`Click to focus ${phone.title}`}
+                  >
+                    <div className="relative w-full h-full flex items-center justify-center pointer-events-none transition-all duration-500 ease-out">
+                      <Image
+                        src={phone.src}
+                        alt={`${phone.title} mobile mockup`}
+                        width={276}
+                        height={569}
+                        className="w-full h-full object-contain drop-shadow-2xl select-none transition-all duration-500 ease-out"
+                        priority={distance === 0}
+                      />
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Mobile Single Phone Slider */}
           <div className="md:hidden flex flex-col items-center">
-            <div className="relative w-[280px] max-w-full mb-4">
+            <div className="relative w-[276px] max-w-full mb-4">
               <Image
                 src={phones[activeScreenIndex].src}
                 alt={`${phones[activeScreenIndex].title} mobile preview`}
-                width={280}
-                height={540}
+                width={276}
+                height={569}
                 className="w-full h-auto object-contain drop-shadow-xl"
               />
             </div>
@@ -167,32 +168,35 @@ export default function AppInterfaceShowcase({ onDownloadApp }) {
             </div>
           </div>
 
-          {/* 5 Indicator Dots */}
-          <div className="flex items-center justify-center gap-2.5 mt-8" role="tablist" aria-label="Screen preview dots">
-            {phones.map((phone, idx) => (
-              <button
-                key={phone.id}
-                type="button"
-                role="tab"
-                aria-selected={idx === activeScreenIndex}
-                aria-label={`View ${phone.title} screen`}
-                onClick={() => setActiveScreenIndex(idx)}
-                className="min-h-[24px] min-w-[24px] flex items-center justify-center rounded-full transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
-              >
-                <span
-                  className={`block rounded-full transition-all duration-200 ${
-                    idx === activeScreenIndex
-                      ? "w-7 h-2.5 bg-primary"
-                      : "w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400"
-                  }`}
-                />
-              </button>
-            ))}
+          {/* 5 Indicator Dots with #0377EB brand styling */}
+          <div className="flex items-center justify-center gap-2.5 mt-12 sm:mt-14" role="tablist" aria-label="Screen preview dots">
+            {phones.map((phone, idx) => {
+              const isActive = idx === activeScreenIndex;
+              return (
+                <button
+                  key={phone.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  aria-label={`View ${phone.title} screen`}
+                  onClick={() => setActiveScreenIndex(idx)}
+                  className="min-h-[28px] min-w-[28px] flex items-center justify-center rounded-full transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#0377EB] focus-visible:outline-none"
+                >
+                  <span
+                    className={`block rounded-full transition-all duration-300 ${
+                      isActive
+                        ? "w-4 h-4 bg-[#0377EB] ring-4 ring-[#0377EB]/25 shadow-sm"
+                        : "w-2.5 h-2.5 bg-[#0377EB]/40 hover:bg-[#0377EB]/80 hover:scale-125"
+                    }`}
+                  />
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {/* Section 2: Download App Now */}
-        <div className="mt-24 pt-16 border-t border-slate-100">
+        <div className="mt-12 pt-8 lg:mt-14 lg:pt-10 border-t border-slate-100">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left Column: Heading & Stores (Figma: Roboto 700 36px #0098FF, Inter 400 16px #6C6C72) */}
             <div className="lg:col-span-6">

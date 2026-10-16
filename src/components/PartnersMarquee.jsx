@@ -19,7 +19,7 @@ export default function PartnersMarquee() {
   return (
     <section
       aria-label="Partner Organizations"
-      className="py-12 bg-white overflow-hidden border-b border-slate-100 relative"
+      className="py-8 lg:py-10 bg-white overflow-hidden border-b border-slate-100 relative"
     >
       {/* Seam Gradient Blur Circles between Section 1 & Section 2 (Figma Node 1:1655 & 1:1656) */}
       {/* Left Circle (Node 1:1655): 334x334 rounded-full, 0% #A5F3FC (30%), 50% #BFDBFE (20%), 100% #BFDBFE (0%), blur 100px */}
@@ -42,7 +42,7 @@ export default function PartnersMarquee() {
         aria-hidden="true"
       />
 
-      <div className="max-w-[1240px] mx-auto px-4 mb-8 flex items-center justify-between relative z-10">
+      <div className="max-w-[1240px] mx-auto px-4 mb-5 flex items-center justify-between relative z-10">
         <h2 className="text-[18px] sm:text-[20px] leading-[28px] font-medium text-[#54565F] tracking-normal mx-auto font-sans">
           Trusted by partners across India
         </h2>
