@@ -318,14 +318,14 @@ export default function Hero({ onOpenWaitlist, onExploreJobs }) {
                   </li>
                 </ul>
 
-                {/* Resume preview illustration matching Figma - softened opacity to match other card icons */}
-                <div className="absolute -right-4 top-1/2 -translate-y-1/2 pointer-events-none hidden sm:block opacity-30 group-hover:opacity-85 group-hover:scale-105 transition-all duration-300">
+                {/* Resume preview illustration matching Figma - visible on mobile and desktop */}
+                <div className="absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 pointer-events-none opacity-45 sm:opacity-50 group-hover:opacity-90 group-hover:scale-105 transition-all duration-300">
                   <Image
                     src="/assets/icons/role_job.svg"
                     alt="Resume Illustration"
                     width={140}
                     height={135}
-                    className="w-[130px] h-auto object-contain"
+                    className="w-[100px] sm:w-[130px] h-auto object-contain"
                   />
                 </div>
               </div>

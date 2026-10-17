@@ -265,9 +265,9 @@ export default function FeatureResume({ onOpenJobFeed }) {
                 "0 0 0 1px rgba(226, 232, 240, 0.80), 0 4px 24px -4px rgba(99, 102, 241, 0.06), 0 24px 60px -15px rgba(15, 23, 42, 0.08)",
             }}
           >
-            {/* Left Floating Tag (Node 1:1370: 167x50, -left-[45px] top-[40px]) */}
-            <div className="hidden sm:flex absolute -left-8 lg:-left-[55px] top-[40px] z-30 w-[167px] h-[50px] bg-white/90 backdrop-blur-[20px] rounded-[16px] px-3.5 py-2 border border-white/80 shadow-[0_4px_16px_-2px_rgba(0,0,0,0.08)] items-center gap-2.5 animate-float-slow">
-              <div className="w-8 h-8 rounded-xl bg-[#E6F9E6] border border-[#B7F4B7] text-slate-900 flex items-center justify-center flex-shrink-0">
+            {/* Left Floating Tag (Node 1:1370: 167x50, -left-[45px] top-[40px]) - visible across mobile & desktop */}
+            <div className="flex absolute -left-2 min-[420px]:-left-5 sm:-left-8 lg:-left-[55px] -top-5 sm:top-[40px] z-30 w-[140px] sm:w-[167px] h-[44px] sm:h-[50px] bg-white/95 backdrop-blur-[20px] rounded-[14px] sm:rounded-[16px] px-2.5 sm:px-3.5 py-1.5 sm:py-2 border border-white/80 shadow-[0_4px_16px_-2px_rgba(0,0,0,0.12)] items-center gap-2 sm:gap-2.5 animate-float-slow">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#E6F9E6] border border-[#B7F4B7] text-slate-900 flex items-center justify-center flex-shrink-0">
                 <Image
                   src="/assets/upload-icons/98%25match-rate.svg"
                   alt=""
@@ -277,14 +277,14 @@ export default function FeatureResume({ onOpenJobFeed }) {
                 />
               </div>
               <div>
-                <p className="text-xs font-bold text-slate-900 leading-snug">98% Match Rate</p>
-                <p className="text-[11px] text-slate-500">AI semantic rank</p>
+                <p className="text-[11px] sm:text-xs font-bold text-slate-900 leading-snug">98% Match Rate</p>
+                <p className="text-[9px] sm:text-[11px] text-slate-500">AI semantic rank</p>
               </div>
             </div>
 
-            {/* Right Floating Tag (Node 1:1380: 170x50, -right-[45px] bottom-[35px]) */}
-            <div className="hidden sm:flex absolute -right-8 lg:-right-[55px] bottom-[35px] z-30 w-[170px] h-[50px] bg-white/90 backdrop-blur-[20px] rounded-[16px] px-3.5 py-2 border border-white/80 shadow-[0_4px_16px_-2px_rgba(0,0,0,0.08)] items-center gap-2.5 animate-float-delayed">
-              <div className="w-8 h-8 rounded-xl bg-[#FFF7ED] border border-[#FED7AA] text-slate-900 flex items-center justify-center flex-shrink-0">
+            {/* Right Floating Tag (Node 1:1380: 170x50, -right-[45px] bottom-[35px]) - visible across mobile & desktop */}
+            <div className="flex absolute -right-2 min-[420px]:-right-5 sm:-right-8 lg:-right-[55px] -bottom-5 sm:bottom-[35px] z-30 w-[140px] sm:w-[170px] h-[44px] sm:h-[50px] bg-white/95 backdrop-blur-[20px] rounded-[14px] sm:rounded-[16px] px-2.5 sm:px-3.5 py-1.5 sm:py-2 border border-white/80 shadow-[0_4px_16px_-2px_rgba(0,0,0,0.12)] items-center gap-2 sm:gap-2.5 animate-float-delayed">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#FFF7ED] border border-[#FED7AA] text-slate-900 flex items-center justify-center flex-shrink-0">
                 <Image
                   src="/assets/upload-icons/ats-score.svg"
                   alt=""
@@ -294,8 +294,8 @@ export default function FeatureResume({ onOpenJobFeed }) {
                 />
               </div>
               <div>
-                <p className="text-xs font-bold text-slate-900 leading-snug">ATS Compliant</p>
-                <p className="text-[11px] text-slate-500">Standardized parser</p>
+                <p className="text-[11px] sm:text-xs font-bold text-slate-900 leading-snug">ATS Compliant</p>
+                <p className="text-[9px] sm:text-[11px] text-slate-500">Standardized parser</p>
               </div>
             </div>
 

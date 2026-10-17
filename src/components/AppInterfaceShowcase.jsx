@@ -45,6 +45,35 @@ export default function AppInterfaceShowcase({ onDownloadApp }) {
     },
   ];
 
+  // Touch swipe support for mobile phone preview
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
+
+  const minSwipeDistance = 40;
+
+  const onTouchStart = (e) => {
+    setTouchEndX(null);
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStartX || !touchEndX) return;
+    const distance = touchStartX - touchEndX;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      setActiveScreenIndex((prev) => (prev < phones.length - 1 ? prev + 1 : 0));
+    }
+    if (isRightSwipe) {
+      setActiveScreenIndex((prev) => (prev > 0 ? prev - 1 : phones.length - 1));
+    }
+  };
+
   return (
     <section className="py-10 lg:py-14 bg-white relative overflow-hidden" aria-labelledby="showcase-heading">
 
@@ -141,41 +170,30 @@ export default function AppInterfaceShowcase({ onDownloadApp }) {
             </div>
           </div>
 
-          {/* Mobile Single Phone Slider */}
-          <div className="md:hidden flex flex-col items-center">
-            <div className="relative w-[220px] min-[360px]:w-[250px] sm:w-[276px] max-w-[85vw] mb-4">
+          {/* Mobile Single Phone Slider (Touch Swipable) */}
+          <div className="md:hidden flex flex-col items-center select-none">
+            <div
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+              className="relative w-[220px] min-[360px]:w-[250px] sm:w-[276px] max-w-[85vw] mb-3 cursor-grab active:cursor-grabbing transition-transform duration-200"
+              style={{ touchAction: "pan-y" }}
+            >
               <Image
                 src={phones[activeScreenIndex].src}
                 alt={`${phones[activeScreenIndex].title} mobile preview`}
                 width={276}
                 height={569}
-                className="w-full h-auto object-contain drop-shadow-xl"
+                className="w-full h-auto object-contain drop-shadow-xl pointer-events-none"
+                priority
               />
             </div>
-            <div className="flex items-center gap-4">
-              <button
-                type="button"
-                onClick={() =>
-                  setActiveScreenIndex((prev) => (prev > 0 ? prev - 1 : phones.length - 1))
-                }
-                aria-label="Previous mobile app screen"
-                className="p-2 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-100"
-              >
-                <ChevronLeft size={20} />
-              </button>
-              <span className="text-xs font-semibold text-slate-700">
+
+            {/* Current Active Screen Title */}
+            <div className="text-center mt-1">
+              <span className="text-xs sm:text-sm font-semibold text-slate-700 tracking-tight">
                 {phones[activeScreenIndex].title}
               </span>
-              <button
-                type="button"
-                onClick={() =>
-                  setActiveScreenIndex((prev) => (prev < phones.length - 1 ? prev + 1 : 0))
-                }
-                aria-label="Next mobile app screen"
-                className="p-2 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-100"
-              >
-                <ChevronRight size={20} />
-              </button>
             </div>
           </div>
 
