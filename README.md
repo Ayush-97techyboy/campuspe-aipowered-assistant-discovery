@@ -99,10 +99,23 @@ Organized around the **4 W3C Pillars**:
    - **Radiant Info Briefcase Tile (`1:917` & `1:918`)**: Implemented exact Figma typography (`Inter 400 12px/16px`, `#2563EB`) and background container (`28×28px`, `rounded-[8px]`, `padding-top: 5.5px`, `padding-bottom: 6.5px`, `#2563EB1A` 10% opacity).
    - **Pixel-Accurate Vector Chip Icons**: Replaced generic icons across Colleges, Employers, Hero, and Resume sections with custom SVGs (`NAAC_A++_ready.svg`, `direct-enquiries.svg`, `500+_hiring_partners.svg`, `connect-directly.svg`, `5-min-deployment.svg`, `zero-cv-clutter.svg`, `in-app-scheduling.svg`, `98%match-rate.svg`, and `ats-score.svg`), all featuring `rounded-[8px]` chip borders.
 
-7. **Radix Accessible Dialogs**:
-   - **Waitlist Modal**: Select role (Student, College, Employer), provide details, and receive instant confirmation.
-   - **Auth Modal**: Accessible tab switching between Sign In and Sign Up.
-   - **Contact / Schedule Call Modal**: Request callbacks or submit support queries.
+7. **Responsive Hero Calibration & Viewport Adaptability**:
+   - **1024px Laptop Screens (`lg:`)**: Floating micro-interaction tiles (`WhatsApp Alert`, `Resume Builder`, `142 students matched`, `Radiant Info shortlisted`) calibrated with precision 28px side margins (`lg:-left-[36px]` / `lg:-right-[36px]`) and centered subtitle constraint (`lg:max-w-[480px]`) ensuring generous 60px–75px whitespace clearance with zero text overlap.
+   - **Mobile & Tablet Screens (< 1024px)**: Replaced overlapping floating tiles with a streamlined inline trust badge row (`🔥 142 students matched today • IIT, BITS, VIT` & `💼 Radiant Info shortlisted 8 interns`), keeping all 3 role selection cards prominently above the fold in the first viewport visit.
+   - **Card 2 Resume Preview Pinning**: Anchored the resume preview SVG (`/assets/icons/role_job.svg`) to the bottom-right (`bottom-0 sm:bottom-1 md:bottom-2`) on tablet and mobile viewports to prevent collisions with checklist items.
+
+8. **Mobile Navigation Drawer & Arc-Free Sticky Transition**:
+   - **Smooth Border-Radius Transition**: Resolved the sticky navbar header arc/semi-circle visual glitch during scroll by scoping CSS transitions to specific properties (`top`, `width`, `box-shadow`, `background-color`).
+   - **Click-Outside Backdrop**: Integrated a full-screen blurred backdrop overlay (`fixed inset-0 bg-slate-900/40 backdrop-blur-sm`) for one-tap dismissal and <kbd>Escape</kbd> key handling across tablet and mobile viewports (< 1024px).
+
+9. **App Interface Showcase Mobile Touch Gestures**:
+   - **Smooth Touch Swipe**: Replaced clunky chevron buttons on mobile with intuitive horizontal touch swipe gestures (`onTouchStart`, `onTouchMove`, `onTouchEnd`) with a 40px sensitivity threshold.
+   - **Anti-Flicker Viewport Lock**: Locked container height and aspect ratios across screen changes with smooth opacity cross-fading and active circular navigation dots.
+
+10. **Radix Accessible Dialogs**:
+    - **Waitlist Modal**: Select role (Student, College, Employer), provide details, and receive instant confirmation.
+    - **Auth Modal**: Accessible tab switching between Sign In and Sign Up.
+    - **Contact / Schedule Call Modal**: Request callbacks or submit support queries.
 
 ---
 

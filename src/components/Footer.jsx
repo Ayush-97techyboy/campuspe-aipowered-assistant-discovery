@@ -7,33 +7,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Footer({ onNavigate }) {
   const currentYear = new Date().getFullYear();
-  const [visitedContacts, setVisitedContacts] = useState({
-    email: false,
-    phone: false,
-  });
 
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("campuspe_visited_contacts");
-      if (saved) {
-        setVisitedContacts(JSON.parse(saved));
-      }
-    } catch (e) {
-      // ignore
-    }
-  }, []);
-
-  const handleContactClick = (type) => {
-    setVisitedContacts((prev) => {
-      const updated = { ...prev, [type]: true };
-      try {
-        localStorage.setItem("campuspe_visited_contacts", JSON.stringify(updated));
-      } catch (e) {
-        // ignore
-      }
-      return updated;
-    });
-  };
 
   const handleLinkClick = (e, label) => {
     e.preventDefault();
@@ -256,10 +230,7 @@ export default function Footer({ onNavigate }) {
           <div className="flex flex-col min-[380px]:flex-row items-center gap-3 sm:gap-6 text-center">
             <a
               href="mailto:contactus@campuspe.com"
-              onClick={() => handleContactClick("email")}
-              className={`group inline-flex items-center gap-2.5 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none p-1 rounded hover:text-white visited:text-white ${
-                visitedContacts.email ? "text-white" : "text-[#414D60]"
-              }`}
+              className="group inline-flex items-center gap-2.5 text-[#414D60] hover:text-[#414D60] active:text-[#414D60] visited:text-[#414D60] focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none p-1 rounded transition-colors"
             >
               <Image
                 src="/assets/updated_icns_img/Footer/email.svg"
@@ -268,17 +239,12 @@ export default function Footer({ onNavigate }) {
                 height={24}
                 className="w-6 h-6 object-contain shrink-0 transition-transform duration-200 group-hover:scale-105"
               />
-              <span className="transition-colors duration-200 group-hover:text-white">
-                contactus@campuspe.com
-              </span>
+              <span className="text-[#414D60]">contactus@campuspe.com</span>
             </a>
 
             <a
               href="tel:+916362606464"
-              onClick={() => handleContactClick("phone")}
-              className={`group inline-flex items-center gap-2.5 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none p-1 rounded hover:text-white visited:text-white ${
-                visitedContacts.phone ? "text-white" : "text-[#414D60]"
-              }`}
+              className="group inline-flex items-center gap-2.5 text-[#414D60] hover:text-[#414D60] active:text-[#414D60] visited:text-[#414D60] focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none p-1 rounded transition-colors"
             >
               <Image
                 src="/assets/updated_icns_img/Footer/ftr_phone.svg"
@@ -287,9 +253,7 @@ export default function Footer({ onNavigate }) {
                 height={24}
                 className="w-6 h-6 object-contain shrink-0 transition-transform duration-200 group-hover:scale-105"
               />
-              <span className="transition-colors duration-200 group-hover:text-white">
-                +91 6362606464
-              </span>
+              <span className="text-[#414D60]">+91 6362606464</span>
             </a>
           </div>
 
