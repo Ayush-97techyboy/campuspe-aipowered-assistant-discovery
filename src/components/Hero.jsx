@@ -67,72 +67,84 @@ export default function Hero({ onOpenWaitlist, onExploreJobs }) {
             </p>
           </div>
 
-          {/* Floating Tile 1: WhatsApp Alert (Figma Group 1410104497: X -107, Y 31, W 203, H 107) */}
+          {/* Mobile & Small-Tablet Compact Trust Ticker (keeps 3 role cards in the 1st visit viewport on mobile) */}
+          <div className="flex md:hidden flex-wrap items-center justify-center gap-2 mt-4 mb-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 border border-slate-200/90 shadow-2xs text-[11px] font-semibold text-slate-800">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+              <span>🔥 142 students matched today</span>
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 border border-slate-200/90 shadow-2xs text-[11px] font-medium text-slate-700">
+              <span className="text-[#2563EB]">💼</span>
+              <span>Radiant Info shortlisted interns</span>
+            </div>
+          </div>
+
+          {/* Floating Tile 1: WhatsApp Alert (Figma Group 1410104497: X -107, Y 31, W 203, H 107) - visible on md, lg, xl */}
           <div
-            className="hidden xl:block absolute z-20 w-[203px] h-[107px] bg-white rounded-[21px] border border-[#697FFF] shadow-card hover:shadow-hover hover:scale-105 hover:border-[#0098FF] transition-all duration-300 animate-float-slow -left-[107px] top-[31px] p-[16px] overflow-hidden text-left cursor-pointer group"
+            className="hidden md:block absolute z-20 w-[185px] lg:w-[203px] h-[98px] lg:h-[107px] bg-white rounded-[18px] lg:rounded-[21px] border border-[#697FFF] shadow-card hover:shadow-hover hover:scale-105 hover:border-[#0098FF] transition-all duration-300 animate-float-slow -left-4 lg:-left-16 xl:-left-[107px] top-[20px] lg:top-[31px] p-[13px] lg:p-[16px] overflow-hidden text-left cursor-pointer group"
           >
-            <div className="flex items-center gap-2 mb-1.5">
-              <div className="w-4 h-4 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <div className="flex items-center gap-1.5 lg:gap-2 mb-1 lg:mb-1.5">
+              <div className="w-3.5 lg:w-4 h-3.5 lg:h-4 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                 <Image src="/assets/icons/whatsapp.svg" alt="" width={16} height={16} className="object-contain" />
               </div>
-              <span className="text-[14px] leading-[22px] font-medium text-[#D96704] group-hover:text-amber-700 transition-colors">
+              <span className="text-[12px] lg:text-[14px] leading-[18px] lg:leading-[22px] font-medium text-[#D96704] group-hover:text-amber-700 transition-colors">
                 WhatsApp Alert
               </span>
             </div>
-            <p className="text-[12px] leading-[16px] font-semibold text-[#0A0A0A] mb-1">
+            <p className="text-[11px] lg:text-[12px] leading-[15px] lg:leading-[16px] font-semibold text-[#0A0A0A] mb-0.5 lg:mb-1">
               Get notified on whatsapp
             </p>
-            <p className="text-[10px] leading-[12px] font-medium text-[#54565F]">
+            <p className="text-[9px] lg:text-[10px] leading-[11px] lg:leading-[12px] font-medium text-[#54565F]">
               You&apos;ll get all important updates on your whatsapp
             </p>
           </div>
 
-          {/* Floating Tile 2: Resume Builder (Figma Group 1410104496: W 225, H 140, relative right -105, top 24) */}
+          {/* Floating Tile 2: Resume Builder (Figma Group 1410104496: W 225, H 140, relative right -105, top 24) - visible on md, lg, xl */}
           <div
-            className="hidden xl:block absolute z-20 w-[225px] h-[140px] bg-white rounded-[23px] border border-[#697FFF] shadow-card hover:shadow-hover hover:scale-105 hover:border-[#0098FF] transition-all duration-300 animate-float-delayed -right-[105px] top-[24px] p-[18px] overflow-hidden text-left cursor-pointer group"
+            className="hidden md:block absolute z-20 w-[195px] lg:w-[225px] h-[125px] lg:h-[140px] bg-white rounded-[20px] lg:rounded-[23px] border border-[#697FFF] shadow-card hover:shadow-hover hover:scale-105 hover:border-[#0098FF] transition-all duration-300 animate-float-delayed -right-4 lg:-right-16 xl:-right-[105px] top-[16px] lg:top-[24px] p-[14px] lg:p-[18px] overflow-hidden text-left cursor-pointer group"
           >
-            <div className="flex items-center gap-1.5 mb-2 group-hover:scale-105 transition-transform">
-              <Image src="/assets/icons/resume_builder_logo.svg" alt="Resume Builder" width={127} height={20} className="object-contain" />
+            <div className="flex items-center gap-1.5 mb-1.5 lg:mb-2 group-hover:scale-105 transition-transform">
+              <Image src="/assets/icons/resume_builder_logo.svg" alt="Resume Builder" width={127} height={20} className="w-[105px] lg:w-[127px] h-auto object-contain" />
             </div>
-            <p className="text-[12px] leading-[16px] font-semibold text-[#0A0A0A] mb-1.5">
+            <p className="text-[11px] lg:text-[12px] leading-[15px] lg:leading-[16px] font-semibold text-[#0A0A0A] mb-1 lg:mb-1.5">
               Build Your Resume
             </p>
-            <p className="text-[10px] leading-[16px] font-semibold text-[#54565F]">
+            <p className="text-[9px] lg:text-[10px] leading-[14px] lg:leading-[16px] font-semibold text-[#54565F]">
               Our resume builder gives you dynamic options to build better &amp; faster resume that got you hired
             </p>
           </div>
 
-          {/* Floating Tile 3: 142 students matched today (Figma X: -101, Y: 212, W: 293, H: 51) */}
+          {/* Floating Tile 3: 142 students matched today (Figma X: -101, Y: 212, W: 293, H: 51) - visible on md, lg, xl */}
           <div
-            className="hidden xl:flex absolute z-20 w-[293px] h-[51px] -left-[101px] top-[212px] bg-white/95 backdrop-blur-md rounded-2xl px-3.5 py-2 border border-slate-100 shadow-card items-center gap-2.5 hover:scale-105 hover:border-blue-200 hover:shadow-md transition-all duration-200 text-left cursor-pointer"
+            className="hidden md:flex absolute z-20 w-[245px] lg:w-[293px] h-[46px] lg:h-[51px] -left-4 lg:-left-16 xl:-left-[101px] top-[180px] lg:top-[212px] bg-white/95 backdrop-blur-md rounded-2xl px-3 lg:px-3.5 py-1.5 lg:py-2 border border-slate-100 shadow-card items-center gap-2 lg:gap-2.5 hover:scale-105 hover:border-blue-200 hover:shadow-md transition-all duration-200 text-left cursor-pointer"
           >
             <div className="flex -space-x-1.5">
-              <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center border-2 border-white shadow-xs">
+              <span className="w-5 lg:w-6 h-5 lg:h-6 rounded-full bg-blue-600 text-white text-[8px] lg:text-[9px] font-bold flex items-center justify-center border-2 border-white shadow-xs">
                 AK
               </span>
-              <span className="w-6 h-6 rounded-full bg-purple-600 text-white text-[9px] font-bold flex items-center justify-center border-2 border-white shadow-xs">
+              <span className="w-5 lg:w-6 h-5 lg:h-6 rounded-full bg-purple-600 text-white text-[8px] lg:text-[9px] font-bold flex items-center justify-center border-2 border-white shadow-xs">
                 PR
               </span>
-              <span className="w-6 h-6 rounded-full bg-teal-600 text-white text-[9px] font-bold flex items-center justify-center border-2 border-white shadow-xs">
+              <span className="w-5 lg:w-6 h-5 lg:h-6 rounded-full bg-teal-600 text-white text-[8px] lg:text-[9px] font-bold flex items-center justify-center border-2 border-white shadow-xs">
                 SN
               </span>
             </div>
             <div>
-              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
+              <div className="flex items-center gap-1.5 text-[11px] lg:text-xs font-bold text-slate-800">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
                 <span>🔥 142 students matched today</span>
               </div>
-              <p className="text-[10px] text-slate-500">Just now • IIT, BITS, VIT</p>
+              <p className="text-[9px] lg:text-[10px] text-slate-500">Just now • IIT, BITS, VIT</p>
             </div>
           </div>
 
-          {/* Floating Tile 4: Radiant Info shortlisted (Figma X: 704 / right -80, Y: 217, W: 271, H: 46) */}
+          {/* Floating Tile 4: Radiant Info shortlisted (Figma X: 704 / right -80, Y: 217, W: 271, H: 46) - visible on md, lg, xl */}
           <div
-            className="hidden xl:flex absolute z-20 w-[271px] h-[46px] -right-[80px] top-[217px] bg-white/95 backdrop-blur-md rounded-2xl px-3.5 py-1.5 border border-slate-100 shadow-card items-center gap-2.5 hover:scale-105 hover:border-amber-200 hover:shadow-md transition-all duration-200 text-left cursor-pointer"
+            className="hidden md:flex absolute z-20 w-[235px] lg:w-[271px] h-[44px] lg:h-[46px] -right-4 lg:-right-16 xl:-right-[80px] top-[185px] lg:top-[217px] bg-white/95 backdrop-blur-md rounded-2xl px-3 lg:px-3.5 py-1.5 border border-slate-100 shadow-card items-center gap-2 lg:gap-2.5 hover:scale-105 hover:border-amber-200 hover:shadow-md transition-all duration-200 text-left cursor-pointer"
           >
             {/* Briefcase background (Figma node 1:917): 28x28px, rounded-[8px], pt: 5.5px, pb: 6.5px, bg: #2563EB1A */}
             <div
-              className="w-[28px] h-[28px] rounded-[8px] flex items-center justify-center shrink-0"
+              className="w-6 lg:w-[28px] h-6 lg:h-[28px] rounded-[7px] lg:rounded-[8px] flex items-center justify-center shrink-0"
               style={{
                 backgroundColor: "rgba(37, 99, 235, 0.10)",
                 paddingTop: "5.5px",
@@ -141,7 +153,7 @@ export default function Hero({ onOpenWaitlist, onExploreJobs }) {
             >
               {/* Briefcase typography (Figma node 1:918): 12x16px, Inter 400, 12px/16px, text-center, #2563EB */}
               <span
-                className="w-[12px] h-[16px] inline-flex items-center justify-center text-center font-sans font-normal text-[12px] leading-[16px] text-[#2563EB]"
+                className="w-[12px] h-[16px] inline-flex items-center justify-center text-center font-sans font-normal text-[11px] lg:text-[12px] leading-[16px] text-[#2563EB]"
                 style={{
                   fontFamily: "Inter, sans-serif",
                   fontSize: "12px",
@@ -156,10 +168,10 @@ export default function Hero({ onOpenWaitlist, onExploreJobs }) {
               </span>
             </div>
             <div>
-              <p className="text-xs font-bold text-slate-800">
+              <p className="text-[11px] lg:text-xs font-bold text-slate-800">
                 Radiant Info <span className="font-normal text-slate-600">shortlisted 8 interns</span>
               </p>
-              <p className="text-[10px] text-emerald-600 font-medium">● Verified recruiter • 2 days ago</p>
+              <p className="text-[9px] lg:text-[10px] text-emerald-600 font-medium">● Verified recruiter • 2 days ago</p>
             </div>
           </div>
         </div>
@@ -318,14 +330,14 @@ export default function Hero({ onOpenWaitlist, onExploreJobs }) {
                   </li>
                 </ul>
 
-                {/* Resume preview illustration matching Figma - visible on mobile and desktop */}
-                <div className="absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 pointer-events-none opacity-45 sm:opacity-50 group-hover:opacity-90 group-hover:scale-105 transition-all duration-300">
+                {/* Resume preview illustration matching Figma - positioned at bottom-right on tablet/mobile so it never overlaps text */}
+                <div className="absolute -right-2 sm:right-0 md:-right-1 lg:-right-4 bottom-0 sm:bottom-1 md:bottom-2 lg:top-1/2 lg:-translate-y-1/2 pointer-events-none opacity-40 sm:opacity-45 md:opacity-50 group-hover:opacity-90 group-hover:scale-105 transition-all duration-300">
                   <Image
                     src="/assets/icons/role_job.svg"
                     alt="Resume Illustration"
                     width={140}
                     height={135}
-                    className="w-[100px] sm:w-[130px] h-auto object-contain"
+                    className="w-[95px] sm:w-[110px] md:w-[120px] lg:w-[130px] h-auto object-contain object-bottom-right"
                   />
                 </div>
               </div>
