@@ -15,64 +15,52 @@ export default function FaqSupport({
   return (
     <section className="py-10 lg:py-14 bg-white relative overflow-hidden" aria-label="Support and Quick Actions">
       {/* Ambient background glows matching exact Figma Node 1:1697 & 1:1698 */}
-      {/* Node 1:1698: Top-left 481x481 rounded-full blur 110px */}
+      {/* Node 1:1698: Top-left circle (481x481, layer blur 110px, soft violet-pink gradient) */}
       <div
-        className="absolute pointer-events-none -top-12 -left-16 lg:-left-[100px] w-[380px] h-[380px] lg:w-[481px] lg:h-[481px] rounded-full z-0"
+        className="absolute pointer-events-none -top-16 -left-[148px] w-[481px] h-[481px] rounded-full z-0"
         style={{
-          background: "linear-gradient(to right, rgba(196, 181, 253, 0.30) 0%, rgba(245, 208, 254, 0.20) 50%, rgba(245, 208, 254, 0.00) 100%)",
+          background: "linear-gradient(225deg, rgba(196, 181, 253, 0.35) 0%, rgba(245, 208, 254, 0.22) 50%, rgba(245, 208, 254, 0.00) 100%)",
           filter: "blur(110px)",
         }}
         aria-hidden="true"
       />
-      {/* Node 1:1697: Top-right 351x351 rounded-full blur 100px */}
+      {/* Node 1:1697: Top-right circle (351x351, layer blur 100px, soft cyan-blue gradient) */}
       <div
-        className="absolute pointer-events-none -top-12 -right-12 lg:-right-[60px] w-[300px] h-[300px] lg:w-[351px] lg:h-[351px] rounded-full z-0"
+        className="absolute pointer-events-none -top-16 -right-[50px] w-[351px] h-[351px] rounded-full z-0"
         style={{
-          background: "linear-gradient(to right, rgba(165, 243, 252, 0.30) 0%, rgba(191, 219, 254, 0.20) 50%, rgba(191, 219, 254, 0.00) 100%)",
+          background: "linear-gradient(45deg, rgba(165, 243, 252, 0.35) 0%, rgba(191, 219, 254, 0.22) 50%, rgba(191, 219, 254, 0.00) 100%)",
           filter: "blur(100px)",
         }}
         aria-hidden="true"
       />
 
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 lg:space-y-10 relative z-10">
-        {/* Card 1: Still have questions? (Figma: Linear Gradient #FFFFFF and #007FFC) */}
+      <div className="max-w-[1240px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8 lg:space-y-10 relative z-10">
+        {/* Card 1: Still have questions? (Figma: Node 1:1700 "CTA" with exact 356px Gaussian Blur Gradient Groups) */}
         <div
-          className="relative rounded-[32px] sm:rounded-[36px] py-12 px-6 sm:py-16 sm:px-14 text-center overflow-hidden border border-[#D0E7FF]/70 shadow-[0_10px_30px_-10px_rgba(0,127,252,0.08)]"
-          style={{
-            background: "linear-gradient(180deg, rgba(0, 127, 252, 0.16) 0%, rgba(0, 127, 252, 0.04) 45%, #FFFFFF 100%)",
-          }}
+          className="relative rounded-[24px] py-10 px-4 sm:py-14 sm:px-14 text-center overflow-hidden border border-[#D0E7FF]/70 shadow-[0_16px_40px_rgba(57,29,232,0.08)] bg-white"
         >
-          {/* Soft top-left and top-right gradient glows matching Figma */}
-          <div
-            className="absolute pointer-events-none -top-24 -left-20 w-[360px] h-[360px] rounded-full z-0"
-            style={{
-              background: "radial-gradient(circle, rgba(0, 127, 252, 0.22) 0%, rgba(0, 127, 252, 0.00) 70%)",
-              filter: "blur(50px)",
-            }}
-            aria-hidden="true"
-          />
-          <div
-            className="absolute pointer-events-none -top-24 -right-20 w-[360px] h-[360px] rounded-full z-0"
-            style={{
-              background: "radial-gradient(circle, rgba(0, 127, 252, 0.22) 0%, rgba(0, 127, 252, 0.00) 70%)",
-              filter: "blur(50px)",
-            }}
-            aria-hidden="true"
-          />
+          {/* Exact Figma Background Gradient System (Node 1:1700 / 1:1701 & 1:1709) */}
+          <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+            <img
+              src="/assets/faq_support_card_clean_bg.svg"
+              alt=""
+              className="w-full h-full object-cover pointer-events-none select-none"
+            />
+          </div>
 
           <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="text-3xl sm:text-[36px] sm:leading-[42.2px] font-bold text-[#0F172A] font-roboto mb-3 tracking-tight">
+            <h2 className="text-2xl min-[360px]:text-3xl sm:text-[36px] sm:leading-[42.2px] font-bold text-[#0F172A] font-roboto mb-2.5 sm:mb-3 tracking-tight">
               Still have questions?
             </h2>
-            <p className="text-[15px] sm:text-[17px] sm:leading-[25px] text-[#475569] mb-8 font-normal font-sans max-w-lg mx-auto">
+            <p className="text-[14px] min-[360px]:text-[15px] sm:text-[17px] sm:leading-[25px] text-[#475569] mb-6 sm:mb-8 font-normal font-sans max-w-lg mx-auto px-2">
               Our support team is here to help you succeed. Get in touch anytime.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto sm:max-w-none">
               <button
                 type="button"
                 onClick={onContactSupport}
-                className="group inline-flex items-center gap-3 pl-6 pr-1.5 py-1.5 rounded-full text-[15px] font-semibold text-white bg-[#007FFC] hover:bg-white hover:text-[#007FFC] border-2 border-[#007FFC] shadow-md shadow-blue-500/25 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-200"
+                className="group inline-flex items-center justify-between sm:justify-start gap-3 pl-5 sm:pl-6 pr-1.5 py-1.5 rounded-full text-sm sm:text-[15px] font-semibold text-white bg-[#007FFC] hover:bg-white hover:text-[#007FFC] border-2 border-[#007FFC] shadow-md shadow-blue-500/25 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-200 w-full sm:w-auto"
               >
                 <span>Contact Support</span>
                 <svg
@@ -81,7 +69,7 @@ export default function FaqSupport({
                   viewBox="0 0 40 40"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-9 h-9 shrink-0"
+                  className="w-8 h-8 sm:w-9 sm:h-9 shrink-0"
                   aria-hidden="true"
                 >
                   <rect
@@ -100,7 +88,7 @@ export default function FaqSupport({
               <button
                 type="button"
                 onClick={onScheduleCall}
-                className="group inline-flex items-center gap-3 pl-6 pr-1.5 py-1.5 rounded-full text-[15px] font-semibold text-[#007FFC] bg-white hover:bg-[#007FFC] hover:text-white border-2 border-[#007FFC] shadow-sm active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-200"
+                className="group inline-flex items-center justify-between sm:justify-start gap-3 pl-5 sm:pl-6 pr-1.5 py-1.5 rounded-full text-sm sm:text-[15px] font-semibold text-[#007FFC] bg-white hover:bg-[#007FFC] hover:text-white border-2 border-[#007FFC] shadow-sm active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-200 w-full sm:w-auto"
               >
                 <span>Schedule a Call</span>
                 <svg
@@ -109,7 +97,7 @@ export default function FaqSupport({
                   viewBox="0 0 40 40"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-9 h-9 shrink-0"
+                  className="w-8 h-8 sm:w-9 sm:h-9 shrink-0"
                   aria-hidden="true"
                 >
                   <rect
@@ -129,22 +117,22 @@ export default function FaqSupport({
         </div>
 
         {/* Card 2: Ready for what's next? (Figma: Roboto 700 32px #0F1D36, Inter 500 16px #64748B) */}
-        <div className="rounded-3xl p-8 sm:p-10 border border-slate-200/90 bg-white shadow-card">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-            <div className="max-w-xl">
-              <h3 className="text-2xl sm:text-[32px] sm:leading-[37.5px] font-bold text-[#0F1D36] font-roboto mb-2">
+        <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 border border-slate-200/90 bg-white shadow-card">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 sm:gap-8">
+            <div className="max-w-xl text-center sm:text-left">
+              <h3 className="text-xl min-[360px]:text-2xl sm:text-[32px] sm:leading-[37.5px] font-bold text-[#0F1D36] font-roboto mb-2">
                 Ready for what&apos;s next?
               </h3>
-              <p className="text-[15px] sm:text-[16px] sm:leading-[20px] text-[#64748B] font-medium font-sans">
-                Discover colleges, find opportunities, list your <br /> institution, or start hiring with CampusPe.
+              <p className="text-[13px] min-[360px]:text-[14px] sm:text-[16px] sm:leading-[20px] text-[#64748B] font-medium font-sans">
+                Discover colleges, find opportunities, list your <br className="hidden sm:inline" /> institution, or start hiring with CampusPe.
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap items-center gap-2.5 sm:gap-3 w-full lg:w-auto">
               <button
                 type="button"
                 onClick={onExploreColleges}
-                className="inline-flex items-center gap-1.5 py-2.5 px-5 rounded-[12px] text-xs sm:text-sm font-semibold text-white bg-primary hover:bg-primary-hover shadow-sm shadow-blue-500/20 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150"
+                className="inline-flex items-center justify-center gap-1.5 py-2.5 px-4 sm:px-5 rounded-[12px] text-xs sm:text-sm font-semibold text-white bg-primary hover:bg-primary-hover shadow-sm shadow-blue-500/20 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150 w-full lg:w-auto"
               >
                 <span>Explore Colleges</span>
                 <ArrowRight size={14} />
@@ -153,7 +141,7 @@ export default function FaqSupport({
               <button
                 type="button"
                 onClick={onFindOpportunities}
-                className="inline-flex items-center gap-1.5 py-2.5 px-5 rounded-[12px] text-xs sm:text-sm font-semibold text-white bg-primary hover:bg-primary-hover shadow-sm shadow-blue-500/20 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150"
+                className="inline-flex items-center justify-center gap-1.5 py-2.5 px-4 sm:px-5 rounded-[12px] text-xs sm:text-sm font-semibold text-white bg-primary hover:bg-primary-hover shadow-sm shadow-blue-500/20 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150 w-full lg:w-auto"
               >
                 <span>Find Opportunities</span>
                 <ArrowRight size={14} />
@@ -162,7 +150,7 @@ export default function FaqSupport({
               <button
                 type="button"
                 onClick={onListCollege}
-                className="inline-flex items-center gap-1.5 py-2.5 px-5 rounded-[12px] text-xs sm:text-sm font-semibold text-slate-700 border border-slate-200 hover:border-blue-300 hover:bg-slate-50 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150"
+                className="inline-flex items-center justify-center gap-1.5 py-2.5 px-4 sm:px-5 rounded-[12px] text-xs sm:text-sm font-semibold text-slate-700 border border-slate-200 hover:border-blue-300 hover:bg-slate-50 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150 w-full lg:w-auto"
               >
                 <span>List Your College</span>
                 <ArrowRight size={14} />
@@ -171,7 +159,7 @@ export default function FaqSupport({
               <button
                 type="button"
                 onClick={onPostJob}
-                className="inline-flex items-center gap-1.5 py-2.5 px-5 rounded-[12px] text-xs sm:text-sm font-semibold text-slate-700 border border-slate-200 hover:border-blue-300 hover:bg-slate-50 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150"
+                className="inline-flex items-center justify-center gap-1.5 py-2.5 px-4 sm:px-5 rounded-[12px] text-xs sm:text-sm font-semibold text-slate-700 border border-slate-200 hover:border-blue-300 hover:bg-slate-50 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150 w-full lg:w-auto"
               >
                 <span>Post a Job</span>
                 <ArrowRight size={14} />

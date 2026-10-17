@@ -31,13 +31,13 @@ export default function Navbar({ onOpenWaitlist, onOpenAuth }) {
       <header
         className={`fixed z-50 transition-all duration-300 ease-out left-1/2 -translate-x-1/2 ${
           isScrolled
-            ? "top-3 sm:top-4 w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] max-w-[1240px] rounded-full bg-white/85 backdrop-blur-xl border border-slate-200/90 shadow-[0_12px_36px_-6px_rgba(0,0,0,0.08),0_4px_16px_-2px_rgba(0,132,255,0.06)]"
+            ? "top-2.5 sm:top-4 w-[calc(100%-1rem)] sm:w-[calc(100%-3rem)] max-w-[1240px] 2xl:max-w-[1440px] rounded-full bg-white/85 backdrop-blur-xl border border-slate-200/90 shadow-[0_12px_36px_-6px_rgba(0,0,0,0.08),0_4px_16px_-2px_rgba(0,132,255,0.06)]"
             : "top-0 w-full bg-white/70 backdrop-blur-md border-b border-slate-100"
         }`}
       >
         <div
-          className={`w-full max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-[height] duration-300 ease-out ${
-            isScrolled ? "h-16" : "h-20"
+          className={`w-full max-w-[1240px] 2xl:max-w-[1440px] mx-auto px-3.5 sm:px-6 lg:px-8 flex items-center justify-between transition-[height] duration-300 ease-out ${
+            isScrolled ? "h-14 sm:h-16" : "h-16 sm:h-20"
           }`}
         >
           {/* Brand Logo with stable dimensions */}
@@ -48,7 +48,7 @@ export default function Navbar({ onOpenWaitlist, onOpenAuth }) {
                 alt="CampusPE Logo"
                 width={145}
                 height={44}
-                className="h-10 w-auto object-contain flex-shrink-0"
+                className="h-8 sm:h-10 w-auto object-contain flex-shrink-0"
                 priority
               />
             </div>
@@ -57,7 +57,7 @@ export default function Navbar({ onOpenWaitlist, onOpenAuth }) {
           {/* Desktop Navigation Links (Inter 500 16px #1B1818) */}
           <nav
             aria-label="Primary Navigation"
-            className="hidden md:flex items-center gap-8 text-[16px] leading-[19.4px] font-medium text-[#1B1818]"
+            className="hidden md:flex items-center gap-4 lg:gap-8 text-[14px] lg:text-[16px] leading-[19.4px] font-medium text-[#1B1818]"
           >
             <a
               href="#colleges"
@@ -86,18 +86,18 @@ export default function Navbar({ onOpenWaitlist, onOpenAuth }) {
           </nav>
 
           {/* Desktop Auth CTAs */}
-          <div className="hidden md:flex items-center gap-3 flex-shrink-0">
+          <div className="hidden md:flex items-center gap-2 lg:gap-3 flex-shrink-0">
             <button
               type="button"
               onClick={() => onOpenAuth("signin")}
-              className="text-[16px] leading-[19.4px] font-medium text-[#1B1818] hover:text-primary px-4 py-2 transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded-full"
+              className="text-[14px] lg:text-[16px] leading-[19.4px] font-medium text-[#1B1818] hover:text-primary px-3 lg:px-4 py-2 transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded-full"
             >
               Sign In
             </button>
             <button
               type="button"
               onClick={() => onOpenAuth("signup")}
-              className="inline-flex items-center justify-center text-[16px] leading-[19.4px] font-medium text-[#FDFCFB] bg-primary hover:bg-primary-hover px-5 py-2.5 rounded-full shadow-sm shadow-blue-500/20 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150"
+              className="inline-flex items-center justify-center text-[14px] lg:text-[16px] leading-[19.4px] font-medium text-[#FDFCFB] bg-primary hover:bg-primary-hover px-4 lg:px-5 py-2 lg:py-2.5 rounded-full shadow-sm shadow-blue-500/20 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150"
             >
               Sign Up
             </button>

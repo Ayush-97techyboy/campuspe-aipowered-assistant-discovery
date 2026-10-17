@@ -48,16 +48,16 @@ export default function AppInterfaceShowcase({ onDownloadApp }) {
   return (
     <section className="py-10 lg:py-14 bg-white relative overflow-hidden" aria-labelledby="showcase-heading">
 
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[1240px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Top Header (Figma: Roboto 700 36px #0098FF, Inter 400 16px #6C6C72) */}
-        <div className="text-center max-w-3xl mx-auto mb-8 lg:mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
           <h2
             id="showcase-heading"
-            className="text-3xl sm:text-[36px] sm:leading-[42.2px] font-bold text-[#0098FF] font-roboto mb-4 tracking-tight"
+            className="text-2xl min-[360px]:text-3xl sm:text-[36px] sm:leading-[42.2px] font-bold text-[#0098FF] font-roboto mb-3 sm:mb-4 tracking-tight"
           >
             Checkout Our App Interface Look
           </h2>
-          <p className="text-[15px] sm:text-[16px] sm:leading-[22px] text-[#6C6C72] font-normal leading-relaxed font-sans">
+          <p className="text-[13px] min-[360px]:text-[14px] sm:text-[16px] sm:leading-[22px] text-[#6C6C72] font-normal leading-relaxed font-sans px-2">
             Experience the power of a unified campus ecosystem right in your pocket.{" "}
             <span className="font-semibold text-slate-800">CampusPe</span> offers a
             tailored interface for every user: students can explore trending courses,
@@ -67,10 +67,21 @@ export default function AppInterfaceShowcase({ onDownloadApp }) {
         </div>
 
         {/* 5 Mockup Phones Display / Carousel */}
-        <div className="relative mb-12">
+        <div className="relative mb-8 sm:mb-12">
+          {/* Exact Figma Node 1:1669 ("Ellipse 3") Background Gradient Blur */}
+          <div
+            className="absolute pointer-events-none left-1/2 -translate-x-1/2 top-0 w-[1361px] h-[613px] rounded-full z-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(105, 127, 255, 0.12) 0%, rgba(104, 206, 198, 0.12) 57.21%, rgba(195, 45, 112, 0) 100%)",
+              filter: "blur(66px)",
+            }}
+            aria-hidden="true"
+          />
+
           {/* Desktop Arc Layout with dynamic active screen in centre */}
-          <div className="hidden md:flex relative h-[610px] w-full max-w-[1240px] mx-auto items-center justify-center overflow-visible py-4 my-2">
-            <div className="h-[580px] w-full flex items-center justify-center gap-3 lg:gap-4 xl:gap-5 transform scale-[0.75] md:scale-[0.82] lg:scale-[0.92] xl:scale-100 origin-center transition-transform duration-300">
+          <div className="hidden md:flex relative h-[380px] min-[820px]:h-[440px] min-[960px]:h-[500px] lg:h-[550px] xl:h-[610px] w-full max-w-[1240px] 2xl:max-w-[1400px] mx-auto items-center justify-center overflow-visible py-2 my-2">
+            <div className="h-[580px] w-full flex items-center justify-center gap-2.5 sm:gap-3 lg:gap-4 xl:gap-5 transform scale-[0.56] min-[820px]:scale-[0.65] min-[960px]:scale-[0.76] lg:scale-[0.88] xl:scale-100 2xl:scale-105 origin-center transition-transform duration-300">
               {phones.map((phone, idx) => {
                 const distance = Math.abs(idx - activeScreenIndex);
 
@@ -132,7 +143,7 @@ export default function AppInterfaceShowcase({ onDownloadApp }) {
 
           {/* Mobile Single Phone Slider */}
           <div className="md:hidden flex flex-col items-center">
-            <div className="relative w-[276px] max-w-full mb-4">
+            <div className="relative w-[220px] min-[360px]:w-[250px] sm:w-[276px] max-w-[85vw] mb-4">
               <Image
                 src={phones[activeScreenIndex].src}
                 alt={`${phones[activeScreenIndex].title} mobile preview`}
@@ -169,7 +180,7 @@ export default function AppInterfaceShowcase({ onDownloadApp }) {
           </div>
 
           {/* 5 Indicator Dots with #0377EB brand styling */}
-          <div className="flex items-center justify-center gap-2.5 mt-12 sm:mt-14" role="tablist" aria-label="Screen preview dots">
+          <div className="flex items-center justify-center gap-2.5 mt-6 sm:mt-8 md:mt-10 lg:mt-12" role="tablist" aria-label="Screen preview dots">
             {phones.map((phone, idx) => {
               const isActive = idx === activeScreenIndex;
               return (
@@ -196,14 +207,34 @@ export default function AppInterfaceShowcase({ onDownloadApp }) {
         </div>
 
         {/* Section 2: Download App Now */}
-        <div className="mt-12 pt-8 lg:mt-14 lg:pt-10 border-t border-slate-100">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div className="mt-10 pt-6 lg:mt-14 lg:pt-10 relative overflow-hidden">
+          {/* Ambient background glows matching exact Figma Nodes 1:1688 (bottom-left) & 1:1658 (bottom-right) */}
+          {/* Node 1:1688: Bottom-left circle (480x480, layer blur 100px, soft cyan-blue gradient) */}
+          <div
+            className="absolute pointer-events-none -bottom-24 -left-24 lg:-left-[93px] w-[380px] h-[380px] lg:w-[480px] lg:h-[480px] rounded-full z-0"
+            style={{
+              background: "linear-gradient(45deg, rgba(165, 243, 252, 0.35) 0%, rgba(191, 219, 254, 0.22) 50%, rgba(191, 219, 254, 0.00) 100%)",
+              filter: "blur(100px)",
+            }}
+            aria-hidden="true"
+          />
+          {/* Node 1:1658: Bottom-right circle (481x481, layer blur 110px, soft violet-pink gradient) */}
+          <div
+            className="absolute pointer-events-none -bottom-24 -right-24 lg:-right-[100px] w-[380px] h-[380px] lg:w-[481px] lg:h-[481px] rounded-full z-0"
+            style={{
+              background: "linear-gradient(225deg, rgba(196, 181, 253, 0.35) 0%, rgba(245, 208, 254, 0.22) 50%, rgba(245, 208, 254, 0.00) 100%)",
+              filter: "blur(110px)",
+            }}
+            aria-hidden="true"
+          />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center relative z-10">
             {/* Left Column: Heading & Stores (Figma: Roboto 700 36px #0098FF, Inter 400 16px #6C6C72) */}
-            <div className="lg:col-span-6">
-              <h2 className="text-3xl sm:text-[36px] sm:leading-[42.2px] font-bold text-[#0098FF] font-roboto mb-5 tracking-tight">
+            <div className="lg:col-span-6 text-center sm:text-left">
+              <h2 className="text-2xl min-[360px]:text-3xl sm:text-[36px] sm:leading-[42.2px] font-bold text-[#0098FF] font-roboto mb-4 sm:mb-5 tracking-tight">
                 Download App Now
               </h2>
-              <p className="text-[15px] sm:text-[16px] sm:leading-[22px] text-[#6C6C72] font-normal leading-relaxed mb-8 font-sans">
+              <p className="text-[13px] min-[360px]:text-[14px] sm:text-[16px] sm:leading-[22px] text-[#6C6C72] font-normal leading-relaxed mb-6 sm:mb-8 font-sans">
                 Elevate your academic journey with Campuspe, the all-in-one digital
                 ecosystem designed to bridge the gap between education and industry.
                 Whether you’re a student seeking your next big internship, a college
@@ -213,7 +244,7 @@ export default function AppInterfaceShowcase({ onDownloadApp }) {
               </p>
 
               {/* App Store / Google Play Buttons with fixed bounded dimensions */}
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4">
                 <button
                   type="button"
                   onClick={() => onDownloadApp("Google Play")}
@@ -225,7 +256,7 @@ export default function AppInterfaceShowcase({ onDownloadApp }) {
                     alt="Get it on Google Play"
                     width={155}
                     height={48}
-                    className="h-[48px] w-auto max-w-[160px] object-contain"
+                    className="h-[44px] sm:h-[48px] w-auto max-w-[155px] object-contain"
                   />
                 </button>
 
@@ -240,7 +271,7 @@ export default function AppInterfaceShowcase({ onDownloadApp }) {
                     alt="Download on the App Store"
                     width={155}
                     height={48}
-                    className="h-[48px] w-auto max-w-[160px] object-contain"
+                    className="h-[44px] sm:h-[48px] w-auto max-w-[155px] object-contain"
                   />
                 </button>
               </div>
@@ -248,7 +279,7 @@ export default function AppInterfaceShowcase({ onDownloadApp }) {
 
             {/* Right Column: 3D perspective mockup with explicit bounding box */}
             <div className="lg:col-span-6 relative flex items-center justify-center">
-              <div className="relative w-full max-w-[560px]">
+              <div className="relative w-full max-w-[480px] lg:max-w-[560px] 2xl:max-w-[640px]">
                 <Image
                   src="/assets/phones/iphone_download_mockup.png"
                   alt="CampusPe dual app experience on mobile devices"

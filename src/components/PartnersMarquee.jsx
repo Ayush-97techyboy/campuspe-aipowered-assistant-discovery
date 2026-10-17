@@ -19,31 +19,41 @@ export default function PartnersMarquee() {
   return (
     <section
       aria-label="Partner Organizations"
-      className="py-8 lg:py-10 bg-white overflow-hidden border-b border-slate-100 relative"
+      className="pt-10 lg:pt-[45px] pb-12 lg:pb-[64px] bg-transparent relative"
     >
-      {/* Seam Gradient Blur Circles between Section 1 & Section 2 (Figma Node 1:1655 & 1:1656) */}
-      {/* Left Circle (Node 1:1655): 334x334 rounded-full, 0% #A5F3FC (30%), 50% #BFDBFE (20%), 100% #BFDBFE (0%), blur 100px */}
+      {/* Seam Gradient Blur Circles between Partners & Opportunity Discovery (Figma Node 1:1655 & 1:1656) */}
+      {/* Left Circle (Node 1:1655): 334x334 rounded-full, cyan/blue, blur 80px */}
       <div
         className="absolute pointer-events-none -bottom-[100px] lg:-bottom-[132px] -left-8 lg:-left-[33px] w-[280px] h-[280px] lg:w-[334px] lg:h-[334px] rounded-full z-0"
         style={{
-          background: "linear-gradient(to right, rgba(165, 243, 252, 0.30) 0%, rgba(191, 219, 254, 0.20) 50%, rgba(191, 219, 254, 0.00) 100%)",
-          filter: "blur(100px)",
+          background: "linear-gradient(135deg, rgba(165, 243, 252, 0.45) 0%, rgba(191, 219, 254, 0.30) 50%, rgba(191, 219, 254, 0.00) 100%)",
+          filter: "blur(80px)",
         }}
         aria-hidden="true"
       />
 
-      {/* Right Circle (Node 1:1656): 327x327 rounded-full, 0% #C4B5FD (30%), 50% #F5D0FE (20%), 100% #F5D0FE (0%), blur 110px */}
+      {/* Left Seam Peach/Coral Glow (Node 1:868): subtle warm blush on far left edge reaching GINSERV and Discovery */}
+      <div
+        className="absolute pointer-events-none -bottom-[120px] lg:-bottom-[150px] -left-12 lg:-left-[45px] w-[240px] h-[240px] lg:w-[280px] lg:h-[280px] rounded-full z-0"
+        style={{
+          background: "radial-gradient(circle at 40% 50%, rgba(254, 205, 211, 0.55) 0%, rgba(255, 237, 213, 0.40) 45%, rgba(254, 242, 242, 0.00) 100%)",
+          filter: "blur(60px)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Right Circle (Node 1:1656): 327x327 rounded-full, violet/fuchsia, blur 85px */}
       <div
         className="absolute pointer-events-none -bottom-[100px] lg:-bottom-[149px] -right-8 lg:-right-[60px] w-[270px] h-[270px] lg:w-[327px] lg:h-[327px] rounded-full z-0"
         style={{
-          background: "linear-gradient(to right, rgba(196, 181, 253, 0.30) 0%, rgba(245, 208, 254, 0.20) 50%, rgba(245, 208, 254, 0.00) 100%)",
-          filter: "blur(110px)",
+          background: "linear-gradient(225deg, rgba(196, 181, 253, 0.45) 0%, rgba(245, 208, 254, 0.30) 50%, rgba(245, 208, 254, 0.00) 100%)",
+          filter: "blur(85px)",
         }}
         aria-hidden="true"
       />
 
-      <div className="max-w-[1240px] mx-auto px-4 mb-5 flex items-center justify-between relative z-10">
-        <h2 className="text-[18px] sm:text-[20px] leading-[28px] font-medium text-[#54565F] tracking-normal mx-auto font-sans">
+      <div className="max-w-[1240px] 2xl:max-w-[1440px] mx-auto px-4 mb-5 flex items-center justify-between relative z-10">
+        <h2 className="text-[15px] min-[360px]:text-[17px] sm:text-[20px] leading-[26px] sm:leading-[28px] font-medium text-[#54565F] tracking-normal mx-auto font-sans text-center px-6">
           Trusted by partners across India
         </h2>
 
@@ -52,7 +62,7 @@ export default function PartnersMarquee() {
           type="button"
           onClick={() => setIsPlaying(!isPlaying)}
           aria-label={isPlaying ? "Pause partners animation" : "Resume partners animation"}
-          className="absolute right-4 top-12 p-2 rounded-full text-slate-500 hover:text-slate-800 hover:bg-slate-200/60 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-colors"
+          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 rounded-full text-slate-500 hover:text-slate-800 hover:bg-slate-200/60 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-colors"
         >
           {isPlaying ? <Pause size={16} /> : <Play size={16} />}
         </button>
@@ -60,12 +70,9 @@ export default function PartnersMarquee() {
 
       {/* Infinite Horizontal Carousel */}
       <div className="relative w-full overflow-hidden marquee-container flex items-center py-2">
-        {/* Gradient edge masks */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
         <div
-          className={`flex whitespace-nowrap gap-16 sm:gap-24 items-center ${
+          className={`flex whitespace-nowrap gap-8 sm:gap-16 lg:gap-24 items-center ${
             isPlaying ? "animate-marquee" : ""
           }`}
           style={!isPlaying ? { animationPlayState: "paused" } : {}}

@@ -37,3 +37,12 @@ These rules apply to all development and agent operations in this workspace.
 - **Focus Management**: Visible focus rings on all interactive elements (`focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none`).
 - **Motion Controls (WCAG 2.2.2)**: All auto-moving, scrolling, or marquee content must include an explicit user pause/play toggle.
 - **Semantic Structure**: Accessible landmarks (`<header>`, `<main id="main-content">`, `<footer>`, `role="tablist"`).
+
+---
+
+## 6. Figma Multi-Layer Mesh & Layer-Blur Gradient Invariants
+- **Never Approximate Complex Figma Blurs with Simple CSS Gradients**: When Figma nodes feature multi-layer vector groups with heavy Layer Blur (e.g. `356px` radius like nodes `1:1700` "CTA" and `1:1725` "Background Gradient"), do not approximate them with flat CSS linear gradients.
+- **AST & Vector Group Extraction**: Inspect the Figma AST JSON (`scratch/figma_*.json`) to identify the underlying gradient group structures (e.g., symmetrical left/right Gaussian blur groups composed of `Ellipse 28 (#007FFC)`, `Ellipse 30 (#FFC1DF)`, and `Ellipse 29 (#FFF9F4)`).
+- **Exact Vector Asset Export**: Export the exact background layer group as an SVG via the Figma API with `feGaussianBlur` intact, strip foreground interactive elements (buttons, text), and mount it as an `absolute inset-0 object-cover` background layer.
+- **Single-Container Boundary**: Always keep the background SVG flush to the outer boundary of the main container (`viewBox` matching card width/height) to eliminate nested card borders or double margins.
+

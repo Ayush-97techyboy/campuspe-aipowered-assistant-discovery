@@ -1,12 +1,39 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function Footer({ onNavigate }) {
   const currentYear = new Date().getFullYear();
+  const [visitedContacts, setVisitedContacts] = useState({
+    email: false,
+    phone: false,
+  });
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("campuspe_visited_contacts");
+      if (saved) {
+        setVisitedContacts(JSON.parse(saved));
+      }
+    } catch (e) {
+      // ignore
+    }
+  }, []);
+
+  const handleContactClick = (type) => {
+    setVisitedContacts((prev) => {
+      const updated = { ...prev, [type]: true };
+      try {
+        localStorage.setItem("campuspe_visited_contacts", JSON.stringify(updated));
+      } catch (e) {
+        // ignore
+      }
+      return updated;
+    });
+  };
 
   const handleLinkClick = (e, label) => {
     e.preventDefault();
@@ -16,38 +43,46 @@ export default function Footer({ onNavigate }) {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-white via-[#F8FAFC] to-[#EBF3FF] pt-10 pb-8 lg:pt-12 lg:pb-10 border-t border-slate-200/60 text-[#414D60] overflow-hidden" aria-label="Site Footer">
-      {/* Footer Ambient Background Gradient (Figma Node 1:1724 - #002B6B dark blue & #227CFF vibrant blue with white mix) */}
-      <div
-        className="absolute pointer-events-none -bottom-24 -left-20 w-[650px] h-[500px] rounded-full z-0 opacity-70"
-        style={{
-          background: "radial-gradient(circle, rgba(0, 43, 107, 0.45) 0%, rgba(34, 124, 255, 0.30) 45%, transparent 75%)",
-          filter: "blur(110px)",
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute pointer-events-none -bottom-24 -right-20 w-[700px] h-[520px] rounded-full z-0 opacity-75"
-        style={{
-          background: "radial-gradient(circle, rgba(34, 124, 255, 0.40) 0%, rgba(0, 43, 107, 0.35) 45%, transparent 75%)",
-          filter: "blur(115px)",
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute pointer-events-none bottom-0 left-1/2 -translate-x-1/2 w-[1100px] h-[340px] rounded-full z-0 opacity-60"
-        style={{
-          background: "linear-gradient(to top, rgba(34, 124, 255, 0.25) 0%, rgba(0, 43, 107, 0.15) 50%, transparent 100%)",
-          filter: "blur(90px)",
-        }}
-        aria-hidden="true"
-      />
+    <footer
+      className="relative pt-10 pb-8 lg:pt-14 lg:pb-10 text-[#414D60] overflow-hidden border-t border-slate-200/60"
+      style={{
+        background: "linear-gradient(180deg, #FFFFFF 0%, #F0F6FF 30%, #E0EEFF 65%, #CBE3FF 85%, #BBD9FC 100%)",
+      }}
+      aria-label="Site Footer"
+    >
+      {/* 
+        Exact Figma Background Gradient System (Node 1:1725 / 1:1735):
+        Contains the exact Ellipse 29 (#FFF9F4), Ellipse 28 (#007FFC), Ellipse 30 (#FFC1DF),
+        and bilateral blur masks exported directly from the Figma document.
+      */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+        <img
+          src="/assets/footer_gradient.svg"
+          alt=""
+          className="w-full h-full object-cover object-bottom pointer-events-none select-none opacity-85"
+        />
+        {/* Additional saturated dark blue ambient depth to match Figma saturated tones */}
+        <div
+          className="absolute -bottom-24 -left-20 w-[600px] h-[500px] rounded-full z-0 pointer-events-none"
+          style={{
+            background: "radial-gradient(circle at center, rgba(0, 127, 252, 0.45) 0%, rgba(0, 43, 107, 0.30) 45%, transparent 75%)",
+            filter: "blur(90px)",
+          }}
+        />
+        <div
+          className="absolute -bottom-24 -right-20 w-[600px] h-[500px] rounded-full z-0 pointer-events-none"
+          style={{
+            background: "radial-gradient(circle at center, rgba(34, 124, 255, 0.45) 0%, rgba(0, 127, 252, 0.28) 45%, transparent 75%)",
+            filter: "blur(90px)",
+          }}
+        />
+      </div>
 
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-8 lg:pb-10">
+      <div className="max-w-[1240px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Main Footer Layout: On Tablet (< lg) Brand info is stacked cleanly on top, and links span full width in 5 columns */}
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-8 pb-8 lg:pb-10">
           {/* Brand Info (Col span 4) */}
-          <div className="lg:col-span-4 space-y-4">
+          <div className="lg:col-span-4 space-y-3.5 sm:space-y-4">
             <Link href="/" className="inline-block">
               <div className="relative flex items-center">
                 <Image
@@ -55,26 +90,26 @@ export default function Footer({ onNavigate }) {
                   alt="CampusPE - AI Campus Assistant"
                   width={178}
                   height={54}
-                  className="h-11 w-auto object-contain"
+                  className="h-9 sm:h-11 w-auto object-contain"
                 />
               </div>
             </Link>
 
-            <h3 className="text-[18px] sm:text-[20px] leading-[28px] font-semibold text-[#0F1D36] font-sans">
-              From choosing a college to finding <br />
+            <h3 className="text-[17px] sm:text-[20px] leading-[26px] sm:leading-[28px] font-semibold text-[#0F1D36] font-sans">
+              From choosing a college to finding <br className="hidden min-[360px]:inline" />
               your next opportunity.
             </h3>
 
-            <p className="text-[15px] sm:text-[17px] leading-[26px] text-[#414D60] font-normal leading-relaxed max-w-sm font-sans">
+            <p className="text-[14px] sm:text-[17px] leading-[24px] sm:leading-[26px] text-[#414D60] font-normal leading-relaxed max-w-sm font-sans">
               CampusPe connects students, colleges and employers in one place.
             </p>
           </div>
 
-          {/* Links Columns (Col span 8) */}
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
+          {/* Links Columns (Col span 8 on desktop, full width 5 columns on tablet) */}
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-6 md:gap-4 lg:gap-6">
             {/* For Students */}
             <div>
-              <h4 className="text-sm font-bold text-[#0F1D36] mb-3.5 font-heading">
+              <h4 className="text-sm font-bold text-[#0F1D36] mb-3 sm:mb-3.5 font-heading">
                 For Students
               </h4>
               <ul className="space-y-2 text-xs sm:text-[13px] text-[#414D60] font-medium">
@@ -209,7 +244,7 @@ export default function Footer({ onNavigate }) {
               </a>
 
               {/* Callout box */}
-              <div className="mt-4 p-3 bg-white/70 backdrop-blur-md rounded-xl border border-blue-100/90 text-[11px] text-[#414D60] leading-snug shadow-xs">
+              <div className="mt-3.5 p-2.5 sm:p-3 bg-white/80 backdrop-blur-md rounded-xl border border-blue-200/70 text-[10.5px] sm:text-[11px] text-[#414D60] leading-snug shadow-xs">
                 Separate user, institution and employer terms can live inside the full Policies page.
               </div>
             </div>
@@ -217,34 +252,44 @@ export default function Footer({ onNavigate }) {
         </div>
 
         {/* Contact Strip */}
-        <div className="py-4 border-y border-[#475569] bg-white/40 backdrop-blur-sm flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-[#414D60] rounded-lg px-3">
-          <div className="flex flex-wrap items-center gap-6">
+        <div className="py-3 sm:py-4 border-y border-[#475569] bg-transparent flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs font-medium text-[#414D60]">
+          <div className="flex flex-col min-[380px]:flex-row items-center gap-3 sm:gap-6 text-center">
             <a
               href="mailto:contactus@campuspe.com"
-              className="group inline-flex items-center gap-2 hover:text-[#007FFC] transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none p-1 rounded"
+              onClick={() => handleContactClick("email")}
+              className={`group inline-flex items-center gap-2.5 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none p-1 rounded hover:text-white visited:text-white ${
+                visitedContacts.email ? "text-white" : "text-[#414D60]"
+              }`}
             >
               <Image
                 src="/assets/updated_icns_img/Footer/email.svg"
                 alt="Email"
-                width={20}
-                height={20}
-                className="w-5 h-5 object-contain transition-transform duration-200 group-hover:scale-110"
+                width={24}
+                height={24}
+                className="w-6 h-6 object-contain shrink-0 transition-transform duration-200 group-hover:scale-105"
               />
-              <span className="transition-colors duration-200 group-hover:text-[#007FFC]">contactus@campuspe.com</span>
+              <span className="transition-colors duration-200 group-hover:text-white">
+                contactus@campuspe.com
+              </span>
             </a>
 
             <a
               href="tel:+916362606464"
-              className="group inline-flex items-center gap-2 hover:text-[#007FFC] transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none p-1 rounded"
+              onClick={() => handleContactClick("phone")}
+              className={`group inline-flex items-center gap-2.5 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none p-1 rounded hover:text-white visited:text-white ${
+                visitedContacts.phone ? "text-white" : "text-[#414D60]"
+              }`}
             >
               <Image
                 src="/assets/updated_icns_img/Footer/ftr_phone.svg"
                 alt="Phone"
-                width={20}
-                height={20}
-                className="w-5 h-5 object-contain transition-transform duration-200 group-hover:scale-110"
+                width={24}
+                height={24}
+                className="w-6 h-6 object-contain shrink-0 transition-transform duration-200 group-hover:scale-105"
               />
-              <span className="transition-colors duration-200 group-hover:text-[#007FFC]">+91 6362606464</span>
+              <span className="transition-colors duration-200 group-hover:text-white">
+                +91 6362606464
+              </span>
             </a>
           </div>
 
@@ -255,7 +300,7 @@ export default function Footer({ onNavigate }) {
         </div>
 
         {/* Bottom Bar: Copyright & Socials */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#414D60]">
+        <div className="pt-5 sm:pt-6 flex flex-col sm:flex-row items-center justify-between gap-3.5 sm:gap-4 text-xs text-[#414D60] text-center sm:text-left">
           <p>
             © {currentYear} CampusPe Technologies Pvt. Ltd.{" "}
             <a href="#privacy" onClick={(e) => handleLinkClick(e, "Privacy")} className="hover:underline hover:text-[#227CFF] ml-2">Privacy</a>{" "}
@@ -264,7 +309,7 @@ export default function Footer({ onNavigate }) {
           </p>
 
           {/* Social Icons with WCAG 2.2 compliant target size (min 24x24 / 32x32px) and labels */}
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3">
             {[
               {
                 name: "LinkedIn",

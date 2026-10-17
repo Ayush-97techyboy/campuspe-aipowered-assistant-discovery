@@ -66,17 +66,21 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* 10X Faster Continuous Gradient Text (Figma: #1E5BF7 -> #0077F5 -> #009BE5 -> #00E5D1 -> #00A46E) */
+/* Figma Node 1:891 - Heading 1 Split Gradient Typography */
+/* 10X Gradient: Style Override 43 (#1E5BF7 -> #0077F5 -> #009BE5 -> #00E5D1 -> #00A46E) */
 .text-gradient-10x {
   background: linear-gradient(to right, #1E5BF7 0%, #0077F5 35%, #009BE5 60%, #00E5D1 82%, #00A46E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
+/* Faster. Gradient: Style Override 42 (#1E5BF7 -> #0077F5 -> #009BE5 -> #02B6A6 -> #10B981) */
 .text-gradient-faster {
-  background: linear-gradient(to right, #1E5BF7 0%, #0077F5 35%, #009BE5 60%, #00E5D1 82%, #00A46E 100%);
+  background: linear-gradient(to right, #1E5BF7 0%, #0077F5 35%, #009BE5 60%, #02B6A6 82%, #10B981 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 /* Soft ambient glow */

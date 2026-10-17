@@ -26,7 +26,7 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = "Student" }) {
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 animate-fadeIn" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-3xl p-6 sm:p-8 shadow-2xl z-50 border border-slate-100 focus:outline-none">
+        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-md max-h-[90vh] overflow-y-auto bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl z-50 border border-slate-100 focus:outline-none">
           <div className="flex items-center justify-between mb-4">
             <Dialog.Title className="text-xl font-bold text-slate-900 font-heading">
               Join CampusPe Waitlist
@@ -138,7 +138,7 @@ export function AuthModal({ open, onOpenChange, initialMode = "signin" }) {
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 animate-fadeIn" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-3xl p-6 sm:p-8 shadow-2xl z-50 border border-slate-100 focus:outline-none">
+        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-md max-h-[90vh] overflow-y-auto bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl z-50 border border-slate-100 focus:outline-none">
           <div className="flex items-center justify-between mb-4">
             <Dialog.Title className="text-xl font-bold text-slate-900 font-heading">
               {mode === "signin" ? "Sign In to CampusPe" : "Create your Account"}
@@ -262,7 +262,7 @@ export function OpportunityModal({ opportunity, open, onOpenChange }) {
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 animate-fadeIn" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-white rounded-3xl p-6 sm:p-8 shadow-2xl z-50 border border-slate-100 focus:outline-none">
+        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-lg max-h-[90vh] overflow-y-auto bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl z-50 border border-slate-100 focus:outline-none">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
               <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg ${opportunity.logoBg}`}>
@@ -347,7 +347,7 @@ export function ContactModal({ open, onOpenChange, type = "support" }) {
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 animate-fadeIn" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-3xl p-6 sm:p-8 shadow-2xl z-50 border border-slate-100 focus:outline-none">
+        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-md max-h-[90vh] overflow-y-auto bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl z-50 border border-slate-100 focus:outline-none">
           <div className="flex items-center justify-between mb-4">
             <Dialog.Title className="text-xl font-bold text-slate-900 font-heading">
               {type === "schedule" ? "Schedule a Call" : "Contact Support"}

@@ -41,17 +41,37 @@ export default function StatsBar() {
   return (
     <section
       aria-label="CampusPE Platform Statistics"
-      className="py-6 lg:py-8 bg-transparent border-b border-slate-200 relative"
+      className="py-4 sm:py-5 lg:py-6 bg-transparent relative"
     >
+      {/* Local Ambient Gradient Underglow directly behind Metrics Tiles */}
+      <div className="absolute inset-0 max-w-[1200px] mx-auto pointer-events-none z-0">
+        <div
+          className="absolute -left-10 -top-10 w-[550px] h-[180px] rounded-full"
+          style={{
+            background: "linear-gradient(135deg, rgba(165, 243, 252, 0.45) 0%, rgba(191, 219, 254, 0.35) 50%, rgba(191, 219, 254, 0.00) 100%)",
+            filter: "blur(70px)",
+          }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute -right-10 -top-10 w-[550px] h-[180px] rounded-full"
+          style={{
+            background: "linear-gradient(225deg, rgba(196, 181, 253, 0.45) 0%, rgba(245, 208, 254, 0.35) 50%, rgba(245, 208, 254, 0.00) 100%)",
+            filter: "blur(75px)",
+          }}
+          aria-hidden="true"
+        />
+      </div>
+
       <div className="max-w-[1108px] mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x md:divide-slate-200">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-0">
           {stats.map((stat, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-4 px-2 sm:px-6 justify-start md:justify-center group hover:scale-[1.02] transition-transform duration-200 focus-within:ring-2 focus-within:ring-primary rounded-xl"
+              className="flex items-center gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 px-1 sm:px-2.5 md:px-3 lg:px-6 justify-start md:justify-center group hover:scale-[1.02] transition-transform duration-200 focus-within:ring-2 focus-within:ring-primary rounded-xl"
             >
               <div
-                className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full ${stat.bgColor} flex items-center justify-center flex-shrink-0 shadow-xs`}
+                className={`w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full ${stat.bgColor} flex items-center justify-center flex-shrink-0 shadow-xs`}
                 aria-hidden="true"
               >
                 <Image
@@ -59,16 +79,16 @@ export default function StatsBar() {
                   alt=""
                   width={stat.width}
                   height={stat.height}
-                  className="object-contain"
+                  className="w-5 h-5 sm:w-6 sm:h-6 md:w-auto md:h-auto object-contain"
                 />
               </div>
-                <div>
-                  <div className="text-2xl sm:text-[32px] sm:leading-[38px] font-bold text-slate-900 tracking-tight font-roboto">
-                    {stat.value}
-                  </div>
-                  <div className="text-[14px] sm:text-[16px] sm:leading-[20px] font-medium text-slate-600">
-                    {stat.label}
-                  </div>
+              <div className="min-w-0">
+                <div className="text-lg min-[360px]:text-xl sm:text-2xl md:text-[26px] lg:text-[32px] md:leading-[32px] lg:leading-[38px] font-bold text-slate-900 tracking-tight font-roboto whitespace-nowrap">
+                  {stat.value}
+                </div>
+                <div className="text-[11px] sm:text-[13px] md:text-[13px] lg:text-[16px] md:leading-[18px] lg:leading-[20px] font-medium text-slate-600 leading-tight">
+                  {stat.label}
+                </div>
               </div>
             </div>
           ))}

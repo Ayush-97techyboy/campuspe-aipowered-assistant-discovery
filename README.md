@@ -93,7 +93,13 @@ Organized around the **4 W3C Pillars**:
      - [Instagram](https://www.instagram.com/campuspe_official)
      - [YouTube](https://www.youtube.com/@campuspe-tech)
 
-6. **Radix Accessible Dialogs**:
+6. **Seamless Ambient Mesh & Layer-Blur Gradients (Figma AST Alignment)**:
+   - **Continuous Gradient Canvas**: Unified `<Hero />`, `<StatsBar />`, and `<PartnersMarquee />` into a single, seamless ambient lighting canvas, removing artificial section wrappers and dividing lines.
+   - **Dual Figma Blurs (`1:863` & `1:866`)**: Left cyan/sky blur (`800×613px`, `blur(90px)`) and right violet/fuchsia blur (`860×613px`, `blur(95px)`) stretch naturally across the 3 role selection cards, bathing the verified metrics section without division.
+   - **Radiant Info Briefcase Tile (`1:917` & `1:918`)**: Implemented exact Figma typography (`Inter 400 12px/16px`, `#2563EB`) and background container (`28×28px`, `rounded-[8px]`, `padding-top: 5.5px`, `padding-bottom: 6.5px`, `#2563EB1A` 10% opacity).
+   - **Pixel-Accurate Vector Chip Icons**: Replaced generic icons across Colleges, Employers, Hero, and Resume sections with custom SVGs (`NAAC_A++_ready.svg`, `direct-enquiries.svg`, `500+_hiring_partners.svg`, `connect-directly.svg`, `5-min-deployment.svg`, `zero-cv-clutter.svg`, `in-app-scheduling.svg`, `98%match-rate.svg`, and `ats-score.svg`), all featuring `rounded-[8px]` chip borders.
+
+7. **Radix Accessible Dialogs**:
    - **Waitlist Modal**: Select role (Student, College, Employer), provide details, and receive instant confirmation.
    - **Auth Modal**: Accessible tab switching between Sign In and Sign Up.
    - **Contact / Schedule Call Modal**: Request callbacks or submit support queries.

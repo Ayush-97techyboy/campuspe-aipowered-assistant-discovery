@@ -87,24 +87,36 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
       : opportunities.filter((op) => op.category === activeTab);
 
   return (
-    <section id="opportunities" className="py-10 lg:py-14 bg-white relative overflow-hidden" aria-labelledby="discovery-heading">
-      {/* Seam Gradient Blur Circles between Section 1 & Section 2 (Figma Node 1:1655 & 1:1656) */}
-      {/* Left Circle (Node 1:1655): 334x334 rounded-full, 0% #A5F3FC (30%), 50% #BFDBFE (20%), 100% #BFDBFE (0%), blur 100px */}
+    <section id="opportunities" className="pt-7 lg:pt-[36px] pb-12 lg:pb-[70px] bg-transparent relative" aria-labelledby="discovery-heading">
+      {/* Figma Node 1:1655: Subtle gradient effect bridging between Partners and Opportunity Discovery on bottom-left (334x334, blur 80px) */}
       <div
-        className="absolute pointer-events-none -top-[140px] lg:-top-[202px] -left-8 lg:-left-[33px] w-[280px] h-[280px] lg:w-[334px] lg:h-[334px] rounded-full z-0"
+        className="absolute pointer-events-none rounded-full z-0 -top-[160px] sm:-top-[180px] lg:-top-[202px] -left-8 lg:-left-[33px] w-[280px] h-[280px] sm:w-[310px] sm:h-[310px] lg:w-[334px] lg:h-[334px]"
         style={{
-          background: "linear-gradient(to right, rgba(165, 243, 252, 0.30) 0%, rgba(191, 219, 254, 0.20) 50%, rgba(191, 219, 254, 0.00) 100%)",
-          filter: "blur(100px)",
+          background:
+            "linear-gradient(135deg, rgba(165, 243, 252, 0.45) 0%, rgba(191, 219, 254, 0.30) 50%, rgba(191, 219, 254, 0.00) 100%)",
+          filter: "blur(80px)",
         }}
         aria-hidden="true"
       />
 
-      {/* Right Circle (Node 1:1656): 327x327 rounded-full, 0% #C4B5FD (30%), 50% #F5D0FE (20%), 100% #F5D0FE (0%), blur 110px */}
+      {/* Figma Node 1:868: Subtle peach/coral gradient effect on far left edge */}
       <div
-        className="absolute pointer-events-none -top-[120px] lg:-top-[149px] -right-8 lg:-right-[60px] w-[270px] h-[270px] lg:w-[327px] lg:h-[327px] rounded-full z-0"
+        className="absolute pointer-events-none rounded-full z-0 -top-[140px] sm:-top-[160px] lg:-top-[180px] -left-12 lg:-left-[45px] w-[240px] h-[240px] lg:w-[280px] lg:h-[280px]"
         style={{
-          background: "linear-gradient(to right, rgba(196, 181, 253, 0.30) 0%, rgba(245, 208, 254, 0.20) 50%, rgba(245, 208, 254, 0.00) 100%)",
-          filter: "blur(110px)",
+          background:
+            "radial-gradient(circle at 40% 50%, rgba(254, 205, 211, 0.50) 0%, rgba(255, 237, 213, 0.35) 45%, rgba(254, 242, 242, 0.00) 100%)",
+          filter: "blur(60px)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Figma Node 1:1656: Subtle gradient effect bridging between Partners and Opportunity Discovery on bottom-right (327x327, blur 85px) */}
+      <div
+        className="absolute pointer-events-none rounded-full z-0 -top-[120px] sm:-top-[135px] lg:-top-[149px] -right-8 lg:-right-[60px] w-[270px] h-[270px] sm:w-[300px] sm:h-[300px] lg:w-[327px] lg:h-[327px]"
+        style={{
+          background:
+            "linear-gradient(225deg, rgba(196, 181, 253, 0.45) 0%, rgba(245, 208, 254, 0.30) 50%, rgba(245, 208, 254, 0.00) 100%)",
+          filter: "blur(85px)",
         }}
         aria-hidden="true"
       />
@@ -129,38 +141,38 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
         aria-hidden="true"
       />
 
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div className="max-w-[1240px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           {/* Left Column: Headings & 3 Step Cards */}
           <div className="lg:col-span-5 flex flex-col justify-center">
             {/* Tag Badge (Figma: Inter 500 14px #0098FF) */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#0098FF] text-[13px] sm:text-[14px] leading-[17px] font-medium w-fit mb-5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#0098FF] text-[12px] sm:text-[14px] leading-[17px] font-medium w-fit mb-4 sm:mb-5">
               <span className="w-2 h-2 rounded-full bg-[#0098FF]" aria-hidden="true" />
               <span>01 • OPPORTUNITY DISCOVERY</span>
             </div>
 
             {/* Heading (Figma: Roboto 700 64px/44px #0F172A) */}
-            <h2 id="discovery-heading" className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#0F172A] leading-[1.15] mb-4 font-roboto">
+            <h2 id="discovery-heading" className="text-2xl min-[360px]:text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#0F172A] leading-[1.15] mb-3 sm:mb-4 font-roboto">
               Stop searching. <br />
               <span className="text-gradient-blue">Start getting matched.</span>
             </h2>
 
             {/* Description (Figma: Inter 400 20px #64748B) */}
-            <p className="text-base sm:text-[20px] sm:leading-[28px] text-[#64748B] font-normal leading-relaxed mb-8 font-sans">
+            <p className="text-[14px] min-[360px]:text-base sm:text-[20px] sm:leading-[28px] text-[#64748B] font-normal leading-relaxed mb-6 sm:mb-8 font-sans">
               Tell CampusPe your skills, preferences and goals. We continuously
               monitor company career pages and job sources, find opportunities that
               match you, and notify you when they appear.
             </p>
 
             {/* 3 Numbered Milestone Cards */}
-            <div className="space-y-4 mb-8">
-              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-blue-300 transition-all duration-200">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-3">
+            <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+              <div className="p-3.5 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-blue-300 transition-all duration-200">
+                <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
                     <span className="text-xs font-bold text-primary px-2 py-0.5 rounded bg-blue-50 border border-blue-100">
                       01
                     </span>
-                    <h3 className="font-bold text-slate-900 text-base">
+                    <h3 className="font-bold text-slate-900 text-sm sm:text-base">
                       Set your preferences
                     </h3>
                   </div>
@@ -168,47 +180,47 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
                     Smart Profile
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-500 pl-8 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-500 pl-0 sm:pl-8 leading-relaxed">
                   Tell us what you&apos;re looking for, from colleges and courses to
                   jobs, internships and gigs.
                 </p>
               </div>
 
-              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-blue-300 transition-all duration-200">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-3">
+              <div className="p-3.5 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-blue-300 transition-all duration-200">
+                <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
                     <span className="text-xs font-bold text-slate-600 px-2 py-0.5 rounded bg-slate-100 border border-slate-200">
                       02
                     </span>
-                    <h3 className="font-bold text-slate-900 text-base">
+                    <h3 className="font-bold text-slate-900 text-sm sm:text-base">
                       Discover relevant opportunities
                     </h3>
                   </div>
-                  <span className="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200">
+                  <span className="text-[10px] sm:text-[11px] font-semibold text-slate-600 bg-slate-100 px-2 sm:px-2.5 py-0.5 rounded-full border border-slate-200">
                     AI Ranked
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-500 pl-8 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-500 pl-0 sm:pl-8 leading-relaxed">
                   Explore colleges and career opportunities matched to your profile,
                   interests and goals
                 </p>
               </div>
 
-              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-blue-300 transition-all duration-200">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-3">
+              <div className="p-3.5 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-blue-300 transition-all duration-200">
+                <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
                     <span className="text-xs font-bold text-slate-600 px-2 py-0.5 rounded bg-slate-100 border border-slate-200">
                       03
                     </span>
-                    <h3 className="font-bold text-slate-900 text-base">
+                    <h3 className="font-bold text-slate-900 text-sm sm:text-base">
                       Get notified when something fits
                     </h3>
                   </div>
-                  <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100">
+                  <span className="text-[10px] sm:text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 sm:px-2.5 py-0.5 rounded-full border border-emerald-100">
                     Instant Alerts
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-500 pl-8 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-500 pl-0 sm:pl-8 leading-relaxed">
                   Get notified when a relevant college or new opportunity is found, so
                   you can act early.
                 </p>
@@ -219,7 +231,7 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
             <button
               type="button"
               onClick={() => setActiveTab("Jobs")}
-              className="inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-semibold text-white bg-primary hover:bg-primary-hover shadow-md shadow-blue-500/25 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150 w-fit"
+              className="inline-flex items-center justify-center gap-2 py-3 sm:py-3.5 px-5 sm:px-6 rounded-xl font-semibold text-sm sm:text-base text-white bg-primary hover:bg-primary-hover shadow-md shadow-blue-500/25 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-all duration-150 w-full sm:w-fit"
             >
               <span>Explore opportunities</span>
               <ArrowRight size={18} />
@@ -228,24 +240,30 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
 
           {/* Right Column: Interactive Opportunity Feed Mockup */}
           <div className="lg:col-span-7 relative">
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-card relative z-10">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-slate-200/90 shadow-card relative z-10">
               {/* Card Header */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
-                <div className="flex items-center gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center shadow-md shadow-blue-500/30" aria-hidden="true">
-                    <Zap size={20} />
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-4 sm:pb-6 border-b border-slate-100">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary text-white flex items-center justify-center shadow-md shadow-blue-500/30 flex-shrink-0" aria-hidden="true">
+                    <Image
+                      src="/assets/campus_pe_feed_opportunity_icon.svg"
+                      alt=""
+                      width={15}
+                      height={17}
+                      className="w-[15px] h-[17px] object-contain"
+                    />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900 font-heading">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 font-heading">
                       CampusPe Opportunity Feed
                     </h3>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-[11px] sm:text-xs text-slate-500">
                       Colleges &amp; opportunities matched to you
                     </p>
                   </div>
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold self-start sm:self-auto">
+                <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] sm:text-xs font-semibold self-start sm:self-auto">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
                   <span>12 new matches today</span>
                 </div>
@@ -255,7 +273,7 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
               <div
                 role="tablist"
                 aria-label="Filter opportunities by category"
-                className="flex items-center gap-2 py-4 overflow-x-auto no-scrollbar"
+                className="flex items-center gap-1.5 sm:gap-2 py-3 sm:py-4 overflow-x-auto no-scrollbar scroll-smooth"
               >
                 {filterTabs.map((tab) => (
                   <button
@@ -266,7 +284,7 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
                     aria-controls={`panel-${tab}`}
                     type="button"
                     onClick={() => setActiveTab(tab)}
-                    className={`min-h-[36px] min-w-[44px] px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-150 flex-shrink-0 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none ${
+                    className={`min-h-[36px] min-w-[44px] px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-150 flex-shrink-0 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none ${
                       activeTab === tab
                         ? "bg-primary text-white shadow-sm"
                         : "bg-slate-100 text-slate-600 hover:bg-slate-200"
@@ -282,17 +300,17 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
                 role="tabpanel"
                 id={`panel-${activeTab}`}
                 aria-labelledby={`tab-${activeTab}`}
-                className="space-y-4 pt-2"
+                className="space-y-3 sm:space-y-4 pt-1 sm:pt-2"
               >
                 {displayedOpportunities.map((op) => (
                   <div
                     key={op.id}
-                    className="p-4 sm:p-5 rounded-2xl border border-slate-200/90 bg-slate-50/40 hover:bg-white hover:border-blue-300 hover:shadow-soft transition-all duration-200"
+                    className="p-3.5 sm:p-5 rounded-2xl border border-slate-200/90 bg-slate-50/40 hover:bg-white hover:border-blue-300 hover:shadow-soft transition-all duration-200"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-start sm:items-center gap-3">
                         <div
-                          className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden shadow-xs"
+                          className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden shadow-xs mt-0.5 sm:mt-0"
                           aria-hidden="true"
                         >
                           {op.logoSrc ? (
@@ -301,7 +319,7 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
                               alt=""
                               width={44}
                               height={44}
-                              className="w-11 h-11 object-contain"
+                              className="w-10 h-10 sm:w-11 sm:h-11 object-contain"
                             />
                           ) : (
                             <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg ${op.logoBg}`}>
@@ -310,22 +328,22 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
                           )}
                         </div>
                         <div>
-                          <div className="flex items-center gap-2">
-                            <h4 className="font-bold text-slate-900 text-base">
+                          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                            <h4 className="font-bold text-slate-900 text-sm sm:text-base">
                               {op.title}
                             </h4>
                             <span
-                              className={`text-[11px] font-semibold px-2 py-0.5 rounded-full border ${op.badgeColor}`}
+                              className={`text-[10px] sm:text-[11px] font-semibold px-2 py-0.5 rounded-full border ${op.badgeColor}`}
                             >
                               {op.badge}
                             </span>
                           </div>
-                          <div className="flex items-center gap-3 text-xs text-slate-500 mt-1">
+                          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs text-slate-500 mt-1">
                             {op.details.map((d, i) => (
                               <span key={i} className="flex items-center gap-1">
                                 {d}
                                 {i < op.details.length - 1 && (
-                                  <span className="text-slate-300 ml-2">•</span>
+                                  <span className="text-slate-300 ml-1.5 sm:ml-2">•</span>
                                 )}
                               </span>
                             ))}
@@ -336,7 +354,7 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
                       <button
                         type="button"
                         onClick={() => onSelectOpportunity(op)}
-                        className="min-h-[36px] text-xs font-semibold px-4 py-2 rounded-xl transition-all duration-150 flex-shrink-0 bg-primary hover:bg-primary-hover text-white shadow-sm shadow-blue-500/20 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+                        className="min-h-[38px] text-xs font-semibold px-4 py-2 rounded-xl transition-all duration-150 flex-shrink-0 bg-primary hover:bg-primary-hover text-white shadow-sm shadow-blue-500/20 active:scale-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none w-full sm:w-auto text-center"
                       >
                         {op.actionText}
                       </button>
@@ -350,7 +368,7 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
               </div>
 
               {/* Feed Bottom Status */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-2 pt-6 mt-6 border-t border-slate-100 text-xs">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-2 pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-slate-100 text-xs text-center sm:text-left">
                 <button
                   type="button"
                   onClick={() => setActiveTab("All")}
@@ -366,15 +384,15 @@ export default function FeatureDiscovery({ onSelectOpportunity }) {
             </div>
 
             {/* Handwritten Arrow & Note below card */}
-            <div className="mt-6 flex items-center gap-3 justify-center sm:justify-start pl-2 sm:pl-6">
+            <div className="mt-5 sm:mt-6 flex items-center gap-2.5 sm:gap-3 justify-center sm:justify-start px-2 sm:pl-6">
               <Image
                 src="/assets/icons/handwritten_arrow.png"
                 alt=""
                 width={48}
                 height={41}
-                className="w-10 sm:w-12 h-auto object-contain flex-shrink-0"
+                className="w-8 sm:w-10 md:w-12 h-auto object-contain flex-shrink-0"
               />
-              <p className="font-caveat font-semibold text-[26px] sm:text-[30px] leading-[32px] sm:leading-[36px] text-[#5B21B6] tracking-wide">
+              <p className="font-caveat font-semibold text-[19px] min-[360px]:text-[22px] sm:text-[28px] md:text-[30px] leading-[25px] min-[360px]:leading-[28px] sm:leading-[34px] text-[#5B21B6] tracking-wide text-center sm:text-left">
                 A mix of colleges, jobs,<br className="hidden sm:inline" /> internships and gigs — all in one place.
               </p>
             </div>
