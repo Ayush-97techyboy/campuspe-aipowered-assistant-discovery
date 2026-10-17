@@ -170,28 +170,37 @@ export default function AppInterfaceShowcase({ onDownloadApp }) {
             </div>
           </div>
 
-          {/* Mobile Single Phone Slider (Touch Swipable) */}
+          {/* Mobile Single Phone Slider (Touch Swipable - Zero Height Shift / Zero Flickering) */}
           <div className="md:hidden flex flex-col items-center select-none">
             <div
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
-              className="relative w-[220px] min-[360px]:w-[250px] sm:w-[276px] max-w-[85vw] mb-3 cursor-grab active:cursor-grabbing transition-transform duration-200"
+              className="relative w-[220px] min-[360px]:w-[250px] sm:w-[276px] h-[453px] min-[360px]:h-[515px] sm:h-[569px] max-w-[85vw] mb-3 cursor-grab active:cursor-grabbing"
               style={{ touchAction: "pan-y" }}
             >
-              <Image
-                src={phones[activeScreenIndex].src}
-                alt={`${phones[activeScreenIndex].title} mobile preview`}
-                width={276}
-                height={569}
-                className="w-full h-auto object-contain drop-shadow-xl pointer-events-none"
-                priority
-              />
+              {phones.map((phone, idx) => (
+                <div
+                  key={phone.id}
+                  className={`absolute inset-0 w-full h-full flex items-center justify-center transition-opacity duration-200 ease-out ${
+                    idx === activeScreenIndex ? "opacity-100 z-10" : "opacity-0 pointer-events-none z-0"
+                  }`}
+                >
+                  <Image
+                    src={phone.src}
+                    alt={`${phone.title} mobile preview`}
+                    width={276}
+                    height={569}
+                    className="w-full h-full object-contain drop-shadow-xl pointer-events-none"
+                    priority={idx === 2 || idx === activeScreenIndex}
+                  />
+                </div>
+              ))}
             </div>
 
-            {/* Current Active Screen Title */}
-            <div className="text-center mt-1">
-              <span className="text-xs sm:text-sm font-semibold text-slate-700 tracking-tight">
+            {/* Current Active Screen Title (Fixed min-height to eliminate vertical text shift) */}
+            <div className="text-center mt-1 min-h-[22px] flex items-center justify-center">
+              <span className="text-xs sm:text-sm font-semibold text-slate-700 tracking-tight transition-all duration-150">
                 {phones[activeScreenIndex].title}
               </span>
             </div>
