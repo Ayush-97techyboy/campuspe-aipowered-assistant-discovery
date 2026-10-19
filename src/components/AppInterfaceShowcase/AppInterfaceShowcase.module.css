@@ -1,0 +1,387 @@
+.showcaseSection {
+  width: 100%;
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 65%, rgba(240, 248, 255, 0.5) 85%, rgba(243, 232, 255, 0.4) 100%);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: none;
+  box-shadow: none;
+  opacity: 1;
+  position: relative;
+  overflow: hidden;
+  padding-top: 40px;
+  padding-bottom: 32px;
+}
+
+@media (min-width: 640px) {
+  .showcaseSection {
+    padding-top: 48px;
+    padding-bottom: 40px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .showcaseSection {
+    padding-top: 70px;
+    padding-bottom: 48px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
+
+.showcaseContainer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 375px) {
+  .showcaseContainer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 640px) {
+  .showcaseContainer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .showcaseContainer {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .showcaseContainer {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .showcaseContainer {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .showcaseContainer {
+    max-width: 1680px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .showcaseContainer {
+    max-width: 1920px;
+  }
+}
+
+.showHeader {
+  text-align: center;
+  max-width: 768px;
+  margin: 0 auto 24px auto;
+}
+
+@media (min-width: 640px) {
+  .showHeader {
+    margin-bottom: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .showHeader {
+    margin-bottom: 40px;
+  }
+}
+
+.showcaseTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0098ff;
+  font-family: var(--font-roboto), sans-serif;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 360px) {
+  .showcaseTitle {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 640px) {
+  .showcaseTitle {
+    font-size: 36px;
+    line-height: 42.2px;
+    margin-bottom: 16px;
+  }
+}
+
+.showcaseDesc {
+  font-size: 13px;
+  color: #6c6c72;
+  font-weight: 400;
+  line-height: 1.6;
+  font-family: var(--font-sans), sans-serif;
+  padding: 0 8px;
+}
+
+@media (min-width: 360px) {
+  .showcaseDesc {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 640px) {
+  .showcaseDesc {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+/* Phones 3D Carousel */
+.showcasePhonesWrap {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 640px) {
+  .showcasePhonesWrap {
+    margin-bottom: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .showcasePhonesWrap {
+    margin-bottom: 40px;
+  }
+}
+
+.showcaseGlowEllipse {
+  position: absolute;
+  pointer-events: none;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  width: 360px;
+  height: 260px;
+  border-radius: 9999px;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(105, 127, 255, 0.22) 0%, rgba(104, 206, 198, 0.18) 57.21%, rgba(195, 45, 112, 0) 100%);
+  filter: blur(50px);
+  max-width: 100vw;
+}
+
+@media (min-width: 640px) {
+  .showcaseGlowEllipse {
+    width: 700px;
+    height: 380px;
+    filter: blur(58px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .showcaseGlowEllipse {
+    width: 1361px;
+    height: 613px;
+    filter: blur(66px);
+  }
+}
+
+.showcaseDesktopArc {
+  display: none;
+  position: relative;
+  height: 380px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .showcaseDesktopArc {
+    display: block;
+  }
+}
+
+@media (min-width: 860px) {
+  .showcaseDesktopArc {
+    height: 440px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .showcaseDesktopArc {
+    height: 500px;
+  }
+}
+
+@media (min-width: 1140px) {
+  .showcaseDesktopArc {
+    height: 550px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .showcaseDesktopArc {
+    height: 600px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .showcaseDesktopArc {
+    height: 630px;
+    max-width: 1680px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .showcaseDesktopArc {
+    max-width: 1920px;
+  }
+}
+
+/* Slider Indicators (Figma: width: 153px, height: 20px, #0377EB) */
+.showcaseSliderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 640px) {
+  .showcaseSliderContainer {
+    margin-top: 28px;
+  }
+}
+
+.showcaseSlider {
+  width: 153px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.showcaseSliderDotBtn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+.showcaseSliderDotBtn:focus-visible {
+  outline: 2px solid #0377eb;
+  border-radius: 9999px;
+}
+
+.showcaseSliderDot {
+  border-radius: 9999px;
+  transition: all 250ms ease;
+  box-sizing: border-box;
+}
+
+.showcaseSliderDotActive {
+  width: 19.5px;
+  height: 19.5px;
+  background-color: #0377eb;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 0 2px rgba(3, 119, 235, 0.25), 0 2px 4px rgba(3, 119, 235, 0.2);
+}
+
+.showcaseSliderDotInactive {
+  width: 15px;
+  height: 15px;
+  background-color: rgba(3, 119, 235, 0.45);
+  border: 1px solid #ffffff;
+}
+
+.showcaseSliderDotBtn:hover .showcaseSliderDotInactive {
+  background-color: rgba(3, 119, 235, 0.85);
+  transform: scale(1.15);
+}
+
+/* Download Section */
+.showcaseDownloadWrap {
+  margin-top: 20px;
+  padding-top: 16px;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .showcaseDownloadWrap {
+    margin-top: 24px;
+    padding-top: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .showcaseDownloadWrap {
+    margin-top: 32px;
+    padding-top: 24px;
+  }
+}
+
+.showcaseDownloadGlowLeft {
+  position: absolute;
+  pointer-events: none;
+  bottom: -30px;
+  left: -30px;
+  width: 260px;
+  height: 260px;
+  border-radius: 9999px;
+  z-index: 0;
+  background: linear-gradient(45deg, rgba(165, 243, 252, 0.45) 0%, rgba(191, 219, 254, 0.3) 50%, rgba(191, 219, 254, 0) 100%);
+  filter: blur(55px);
+  max-width: 100vw;
+}
+
+.showcaseDownloadGlowRight {
+  position: absolute;
+  pointer-events: none;
+  bottom: -30px;
+  right: -30px;
+  width: 260px;
+  height: 260px;
+  border-radius: 9999px;
+  z-index: 0;
+  background: linear-gradient(225deg, rgba(196, 181, 253, 0.45) 0%, rgba(245, 208, 254, 0.3) 50%, rgba(245, 208, 254, 0) 100%);
+  filter: blur(55px);
+  max-width: 100vw;
+}
+
+@media (min-width: 768px) {
+  .showcaseDownloadGlowLeft {
+    left: -60px;
+    bottom: -60px;
+    width: 520px;
+    height: 520px;
+  }
+  .showcaseDownloadGlowRight {
+    right: -60px;
+    bottom: -60px;
+    width: 520px;
+    height: 520px;
+  }
+}

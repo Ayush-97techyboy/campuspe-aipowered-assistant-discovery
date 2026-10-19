@@ -1,0 +1,229 @@
+.statsbarSection {
+  padding-top: 8px;
+  padding-bottom: 24px;
+  background-color: transparent;
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+@media (min-width: 640px) {
+  .statsbarSection {
+    padding-bottom: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .statsbarSection {
+    padding-bottom: 40px;
+  }
+}
+
+.statsbarContainer {
+  width: 100%;
+  max-width: 1440px;
+  min-height: 64px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 375px) {
+  .statsbarContainer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 640px) {
+  .statsbarContainer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .statsbarContainer {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .statsbarContainer {
+    padding-left: 65px;
+    padding-right: 65px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .statsbarContainer {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .statsbarContainer {
+    max-width: 1680px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .statsbarContainer {
+    max-width: 1920px;
+  }
+}
+
+.statsbarGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  row-gap: 16px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .statsbarGrid {
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 0;
+  }
+}
+
+.statsbarItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+  justify-content: flex-start;
+  position: relative;
+  height: 100%;
+  min-height: 44px;
+  transition: transform 200ms ease;
+}
+
+@media (min-width: 640px) {
+  .statsbarItem {
+    gap: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .statsbarItem {
+    justify-content: center;
+    min-height: 52px;
+  }
+
+  .statsbarItem:not(:first-child) {
+    border-left: 1px solid rgba(148, 163, 184, 0.8);
+  }
+}
+
+@media (max-width: 767px) {
+  .statsbarItem:nth-child(2n) {
+    border-left: 1px solid #cbd5e1;
+    padding-left: 16px;
+  }
+}
+
+.statsbarItem:hover {
+  transform: scale(1.02);
+}
+
+.statsbarIconWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 640px) {
+  .statsbarIconWrap {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (min-width: 768px) {
+  .statsbarIconWrap {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .statsbarIconWrap {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.statsbarValue {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  font-family: var(--font-roboto), sans-serif;
+  white-space: nowrap;
+}
+
+@media (min-width: 360px) {
+  .statsbarValue {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 640px) {
+  .statsbarValue {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .statsbarValue {
+    font-size: 26px;
+    line-height: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .statsbarValue {
+    font-size: 32px;
+    line-height: 38px;
+  }
+}
+
+.statsbarLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: #475569;
+  line-height: 1.25;
+}
+
+@media (min-width: 640px) {
+  .statsbarLabel {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .statsbarLabel {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}

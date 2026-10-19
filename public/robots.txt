@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://campuspe.com/sitemap.xml
+
+# Block old content
+Disallow: /domain-parking
+Disallow: /parking
+Disallow: /*.park
+
+# Crawl optimization
+Crawl-delay: 1

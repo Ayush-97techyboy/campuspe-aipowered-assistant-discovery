@@ -1,0 +1,303 @@
+.collegesSection {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: transparent;
+  position: relative;
+  overflow-x: clip;
+  overflow-y: visible;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .collegesSection {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+}
+
+.collegesGlowTopLeft {
+  position: absolute;
+  pointer-events: none;
+  top: -40px;
+  left: -40px;
+  width: 260px;
+  height: 260px;
+  border-radius: 9999px;
+  z-index: 0;
+  background: linear-gradient(135deg, rgba(199, 210, 254, 0.4) 0%, rgba(233, 213, 255, 0.25) 50%, rgba(233, 213, 255, 0) 100%);
+  filter: blur(55px);
+  max-width: 100vw;
+}
+
+.collegesGlowBottomRight {
+  position: absolute;
+  pointer-events: none;
+  bottom: -40px;
+  right: -40px;
+  width: 280px;
+  height: 260px;
+  border-radius: 9999px;
+  z-index: 0;
+  background: linear-gradient(225deg, rgba(233, 213, 255, 0.45) 0%, rgba(199, 210, 254, 0.3) 50%, rgba(199, 210, 254, 0) 100%);
+  filter: blur(55px);
+  max-width: 100vw;
+}
+
+.collegesGlowBottomCenter {
+  position: absolute;
+  pointer-events: none;
+  bottom: -32px;
+  left: 20%;
+  width: 260px;
+  height: 200px;
+  border-radius: 9999px;
+  z-index: 0;
+  background: linear-gradient(45deg, rgba(186, 230, 253, 0.4) 0%, rgba(224, 231, 255, 0.25) 50%, rgba(224, 231, 255, 0) 100%);
+  filter: blur(55px);
+  max-width: 100vw;
+}
+
+@media (min-width: 768px) {
+  .collegesGlowTopLeft {
+    top: -128px;
+    left: -80px;
+    width: 384px;
+    height: 384px;
+  }
+  .collegesGlowBottomRight {
+    top: 401px;
+    right: -96px;
+    width: 696px;
+    height: 512px;
+  }
+  .collegesGlowBottomCenter {
+    top: 523px;
+    left: 545px;
+    width: 412px;
+    height: 313px;
+  }
+}
+
+.collegesContainer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 375px) {
+  .collegesContainer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 640px) {
+  .collegesContainer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .collegesContainer {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .collegesContainer {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .collegesContainer {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .collegesContainer {
+    max-width: 1680px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .collegesContainer {
+    max-width: 1920px;
+  }
+}
+
+.collegesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+@media (min-width: 1024px) {
+  .collegesGrid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 48px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .collegesGrid {
+    gap: 64px;
+  }
+}
+
+.collegesLeftCol {
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .collegesLeftCol {
+    grid-column: span 5 / span 5;
+    position: sticky;
+    top: 112px;
+  }
+}
+
+.collegesHeading {
+  font-size: 24px;
+  font-weight: 700;
+  color: #454545;
+  line-height: 1.18;
+  margin-bottom: 16px;
+  font-family: var(--font-roboto), sans-serif;
+}
+
+@media (min-width: 360px) {
+  .collegesHeading {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 640px) {
+  .collegesHeading {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .collegesHeading {
+    font-size: 48px;
+  }
+}
+
+.collegesDesc {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-family: var(--font-sans), sans-serif;
+}
+
+@media (min-width: 360px) {
+  .collegesDesc {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 640px) {
+  .collegesDesc {
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 32px;
+  }
+}
+
+.collegesBtnList {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 19.4px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--primary, #0084ff);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 132, 255, 0.25);
+  transition: all 150ms ease;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .collegesBtnList {
+    width: fit-content;
+    font-size: 16px;
+    padding: 14px 24px;
+  }
+}
+
+.collegesBtnList:hover {
+  background-color: var(--primary-hover, #0070e0);
+}
+
+.collegesBtnList:active {
+  transform: scale(0.95);
+}
+
+/* Right Column: 4 College Feature Cards */
+.collegesRightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+@media (min-width: 640px) {
+  .collegesRightCol {
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .collegesRightCol {
+    grid-column: span 7 / span 7;
+  }
+}
+
+.collegesFeatureCard {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06);
+  transition: all 200ms ease;
+}
+
+@media (min-width: 640px) {
+  .collegesFeatureCard {
+    border-radius: 24px;
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .collegesFeatureCard {
+    padding: 28px;
+  }
+}
+
+.collegesFeatureCard:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}

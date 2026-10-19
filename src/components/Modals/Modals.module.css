@@ -1,0 +1,257 @@
+/* Backdrop Overlay */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Content Card */
+.modalContent {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 2rem);
+  max-width: 28rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  z-index: 50;
+  border: 1px solid #f1f5f9;
+  outline: none;
+}
+
+@media (min-width: 640px) {
+  .modalContent {
+    border-radius: 1.5rem;
+    padding: 2rem;
+  }
+}
+
+.modalContentLg {
+  max-width: 32rem;
+}
+
+/* Header & Close Button */
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.modalTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  font-family: inherit;
+}
+
+.modalCloseBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background-color: #f1f5f9;
+  color: #64748b;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.modalCloseBtn:hover {
+  color: #1e293b;
+  background-color: #e2e8f0;
+}
+
+.modalDescription {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .modalDescription {
+    font-size: 0.875rem;
+  }
+}
+
+/* Form Controls */
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modalLabel {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.25rem;
+}
+
+.modalInput,
+.modalSelect,
+.modalTextarea {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  font-size: 0.875rem;
+  color: #1e293b;
+  background-color: #ffffff;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.modalInput:focus,
+.modalSelect:focus,
+.modalTextarea:focus {
+  border-color: #007FFC;
+  box-shadow: 0 0 0 1px #007FFC;
+}
+
+.modalTextarea {
+  resize: vertical;
+}
+
+/* Primary Action Button */
+.modalSubmitBtn {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #ffffff;
+  background-color: #007FFC;
+  box-shadow: 0 4px 6px -1px rgba(0, 127, 252, 0.25);
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-top: 0.5rem;
+}
+
+.modalSubmitBtn:hover {
+  background-color: #0066cc;
+}
+
+.modalSubmitBtn:active {
+  transform: scale(0.98);
+}
+
+.modalSubmitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Success States */
+.modalSuccessBox {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.modalSuccessIconWrap {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  background-color: #dcfce7;
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem auto;
+}
+
+.modalSuccessTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.modalSuccessDesc {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+/* Error Alert */
+.modalErrorAlert {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  font-size: 0.75rem;
+  color: #dc2626;
+  font-weight: 500;
+}
+
+/* Auth Mode Toggle */
+.modalAuthToggle {
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+.modalAuthToggleBtn {
+  background: none;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #007FFC;
+  cursor: pointer;
+}
+
+.modalAuthToggleBtn:hover {
+  text-decoration: underline;
+}
+
+/* Opportunity Details Box */
+.modalOppMetaBox {
+  padding: 1rem;
+  background-color: #f8fafc;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.modalOppMetaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalOppMetaLabel {
+  color: #64748b;
+}
+
+.modalOppMetaValue {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.modalOppMatchScore {
+  font-weight: 700;
+  color: #16a34a;
+}
