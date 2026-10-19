@@ -1,0 +1,8 @@
+{
+  "$schema": "https://schemas.amplify.aws/outputs/gen2/1.0.0/schema.json",
+  "version": "1.0",
+  "data": {
+    "url": "",
+    "model_introspection": null
+  }
+}

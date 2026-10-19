@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0084FF;
+  --primary-hover: #0070e0;
+}
+
+.font-caveat {
+  font-family: var(--font-caveat), 'Caveat', cursive, sans-serif !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  color: #0F172A;
+  background: #FFFFFF;
+  overflow-x: hidden;
+  max-width: 100vw;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Glassmorphism utility */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(0, 132, 255, 0.12), 0 0 1px 1px rgba(0, 132, 255, 0.1);
+  border-color: rgba(0, 132, 255, 0.3);
+}
+
+/* Gradient text */
+.text-gradient-blue {
+  background: linear-gradient(135deg, #0084FF 0%, #00B2FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Unified Hero Title Gradient: Smooth continuous left-to-right from '1' of 10X to '.' of Faster. */
+.text-gradient-10x-faster,
+.text-gradient-hero {
+  background: linear-gradient(90deg, #1E5BF7 0%, #0077F5 25%, #009BE5 50%, #02B6A6 75%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-10x {
+  background: linear-gradient(90deg, #1E5BF7 0%, #0077F5 35%, #009BE5 60%, #00E5D1 82%, #00A46E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-faster {
+  background: linear-gradient(90deg, #1E5BF7 0%, #0077F5 35%, #009BE5 60%, #02B6A6 82%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Soft ambient glow */
+.ambient-glow {
+  position: absolute;
+  filter: blur(80px);
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 9999px;
+}
+
+/* Hero Gradient Blur Backgrounds (User Spec) */
+.gradient-blur-bg-blue {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(59, 130, 246, 0.5); 
+  filter: blur(120px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gradient-blur-bg {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(91, 33, 182, 0.5); /* Purple with 50% opacity */
+  filter: blur(120px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Pause marquee on hover */
+.marquee-container:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+
+/* =========================================================================
+   2K, QHD & 4K Ultra-Wide Display Scaling (2560x1590, 2560x1440, 3840x2160)
+   Scales all components, typography, cards, and canvas proportions cleanly
+   so the entire application fills high-resolution displays naturally.
+   ========================================================================= */
+@media (min-width: 2200px) {
+  html {
+    zoom: 1.3;
+  }
+}
+
+@media (min-width: 3200px) {
+  html {
+    zoom: 1.65;
+  }
+}
